@@ -1,0 +1,69 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<metadata name="getServerAttributeDefinitionModuleDefinitions" path="/shared/test00/DataSourcesCopy/ServerAttributeDefinitions/getServerAttributeDefinitionModuleDefinitions" type="DEFINITION_SET" subtype="XML_SCHEMA_DEFINITION_SET" changeToken="0">
+  <definitions>
+    <definition name="{http://www.dvbu.cisco.com/ps/deploytool/modules}ServerAttributeModule" type="ELEMENT">
+      <attribute name="creationDate" type="LONG">0</attribute>
+      <attribute name="creatorUserDomain" type="STRING"/>
+      <attribute name="creatorUserId" type="INTEGER">0</attribute>
+      <attribute name="creatorUserName" type="STRING"/>
+      <attribute name="lastModifiedDate" type="LONG">0</attribute>
+      <attribute name="lastModifiedUserDomain" type="STRING"/>
+      <attribute name="lastModifiedUserId" type="INTEGER">0</attribute>
+      <attribute name="lastModifiedUserName" type="STRING"/>
+      <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">0</attribute>
+    </definition>
+  </definitions>
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <attribute name="XMLFilePath" type="OBJECT">rO0ABXNyACZjb20uY29tcG9zaXRlc3cuY29tbW9uLnJlcG9zaXRvcnkuUGF0aEAIAgnmFDg4AgAC
+WgAIYWJzb2x1dGVMAAVwYXJ0c3QAEExqYXZhL3V0aWwvTGlzdDt4cAFzcgATamF2YS51dGlsLkFy
+cmF5TGlzdHiB0h2Zx2GdAwABSQAEc2l6ZXhwAAAABXcEAAAABXQABnNoYXJlZHQABnRlc3QwMHQA
+D0RhdGFTb3VyY2VzQ29weXQAGlNlcnZlckF0dHJpYnV0ZURlZmluaXRpb25zdAAmZ2V0U2VydmVy
+QXR0cmlidXRlRGVmaW5pdGlvbk1vZHVsZS54bWx4</attribute>
+  <attribute name="creationDate" type="LONG">1419001639891</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1419001639891</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1419001639891</attribute>
+  <attribute name="sources" type="LIST">
+    <list type="OBJECT">rO0ABXNyADVjb20uY29tcG9zaXRlc3cuY29tbW9uLnJlcG9zaXRvcnkuRGVmaW5pdGlvblNldFNv
+dXJjZVYpv6Zr2hqJAgACTAAIbG9jYXRpb250ABJMamF2YS9sYW5nL1N0cmluZztMAApzb3VyY2VU
+ZXh0cQB+AAF4cHQAfGZpbGU6L0M6L0NvbXBvc2l0ZVNvZnR3YXJlL1BEVG9vbF9UZXN0L1BEVG9v
+bDdfMjAxNF8xMl8xOS9yZXNvdXJjZXMvbW9kdWxlcy9nZW5lcmF0ZWQvZ2V0U2VydmVyQXR0cmli
+dXRlRGVmaW5pdGlvbk1vZHVsZS54bWx0Bl08P3htbCB2ZXJzaW9uPSIxLjAiIGVuY29kaW5nPSJ1
+dGYtOCI/Pg0KPHhzOnNjaGVtYSB4bWxuczp4cz0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxT
+Y2hlbWEiIGVsZW1lbnRGb3JtRGVmYXVsdD0icXVhbGlmaWVkIiB0YXJnZXROYW1lc3BhY2U9Imh0
+dHA6Ly93d3cuZHZidS5jaXNjby5jb20vcHMvZGVwbG95dG9vbC9tb2R1bGVzIiB4bWxuczpuczI9
+Imh0dHA6Ly93d3cuZHZidS5jaXNjby5jb20vcHMvZGVwbG95dG9vbC9tb2R1bGVzIj4NCiAgPHhz
+OmVsZW1lbnQgbmFtZT0iU2VydmVyQXR0cmlidXRlTW9kdWxlIj4NCiAgICA8eHM6Y29tcGxleFR5
+cGU+DQogICAgICA8eHM6c2VxdWVuY2U+DQogICAgICAgIDx4czplbGVtZW50IG1heE9jY3Vycz0i
+dW5ib3VuZGVkIiBuYW1lPSJzZXJ2ZXJBdHRyaWJ1dGVEZWYiIGZvcm09InVucXVhbGlmaWVkIj4N
+CiAgICAgICAgICA8eHM6Y29tcGxleFR5cGU+DQogICAgICAgICAgICA8eHM6c2VxdWVuY2U+DQog
+ICAgICAgICAgICAgIDx4czplbGVtZW50IG5hbWU9ImlkIiBmb3JtPSJ1bnF1YWxpZmllZCIgdHlw
+ZT0ieHM6TkNOYW1lIi8+DQogICAgICAgICAgICAgIDx4czplbGVtZW50IG5hbWU9Im5hbWUiIGZv
+cm09InVucXVhbGlmaWVkIiB0eXBlPSJ4czpzdHJpbmciLz4NCiAgICAgICAgICAgICAgPHhzOmVs
+ZW1lbnQgbmFtZT0idHlwZSIgZm9ybT0idW5xdWFsaWZpZWQiIHR5cGU9InhzOk5DTmFtZSIvPg0K
+ICAgICAgICAgICAgICA8eHM6ZWxlbWVudCBtaW5PY2N1cnM9IjAiIG5hbWU9ImFubm90YXRpb24i
+IGZvcm09InVucXVhbGlmaWVkIiB0eXBlPSJ4czpzdHJpbmciLz4NCiAgICAgICAgICAgICAgPHhz
+OmVsZW1lbnQgbWluT2NjdXJzPSIwIiBuYW1lPSJkZWZhdWx0VmFsdWUiIGZvcm09InVucXVhbGlm
+aWVkIiB0eXBlPSJ4czpzdHJpbmciLz4NCiAgICAgICAgICAgICAgPHhzOmVsZW1lbnQgbWluT2Nj
+dXJzPSIwIiBuYW1lPSJkaXNwbGF5TmFtZSIgZm9ybT0idW5xdWFsaWZpZWQiIHR5cGU9InhzOnN0
+cmluZyIvPg0KICAgICAgICAgICAgICA8eHM6ZWxlbWVudCBtaW5PY2N1cnM9IjAiIG5hbWU9InBh
+dHRlcm4iIGZvcm09InVucXVhbGlmaWVkIiB0eXBlPSJ4czpzdHJpbmciLz4NCiAgICAgICAgICAg
+ICAgPHhzOmVsZW1lbnQgbWluT2NjdXJzPSIwIiBuYW1lPSJtYXhWYWx1ZSIgZm9ybT0idW5xdWFs
+aWZpZWQiIHR5cGU9InhzOmludGVnZXIiLz4NCiAgICAgICAgICAgICAgPHhzOmVsZW1lbnQgbWlu
+T2NjdXJzPSIwIiBuYW1lPSJtaW5WYWx1ZSIgZm9ybT0idW5xdWFsaWZpZWQiIHR5cGU9InhzOmlu
+dGVnZXIiLz4NCiAgICAgICAgICAgICAgPHhzOmVsZW1lbnQgbWluT2NjdXJzPSIwIiBuYW1lPSJ1
+bml0TmFtZSIgZm9ybT0idW5xdWFsaWZpZWQiIHR5cGU9InhzOnN0cmluZyIvPg0KICAgICAgICAg
+ICAgICA8eHM6ZWxlbWVudCBuYW1lPSJ1cGRhdGVSdWxlIiBmb3JtPSJ1bnF1YWxpZmllZCIgdHlw
+ZT0ieHM6TkNOYW1lIi8+DQogICAgICAgICAgICA8L3hzOnNlcXVlbmNlPg0KICAgICAgICAgIDwv
+eHM6Y29tcGxleFR5cGU+DQogICAgICAgIDwveHM6ZWxlbWVudD4NCiAgICAgIDwveHM6c2VxdWVu
+Y2U+DQogICAgPC94czpjb21wbGV4VHlwZT4NCiAgPC94czplbGVtZW50Pg0KPC94czpzY2hlbWE+
+DQo=</list>
+  </attribute>
+</metadata>

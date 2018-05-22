@@ -1,0 +1,233 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<metadata name="getCustomerById" path="/shared/test00/DataSources/testWebService/testService/testPort/getCustomerById" type="PROCEDURE" subtype="OPERATION" changeToken="0">
+  <parameters>
+    <parameter name="inputMessage" direction="IN" nullable="false">
+      <datatype name="Envelope" namespace="http://schemas.xmlsoap.org/soap/envelope/" referenceType="{http://schemas.xmlsoap.org/soap/envelope/}Envelope" type="XML" contentConstraint="SEQUENCE" schemaConstraint="ANY" componentType="TYPE" componentName="{http://schemas.xmlsoap.org/soap/envelope/}Envelope">
+        <schemaDatatype>
+          <datatype name="Envelope" namespace="http://schemas.xmlsoap.org/soap/envelope/" type="TREE" refId="1">
+            <element name="Body" namespace="http://schemas.xmlsoap.org/soap/envelope/">
+              <datatype name="Body" namespace="http://schemas.xmlsoap.org/soap/envelope/" type="TREE" refId="2">
+                <element name="getCustomerById" namespace="http://MTINIUS-MBPVM.na.tibco.com/services/webservices/TEST00/testWebService/testService" nullable="false">
+                  <datatype name="getCustomerById" namespace="http://MTINIUS-MBPVM.na.tibco.com/services/webservices/TEST00/testWebService/testService" superTypeName="anyType" superTypeNamespace="http://www.w3.org/2001/XMLSchema" subType="ELEMENT_DECL" anonymous="true" type="TREE" refId="3">
+                    <element name="custId" namespace="http://MTINIUS-MBPVM.na.tibco.com/services/webservices/TEST00/testWebService/testService">
+                      <datatype name="int" namespace="http://www.w3.org/2001/XMLSchema" superTypeName="long" superTypeNamespace="http://www.w3.org/2001/XMLSchema" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+                    </element>
+                  </datatype>
+                </element>
+              </datatype>
+            </element>
+          </datatype>
+        </schemaDatatype>
+      </datatype>
+    </parameter>
+    <parameter name="outputMessage" direction="OUT" nullable="false">
+      <datatype name="Envelope" namespace="http://schemas.xmlsoap.org/soap/envelope/" referenceType="{http://schemas.xmlsoap.org/soap/envelope/}Envelope" type="XML" contentConstraint="SEQUENCE" schemaConstraint="ANY" componentType="TYPE" componentName="{http://schemas.xmlsoap.org/soap/envelope/}Envelope">
+        <schemaDatatype>
+          <datatype name="Envelope" namespace="http://schemas.xmlsoap.org/soap/envelope/" type="TREE" refId="1">
+            <element name="Body" namespace="http://schemas.xmlsoap.org/soap/envelope/">
+              <datatype name="Body" namespace="http://schemas.xmlsoap.org/soap/envelope/" type="TREE" refId="2">
+                <element name="getCustomerByIdResponse" namespace="http://MTINIUS-MBPVM.na.tibco.com/services/webservices/TEST00/testWebService/testService" nullable="false">
+                  <datatype name="getCustomerByIdResponse" namespace="http://MTINIUS-MBPVM.na.tibco.com/services/webservices/TEST00/testWebService/testService" superTypeName="anyType" superTypeNamespace="http://www.w3.org/2001/XMLSchema" subType="ELEMENT_DECL" anonymous="true" type="TREE" refId="3">
+                    <element name="result" namespace="http://MTINIUS-MBPVM.na.tibco.com/services/webservices/TEST00/testWebService/testService">
+                      <datatype name="testService_getCustomerById_result" namespace="http://MTINIUS-MBPVM.na.tibco.com/services/webservices/TEST00/testWebService/testService" superTypeName="anyType" superTypeNamespace="http://www.w3.org/2001/XMLSchema" subType="COMPLEX_TYPE" type="TREE" refId="4">
+                        <element name="row" namespace="http://MTINIUS-MBPVM.na.tibco.com/services/webservices/TEST00/testWebService/testService" maxOccurs="2147483647" minOccurs="0">
+                          <datatype superTypeName="anyType" superTypeNamespace="http://www.w3.org/2001/XMLSchema" subType="COMPLEX_TYPE" type="TREE" refId="5">
+                            <element name="CustomerID" namespace="http://MTINIUS-MBPVM.na.tibco.com/services/webservices/TEST00/testWebService/testService">
+                              <datatype name="int" namespace="http://www.w3.org/2001/XMLSchema" superTypeName="long" superTypeNamespace="http://www.w3.org/2001/XMLSchema" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+                            </element>
+                            <element name="CompanyName" namespace="http://MTINIUS-MBPVM.na.tibco.com/services/webservices/TEST00/testWebService/testService">
+                              <datatype name="string" namespace="http://www.w3.org/2001/XMLSchema" superTypeName="anySimpleType" superTypeNamespace="http://www.w3.org/2001/XMLSchema" type="STRING" maxLength="2147483647"/>
+                            </element>
+                            <element name="ContactFirstName" namespace="http://MTINIUS-MBPVM.na.tibco.com/services/webservices/TEST00/testWebService/testService">
+                              <datatype name="string" namespace="http://www.w3.org/2001/XMLSchema" superTypeName="anySimpleType" superTypeNamespace="http://www.w3.org/2001/XMLSchema" type="STRING" maxLength="2147483647"/>
+                            </element>
+                            <element name="ContactLastName" namespace="http://MTINIUS-MBPVM.na.tibco.com/services/webservices/TEST00/testWebService/testService">
+                              <datatype name="string" namespace="http://www.w3.org/2001/XMLSchema" superTypeName="anySimpleType" superTypeNamespace="http://www.w3.org/2001/XMLSchema" type="STRING" maxLength="2147483647"/>
+                            </element>
+                            <element name="BillingAddress" namespace="http://MTINIUS-MBPVM.na.tibco.com/services/webservices/TEST00/testWebService/testService">
+                              <datatype name="string" namespace="http://www.w3.org/2001/XMLSchema" superTypeName="anySimpleType" superTypeNamespace="http://www.w3.org/2001/XMLSchema" type="STRING" maxLength="2147483647"/>
+                            </element>
+                            <element name="City" namespace="http://MTINIUS-MBPVM.na.tibco.com/services/webservices/TEST00/testWebService/testService">
+                              <datatype name="string" namespace="http://www.w3.org/2001/XMLSchema" superTypeName="anySimpleType" superTypeNamespace="http://www.w3.org/2001/XMLSchema" type="STRING" maxLength="2147483647"/>
+                            </element>
+                            <element name="StateOrProvince" namespace="http://MTINIUS-MBPVM.na.tibco.com/services/webservices/TEST00/testWebService/testService">
+                              <datatype name="string" namespace="http://www.w3.org/2001/XMLSchema" superTypeName="anySimpleType" superTypeNamespace="http://www.w3.org/2001/XMLSchema" type="STRING" maxLength="2147483647"/>
+                            </element>
+                            <element name="PostalCode" namespace="http://MTINIUS-MBPVM.na.tibco.com/services/webservices/TEST00/testWebService/testService">
+                              <datatype name="string" namespace="http://www.w3.org/2001/XMLSchema" superTypeName="anySimpleType" superTypeNamespace="http://www.w3.org/2001/XMLSchema" type="STRING" maxLength="2147483647"/>
+                            </element>
+                            <element name="CountryRegion" namespace="http://MTINIUS-MBPVM.na.tibco.com/services/webservices/TEST00/testWebService/testService">
+                              <datatype name="string" namespace="http://www.w3.org/2001/XMLSchema" superTypeName="anySimpleType" superTypeNamespace="http://www.w3.org/2001/XMLSchema" type="STRING" maxLength="2147483647"/>
+                            </element>
+                            <element name="ContactTitle" namespace="http://MTINIUS-MBPVM.na.tibco.com/services/webservices/TEST00/testWebService/testService">
+                              <datatype name="string" namespace="http://www.w3.org/2001/XMLSchema" superTypeName="anySimpleType" superTypeNamespace="http://www.w3.org/2001/XMLSchema" type="STRING" maxLength="2147483647"/>
+                            </element>
+                            <element name="PhoneNumber" namespace="http://MTINIUS-MBPVM.na.tibco.com/services/webservices/TEST00/testWebService/testService">
+                              <datatype name="string" namespace="http://www.w3.org/2001/XMLSchema" superTypeName="anySimpleType" superTypeNamespace="http://www.w3.org/2001/XMLSchema" type="STRING" maxLength="2147483647"/>
+                            </element>
+                            <element name="FaxNumber" namespace="http://MTINIUS-MBPVM.na.tibco.com/services/webservices/TEST00/testWebService/testService">
+                              <datatype name="string" namespace="http://www.w3.org/2001/XMLSchema" superTypeName="anySimpleType" superTypeNamespace="http://www.w3.org/2001/XMLSchema" type="STRING" maxLength="2147483647"/>
+                            </element>
+                          </datatype>
+                        </element>
+                      </datatype>
+                    </element>
+                  </datatype>
+                </element>
+              </datatype>
+            </element>
+          </datatype>
+        </schemaDatatype>
+      </datatype>
+    </parameter>
+  </parameters>
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <attribute name="creationDate" type="LONG">1393455906901</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="httpVerb" type="NULL"/>
+  <attribute name="inputMessagePartPaths" type="STRING_ARRAY">
+    <item>&quot;{http://schemas.xmlsoap.org/soap/envelope/}Body&quot;/&quot;{http://MTINIUS-MBPVM.na.tibco.com/services/webservices/TEST00/testWebService/testService}getCustomerById&quot;</item>
+  </attribute>
+  <attribute name="inputMessageType" type="BYTE_ARRAY">EBAGAgAIAEUAbgB2AGUAbABvAHAAZQYkACkAaAB0AHQAcAA6AC8ALwBzAGMAaABlAG0AYQBzAC4A
+eABtAGwAcwBvAGEAcAAuAG8AcgBnAC8AcwBvAGEAcAAvAGUAbgB2AGUAbABvAHAAZQAvBioAMwB7
+AGgAdAB0AHAAOgAvAC8AcwBjAGgAZQBtAGEAcwAuAHgAbQBsAHMAbwBhAHAALgBvAHIAZwAvAHMA
+bwBhAHAALwBlAG4AdgBlAGwAbwBwAGUALwB9AEUAbgB2AGUAbABvAHAAZQMSAAAAAQY5ADMAewBo
+AHQAdABwADoALwAvAHMAYwBoAGUAbQBhAHMALgB4AG0AbABzAG8AYQBwAC4AbwByAGcALwBzAG8A
+YQBwAC8AZQBuAHYAZQBsAG8AcABlAC8AfQBFAG4AdgBlAGwAbwBwAGUDOgAAAAEIIxAfBgIACABF
+AG4AdgBlAGwAbwBwAGUGJAApAGgAdAB0AHAAOgAvAC8AcwBjAGgAZQBtAGEAcwAuAHgAbQBsAHMA
+bwBhAHAALgBvAHIAZwAvAHMAbwBhAHAALwBlAG4AdgBlAGwAbwBwAGUALwMSAAAAAgMSAAAAAgET
+AQkUAAAAARAhBhUABABCAG8AZAB5BiwAKQBoAHQAdABwADoALwAvAHMAYwBoAGUAbQBhAHMALgB4
+AG0AbABzAG8AYQBwAC4AbwByAGcALwBzAG8AYQBwAC8AZQBuAHYAZQBsAG8AcABlAC8DLwAAAAED
+FgAAAAADGgAAAAEDGwAAAAEDIP////8DIgAAAAAIGRAfBgIABABCAG8AZAB5BiQAKQBoAHQAdABw
+ADoALwAvAHMAYwBoAGUAbQBhAHMALgB4AG0AbABzAG8AYQBwAC4AbwByAGcALwBzAG8AYQBwAC8A
+ZQBuAHYAZQBsAG8AcABlAC8DEgAAAAMDEgAAAAMBEwEJFAAAAAEQIQYVAA8AZwBlAHQAQwB1AHMA
+dABvAG0AZQByAEIAeQBJAGQGLABYAGgAdAB0AHAAOgAvAC8ATQBUAEkATgBJAFUAUwAtAE0AQgBQ
+AFYATQAuAG4AYQAuAHQAaQBiAGMAbwAuAGMAbwBtAC8AcwBlAHIAdgBpAGMAZQBzAC8AdwBlAGIA
+cwBlAHIAdgBpAGMAZQBzAC8AVABFAFMAVAAwADAALwB0AGUAcwB0AFcAZQBiAFMAZQByAHYAaQBj
+AGUALwB0AGUAcwB0AFMAZQByAHYAaQBjAGUDLwAAAAIDFgAAAAADGgAAAAEDGwAAAAEDIP////8D
+IgAAAAAIGRAfBgIADwBnAGUAdABDAHUAcwB0AG8AbQBlAHIAQgB5AEkAZAYkAFgAaAB0AHQAcAA6
+AC8ALwBNAFQASQBOAEkAVQBTAC0ATQBCAFAAVgBNAC4AbgBhAC4AdABpAGIAYwBvAC4AYwBvAG0A
+LwBzAGUAcgB2AGkAYwBlAHMALwB3AGUAYgBzAGUAcgB2AGkAYwBlAHMALwBUAEUAUwBUADAAMAAv
+AHQAZQBzAHQAVwBlAGIAUwBlAHIAdgBpAGMAZQAvAHQAZQBzAHQAUwBlAHIAdgBpAGMAZQYlAAcA
+YQBuAHkAVAB5AHAAZQYoACAAaAB0AHQAcAA6AC8ALwB3AHcAdwAuAHcAMwAuAG8AcgBnAC8AMgAw
+ADAAMQAvAFgATQBMAFMAYwBoAGUAbQBhATABAysAAAAOAxIAAAAEAxIAAAAEARMBCRQAAAABECEG
+FQAGAGMAdQBzAHQASQBkBiwAWABoAHQAdABwADoALwAvAE0AVABJAE4ASQBVAFMALQBNAEIAUABW
+AE0ALgBuAGEALgB0AGkAYgBjAG8ALgBjAG8AbQAvAHMAZQByAHYAaQBjAGUAcwAvAHcAZQBiAHMA
+ZQByAHYAaQBjAGUAcwAvAFQARQBTAFQAMAAwAC8AdABlAHMAdABXAGUAYgBTAGUAcgB2AGkAYwBl
+AC8AdABlAHMAdABTAGUAcgB2AGkAYwBlAy8AAAABAxYAAAAAAxoAAAABAxsAAAABAyD/////AyIA
+AAAACBkQLwMS///3Yf////////////////////8=</attribute>
+  <attribute name="messageType" type="STRING">Text</attribute>
+  <attribute name="outputMessagePartPaths" type="STRING_ARRAY">
+    <item>&quot;{http://schemas.xmlsoap.org/soap/envelope/}Body&quot;/&quot;{http://MTINIUS-MBPVM.na.tibco.com/services/webservices/TEST00/testWebService/testService}getCustomerByIdResponse&quot;</item>
+  </attribute>
+  <attribute name="outputMessageType" type="BYTE_ARRAY">EBAGAgAIAEUAbgB2AGUAbABvAHAAZQYkACkAaAB0AHQAcAA6AC8ALwBzAGMAaABlAG0AYQBzAC4A
+eABtAGwAcwBvAGEAcAAuAG8AcgBnAC8AcwBvAGEAcAAvAGUAbgB2AGUAbABvAHAAZQAvBioAMwB7
+AGgAdAB0AHAAOgAvAC8AcwBjAGgAZQBtAGEAcwAuAHgAbQBsAHMAbwBhAHAALgBvAHIAZwAvAHMA
+bwBhAHAALwBlAG4AdgBlAGwAbwBwAGUALwB9AEUAbgB2AGUAbABvAHAAZQMSAAAAAQY5ADMAewBo
+AHQAdABwADoALwAvAHMAYwBoAGUAbQBhAHMALgB4AG0AbABzAG8AYQBwAC4AbwByAGcALwBzAG8A
+YQBwAC8AZQBuAHYAZQBsAG8AcABlAC8AfQBFAG4AdgBlAGwAbwBwAGUDOgAAAAEIIxAfBgIACABF
+AG4AdgBlAGwAbwBwAGUGJAApAGgAdAB0AHAAOgAvAC8AcwBjAGgAZQBtAGEAcwAuAHgAbQBsAHMA
+bwBhAHAALgBvAHIAZwAvAHMAbwBhAHAALwBlAG4AdgBlAGwAbwBwAGUALwMSAAAAAgMSAAAAAgET
+AQkUAAAAARAhBhUABABCAG8AZAB5BiwAKQBoAHQAdABwADoALwAvAHMAYwBoAGUAbQBhAHMALgB4
+AG0AbABzAG8AYQBwAC4AbwByAGcALwBzAG8AYQBwAC8AZQBuAHYAZQBsAG8AcABlAC8DLwAAAAED
+FgAAAAADGgAAAAEDGwAAAAEDIP////8DIgAAAAAIGRAfBgIABABCAG8AZAB5BiQAKQBoAHQAdABw
+ADoALwAvAHMAYwBoAGUAbQBhAHMALgB4AG0AbABzAG8AYQBwAC4AbwByAGcALwBzAG8AYQBwAC8A
+ZQBuAHYAZQBsAG8AcABlAC8DEgAAAAMDEgAAAAMBEwEJFAAAAAEQIQYVABcAZwBlAHQAQwB1AHMA
+dABvAG0AZQByAEIAeQBJAGQAUgBlAHMAcABvAG4AcwBlBiwAWABoAHQAdABwADoALwAvAE0AVABJ
+AE4ASQBVAFMALQBNAEIAUABWAE0ALgBuAGEALgB0AGkAYgBjAG8ALgBjAG8AbQAvAHMAZQByAHYA
+aQBjAGUAcwAvAHcAZQBiAHMAZQByAHYAaQBjAGUAcwAvAFQARQBTAFQAMAAwAC8AdABlAHMAdABX
+AGUAYgBTAGUAcgB2AGkAYwBlAC8AdABlAHMAdABTAGUAcgB2AGkAYwBlAy8AAAACAxYAAAAAAxoA
+AAABAxsAAAABAyD/////AyIAAAAACBkQHwYCABcAZwBlAHQAQwB1AHMAdABvAG0AZQByAEIAeQBJ
+AGQAUgBlAHMAcABvAG4AcwBlBiQAWABoAHQAdABwADoALwAvAE0AVABJAE4ASQBVAFMALQBNAEIA
+UABWAE0ALgBuAGEALgB0AGkAYgBjAG8ALgBjAG8AbQAvAHMAZQByAHYAaQBjAGUAcwAvAHcAZQBi
+AHMAZQByAHYAaQBjAGUAcwAvAFQARQBTAFQAMAAwAC8AdABlAHMAdABXAGUAYgBTAGUAcgB2AGkA
+YwBlAC8AdABlAHMAdABTAGUAcgB2AGkAYwBlBiUABwBhAG4AeQBUAHkAcABlBigAIABoAHQAdABw
+ADoALwAvAHcAdwB3AC4AdwAzAC4AbwByAGcALwAyADAAMAAxAC8AWABNAEwAUwBjAGgAZQBtAGEB
+MAEDKwAAAA4DEgAAAAQDEgAAAAQBEwEJFAAAAAEQIQYVAAYAcgBlAHMAdQBsAHQGLABYAGgAdAB0
+AHAAOgAvAC8ATQBUAEkATgBJAFUAUwAtAE0AQgBQAFYATQAuAG4AYQAuAHQAaQBiAGMAbwAuAGMA
+bwBtAC8AcwBlAHIAdgBpAGMAZQBzAC8AdwBlAGIAcwBlAHIAdgBpAGMAZQBzAC8AVABFAFMAVAAw
+ADAALwB0AGUAcwB0AFcAZQBiAFMAZQByAHYAaQBjAGUALwB0AGUAcwB0AFMAZQByAHYAaQBjAGUD
+LwAAAAEDFgAAAAADGgAAAAEDGwAAAAEDIP////8DIgAAAAAIGRAfBgIAIgB0AGUAcwB0AFMAZQBy
+AHYAaQBjAGUAXwBnAGUAdABDAHUAcwB0AG8AbQBlAHIAQgB5AEkAZABfAHIAZQBzAHUAbAB0BiQA
+WABoAHQAdABwADoALwAvAE0AVABJAE4ASQBVAFMALQBNAEIAUABWAE0ALgBuAGEALgB0AGkAYgBj
+AG8ALgBjAG8AbQAvAHMAZQByAHYAaQBjAGUAcwAvAHcAZQBiAHMAZQByAHYAaQBjAGUAcwAvAFQA
+RQBTAFQAMAAwAC8AdABlAHMAdABXAGUAYgBTAGUAcgB2AGkAYwBlAC8AdABlAHMAdABTAGUAcgB2
+AGkAYwBlBiUABwBhAG4AeQBUAHkAcABlBigAIABoAHQAdABwADoALwAvAHcAdwB3AC4AdwAzAC4A
+bwByAGcALwAyADAAMAAxAC8AWABNAEwAUwBjAGgAZQBtAGEDKwAAAAwDEgAAAAUDEgAAAAUBEwEJ
+FAAAAAEQIQYVAAMAcgBvAHcGLABYAGgAdAB0AHAAOgAvAC8ATQBUAEkATgBJAFUAUwAtAE0AQgBQ
+AFYATQAuAG4AYQAuAHQAaQBiAGMAbwAuAGMAbwBtAC8AcwBlAHIAdgBpAGMAZQBzAC8AdwBlAGIA
+cwBlAHIAdgBpAGMAZQBzAC8AVABFAFMAVAAwADAALwB0AGUAcwB0AFcAZQBiAFMAZQByAHYAaQBj
+AGUALwB0AGUAcwB0AFMAZQByAHYAaQBjAGUDLwAAAAEDFgAAAAADGgAAAAADG3////8DIP////8D
+IgAAAAAIGRAfBiUABwBhAG4AeQBUAHkAcABlBigAIABoAHQAdABwADoALwAvAHcAdwB3AC4AdwAz
+AC4AbwByAGcALwAyADAAMAAxAC8AWABNAEwAUwBjAGgAZQBtAGEDKwAAAAwDEgAAAAYDEgAAAAYB
+EwEJFAAAAAwQIQYVAAoAQwB1AHMAdABvAG0AZQByAEkARAYsAFgAaAB0AHQAcAA6AC8ALwBNAFQA
+SQBOAEkAVQBTAC0ATQBCAFAAVgBNAC4AbgBhAC4AdABpAGIAYwBvAC4AYwBvAG0ALwBzAGUAcgB2
+AGkAYwBlAHMALwB3AGUAYgBzAGUAcgB2AGkAYwBlAHMALwBUAEUAUwBUADAAMAAvAHQAZQBzAHQA
+VwBlAGIAUwBlAHIAdgBpAGMAZQAvAHQAZQBzAHQAUwBlAHIAdgBpAGMAZQMvAAAAAQMWAAAAAAMa
+AAAAAQMbAAAAAQMg/////wMiAAAAAAgZEC8DEv//92H/////ECEGFQALAEMAbwBtAHAAYQBuAHkA
+TgBhAG0AZQYsAFgAaAB0AHQAcAA6AC8ALwBNAFQASQBOAEkAVQBTAC0ATQBCAFAAVgBNAC4AbgBh
+AC4AdABpAGIAYwBvAC4AYwBvAG0ALwBzAGUAcgB2AGkAYwBlAHMALwB3AGUAYgBzAGUAcgB2AGkA
+YwBlAHMALwBUAEUAUwBUADAAMAAvAHQAZQBzAHQAVwBlAGIAUwBlAHIAdgBpAGMAZQAvAHQAZQBz
+AHQAUwBlAHIAdgBpAGMAZQMvAAAAAQMWAAAAAAMaAAAAAQMbAAAAAQMg/////wMiAAAAAAgZEC8D
+Ev//92j/////ECEGFQAQAEMAbwBuAHQAYQBjAHQARgBpAHIAcwB0AE4AYQBtAGUGLABYAGgAdAB0
+AHAAOgAvAC8ATQBUAEkATgBJAFUAUwAtAE0AQgBQAFYATQAuAG4AYQAuAHQAaQBiAGMAbwAuAGMA
+bwBtAC8AcwBlAHIAdgBpAGMAZQBzAC8AdwBlAGIAcwBlAHIAdgBpAGMAZQBzAC8AVABFAFMAVAAw
+ADAALwB0AGUAcwB0AFcAZQBiAFMAZQByAHYAaQBjAGUALwB0AGUAcwB0AFMAZQByAHYAaQBjAGUD
+LwAAAAEDFgAAAAADGgAAAAEDGwAAAAEDIP////8DIgAAAAAIGRAvAxL///do/////xAhBhUADwBD
+AG8AbgB0AGEAYwB0AEwAYQBzAHQATgBhAG0AZQYsAFgAaAB0AHQAcAA6AC8ALwBNAFQASQBOAEkA
+VQBTAC0ATQBCAFAAVgBNAC4AbgBhAC4AdABpAGIAYwBvAC4AYwBvAG0ALwBzAGUAcgB2AGkAYwBl
+AHMALwB3AGUAYgBzAGUAcgB2AGkAYwBlAHMALwBUAEUAUwBUADAAMAAvAHQAZQBzAHQAVwBlAGIA
+UwBlAHIAdgBpAGMAZQAvAHQAZQBzAHQAUwBlAHIAdgBpAGMAZQMvAAAAAQMWAAAAAAMaAAAAAQMb
+AAAAAQMg/////wMiAAAAAAgZEC8DEv//92j/////ECEGFQAOAEIAaQBsAGwAaQBuAGcAQQBkAGQA
+cgBlAHMAcwYsAFgAaAB0AHQAcAA6AC8ALwBNAFQASQBOAEkAVQBTAC0ATQBCAFAAVgBNAC4AbgBh
+AC4AdABpAGIAYwBvAC4AYwBvAG0ALwBzAGUAcgB2AGkAYwBlAHMALwB3AGUAYgBzAGUAcgB2AGkA
+YwBlAHMALwBUAEUAUwBUADAAMAAvAHQAZQBzAHQAVwBlAGIAUwBlAHIAdgBpAGMAZQAvAHQAZQBz
+AHQAUwBlAHIAdgBpAGMAZQMvAAAAAQMWAAAAAAMaAAAAAQMbAAAAAQMg/////wMiAAAAAAgZEC8D
+Ev//92j/////ECEGFQAEAEMAaQB0AHkGLABYAGgAdAB0AHAAOgAvAC8ATQBUAEkATgBJAFUAUwAt
+AE0AQgBQAFYATQAuAG4AYQAuAHQAaQBiAGMAbwAuAGMAbwBtAC8AcwBlAHIAdgBpAGMAZQBzAC8A
+dwBlAGIAcwBlAHIAdgBpAGMAZQBzAC8AVABFAFMAVAAwADAALwB0AGUAcwB0AFcAZQBiAFMAZQBy
+AHYAaQBjAGUALwB0AGUAcwB0AFMAZQByAHYAaQBjAGUDLwAAAAEDFgAAAAADGgAAAAEDGwAAAAED
+IP////8DIgAAAAAIGRAvAxL///do/////xAhBhUADwBTAHQAYQB0AGUATwByAFAAcgBvAHYAaQBu
+AGMAZQYsAFgAaAB0AHQAcAA6AC8ALwBNAFQASQBOAEkAVQBTAC0ATQBCAFAAVgBNAC4AbgBhAC4A
+dABpAGIAYwBvAC4AYwBvAG0ALwBzAGUAcgB2AGkAYwBlAHMALwB3AGUAYgBzAGUAcgB2AGkAYwBl
+AHMALwBUAEUAUwBUADAAMAAvAHQAZQBzAHQAVwBlAGIAUwBlAHIAdgBpAGMAZQAvAHQAZQBzAHQA
+UwBlAHIAdgBpAGMAZQMvAAAAAQMWAAAAAAMaAAAAAQMbAAAAAQMg/////wMiAAAAAAgZEC8DEv//
+92j/////ECEGFQAKAFAAbwBzAHQAYQBsAEMAbwBkAGUGLABYAGgAdAB0AHAAOgAvAC8ATQBUAEkA
+TgBJAFUAUwAtAE0AQgBQAFYATQAuAG4AYQAuAHQAaQBiAGMAbwAuAGMAbwBtAC8AcwBlAHIAdgBp
+AGMAZQBzAC8AdwBlAGIAcwBlAHIAdgBpAGMAZQBzAC8AVABFAFMAVAAwADAALwB0AGUAcwB0AFcA
+ZQBiAFMAZQByAHYAaQBjAGUALwB0AGUAcwB0AFMAZQByAHYAaQBjAGUDLwAAAAEDFgAAAAADGgAA
+AAEDGwAAAAEDIP////8DIgAAAAAIGRAvAxL///do/////xAhBhUADQBDAG8AdQBuAHQAcgB5AFIA
+ZQBnAGkAbwBuBiwAWABoAHQAdABwADoALwAvAE0AVABJAE4ASQBVAFMALQBNAEIAUABWAE0ALgBu
+AGEALgB0AGkAYgBjAG8ALgBjAG8AbQAvAHMAZQByAHYAaQBjAGUAcwAvAHcAZQBiAHMAZQByAHYA
+aQBjAGUAcwAvAFQARQBTAFQAMAAwAC8AdABlAHMAdABXAGUAYgBTAGUAcgB2AGkAYwBlAC8AdABl
+AHMAdABTAGUAcgB2AGkAYwBlAy8AAAABAxYAAAAAAxoAAAABAxsAAAABAyD/////AyIAAAAACBkQ
+LwMS///3aP////8QIQYVAAwAQwBvAG4AdABhAGMAdABUAGkAdABsAGUGLABYAGgAdAB0AHAAOgAv
+AC8ATQBUAEkATgBJAFUAUwAtAE0AQgBQAFYATQAuAG4AYQAuAHQAaQBiAGMAbwAuAGMAbwBtAC8A
+cwBlAHIAdgBpAGMAZQBzAC8AdwBlAGIAcwBlAHIAdgBpAGMAZQBzAC8AVABFAFMAVAAwADAALwB0
+AGUAcwB0AFcAZQBiAFMAZQByAHYAaQBjAGUALwB0AGUAcwB0AFMAZQByAHYAaQBjAGUDLwAAAAED
+FgAAAAADGgAAAAEDGwAAAAEDIP////8DIgAAAAAIGRAvAxL///do/////xAhBhUACwBQAGgAbwBu
+AGUATgB1AG0AYgBlAHIGLABYAGgAdAB0AHAAOgAvAC8ATQBUAEkATgBJAFUAUwAtAE0AQgBQAFYA
+TQAuAG4AYQAuAHQAaQBiAGMAbwAuAGMAbwBtAC8AcwBlAHIAdgBpAGMAZQBzAC8AdwBlAGIAcwBl
+AHIAdgBpAGMAZQBzAC8AVABFAFMAVAAwADAALwB0AGUAcwB0AFcAZQBiAFMAZQByAHYAaQBjAGUA
+LwB0AGUAcwB0AFMAZQByAHYAaQBjAGUDLwAAAAEDFgAAAAADGgAAAAEDGwAAAAEDIP////8DIgAA
+AAAIGRAvAxL///do/////xAhBhUACQBGAGEAeABOAHUAbQBiAGUAcgYsAFgAaAB0AHQAcAA6AC8A
+LwBNAFQASQBOAEkAVQBTAC0ATQBCAFAAVgBNAC4AbgBhAC4AdABpAGIAYwBvAC4AYwBvAG0ALwBz
+AGUAcgB2AGkAYwBlAHMALwB3AGUAYgBzAGUAcgB2AGkAYwBlAHMALwBUAEUAUwBUADAAMAAvAHQA
+ZQBzAHQAVwBlAGIAUwBlAHIAdgBpAGMAZQAvAHQAZQBzAHQAUwBlAHIAdgBpAGMAZQMvAAAAAQMW
+AAAAAAMaAAAAAQMbAAAAAQMg/////wMiAAAAAAgZEC8DEv//92j/////////////////////////
+//////8=</attribute>
+  <attribute name="paramPaths" type="STRING_ARRAY">
+    <item>/</item>
+    <item>/</item>
+  </attribute>
+  <attribute name="selectionState" type="INTEGER">2</attribute>
+  <attribute name="soapAction" type="STRING">getCustomerById</attribute>
+  <attribute name="soapStyle" type="STRING">document</attribute>
+  <attribute name="sourceName" type="STRING">getCustomerById</attribute>
+  <attribute name="timeout" type="LONG">-1</attribute>
+  <attribute name="usePortMappings" type="BOOLEAN">true</attribute>
+  <attribute name="usePortPipelines" type="BOOLEAN">true</attribute>
+</metadata>
