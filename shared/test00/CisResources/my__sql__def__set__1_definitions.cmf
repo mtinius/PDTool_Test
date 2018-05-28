@@ -7,6 +7,7 @@ v123|05/17/2018 18:00:00|OTI-2900|mtinius
 v789|05/17/2018 18:00:00|OTI-3199|mtinius
 v8910|05/17/2018 18:00:00|OTI-3200|mtinius
 v9999|05/23/2018 18:00:00|OTI-3201|mtinius
+v8888|05/27/2018 18:00:00|OTI-3202|mtinius
 ### End Version Block ###</annotation>
   <definitions>
     <definition name="NewTypeDefinition" type="TYPE">
@@ -23,7 +24,7 @@ v9999|05/23/2018 18:00:00|OTI-3201|mtinius
   <attribute name="creatorUserDomain" type="STRING"/>
   <attribute name="creatorUserName" type="STRING"/>
   <attribute name="explicitly.designed" type="BOOLEAN">true</attribute>
-  <attribute name="lastModifiedDate" type="LONG">1527114130814</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1527423017305</attribute>
   <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
   <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
   <attribute name="noNamespaceSchemaLocation" type="NULL"/>
