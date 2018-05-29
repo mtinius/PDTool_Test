@@ -47,6 +47,9 @@
   </parameters>
   <security>
     <owner user="admin" domain="composite"/>
+    <privilege group="group1" domain="composite" privileges="READ EXECUTE"/>
+    <privilege user="user1" domain="composite" privileges="READ EXECUTE"/>
+    <privilege user="user2" domain="composite" privileges="READ EXECUTE"/>
   </security>
   <dependency target="/shared/test00/DataSources/ds_orders/tutorial/customers" type="TABLE">
     <datatype type="TABLE" refId="1">

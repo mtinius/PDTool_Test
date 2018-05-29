@@ -41,6 +41,9 @@
   </parameters>
   <security>
     <owner user="admin" domain="composite"/>
+    <privilege group="group1" domain="composite" privileges="READ WRITE EXECUTE"/>
+    <privilege user="user1" domain="composite" privileges="READ EXECUTE"/>
+    <privilege user="user2" domain="composite" privileges="READ EXECUTE"/>
   </security>
   <dependency target="/shared/test00/DataSources/ServerAttributeDefinitions/getServerAttributeDefinitionModule.xml" type="TREE">
     <datatype name="ServerAttributeModule" namespace="http://www.cisco.dvbu.com/ps/deploytool/modules" referenceDefinitionSet="/shared/test00/DataSources/ServerAttributeDefinitions/getServerAttributeDefinitionModuleDefinitions" referenceType="{http://www.cisco.dvbu.com/ps/deploytool/modules}ServerAttributeModule" subType="ELEMENT_DECL" type="XML" contentConstraint="SEQUENCE" schemaConstraint="ANY" componentType="ELEMENT" componentName="{http://www.cisco.dvbu.com/ps/deploytool/modules}ServerAttributeModule">

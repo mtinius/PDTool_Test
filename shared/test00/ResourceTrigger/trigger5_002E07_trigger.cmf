@@ -2,6 +2,9 @@
 <metadata name="trigger5.07" path="/shared/test00/ResourceTrigger/trigger5.07" type="TRIGGER" subtype="NONE" changeToken="0">
   <security>
     <owner user="admin" domain="composite"/>
+    <privilege group="group1" domain="composite" privileges="READ WRITE"/>
+    <privilege user="user1" domain="composite" privileges="READ"/>
+    <privilege user="user2" domain="composite" privileges="READ"/>
   </security>
   <dependency target="/shared/test00/ResourceTrigger/proc 2" type="PROCEDURE">
     <datatype name="Tree" type="TREE" refId="1"></datatype>

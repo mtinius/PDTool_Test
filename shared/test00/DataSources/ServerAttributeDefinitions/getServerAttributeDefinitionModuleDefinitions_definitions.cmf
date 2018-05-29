@@ -9,6 +9,7 @@
   </definitions>
   <security>
     <owner user="admin" domain="composite"/>
+    <privilege user="user2" domain="composite" privileges="NONE"/>
   </security>
   <attribute name="XMLFilePath" type="OBJECT">rO0ABXNyACZjb20uY29tcG9zaXRlc3cuY29tbW9uLnJlcG9zaXRvcnkuUGF0aEAIAgnmFDg4AgAC
 WgAIYWJzb2x1dGVMAAVwYXJ0c3QAEExqYXZhL3V0aWwvTGlzdDt4cAFzcgATamF2YS51dGlsLkFy

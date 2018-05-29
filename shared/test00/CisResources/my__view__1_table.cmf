@@ -54,6 +54,9 @@ v8910|05/17/2018 18:00:00|OTI-3200|mtinius
   <foreignKeys></foreignKeys>
   <security>
     <owner user="admin" domain="composite"/>
+    <privilege group="group1" domain="composite" privileges="READ WRITE SELECT"/>
+    <privilege user="user1" domain="composite" privileges="READ SELECT"/>
+    <privilege user="user2" domain="composite" privileges="READ SELECT"/>
   </security>
   <dependency target="/shared/test00/DataSources/ds_orders/tutorial/orderdetails" type="TABLE">
     <datatype type="TABLE" refId="1">

@@ -3,6 +3,9 @@
   <annotation/>
   <security>
     <owner user="admin" domain="composite"/>
+    <privilege group="group1" domain="composite" privileges="READ WRITE EXECUTE SELECT"/>
+    <privilege user="user1" domain="composite" privileges="READ EXECUTE SELECT"/>
+    <privilege user="user2" domain="composite" privileges="READ EXECUTE SELECT"/>
   </security>
   <attribute name="OAuthConfig" type="NULL"/>
   <attribute name="autoAddChildren" type="BOOLEAN">false</attribute>

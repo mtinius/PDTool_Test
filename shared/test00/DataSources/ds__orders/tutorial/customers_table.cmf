@@ -83,6 +83,8 @@
   <foreignKeys></foreignKeys>
   <security>
     <owner user="admin" domain="composite"/>
+    <privilege group="group1" domain="composite" privileges="NONE"/>
+    <privilege group="group2" domain="composite" privileges="NONE"/>
   </security>
   <attribute name="creationDate" type="LONG">0</attribute>
   <attribute name="creatorUserDomain" type="STRING"/>

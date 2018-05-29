@@ -2,6 +2,8 @@
 <metadata name="tutorial" path="/shared/test00/DataSources/ds_orders/tutorial" type="CONTAINER" subtype="SCHEMA" changeToken="0">
   <security>
     <owner user="admin" domain="composite"/>
+    <privilege group="group1" domain="composite" privileges="NONE"/>
+    <privilege group="group2" domain="composite" privileges="NONE"/>
   </security>
   <attribute name="autoAddChildren" type="BOOLEAN">false</attribute>
   <attribute name="creationDate" type="LONG">1395102483600</attribute>

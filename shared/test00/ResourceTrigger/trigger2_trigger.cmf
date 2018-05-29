@@ -3,6 +3,9 @@
   <annotation>trigger 2 annotation</annotation>
   <security>
     <owner user="admin" domain="composite"/>
+    <privilege group="group1" domain="composite" privileges="READ WRITE"/>
+    <privilege user="user1" domain="composite" privileges="READ"/>
+    <privilege user="user2" domain="composite" privileges="READ"/>
   </security>
   <dependency target="/shared/test00/ResourceTrigger/proc 2" type="PROCEDURE">
     <datatype name="Tree" type="TREE" refId="1"></datatype>

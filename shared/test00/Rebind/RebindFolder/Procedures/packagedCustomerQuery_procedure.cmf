@@ -46,6 +46,9 @@
   </parameters>
   <security>
     <owner user="admin" domain="composite"/>
+    <privilege group="group1" domain="composite" privileges="READ WRITE EXECUTE"/>
+    <privilege user="user1" domain="composite" privileges="READ EXECUTE"/>
+    <privilege user="user2" domain="composite" privileges="READ EXECUTE"/>
   </security>
   <dependency target="/shared/test00/DataSources/ds_orders" type="DATA_SOURCE">
     <datatype name="Tree" type="TREE" refId="1"></datatype>

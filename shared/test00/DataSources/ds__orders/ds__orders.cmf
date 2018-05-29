@@ -3,6 +3,10 @@
   <annotation/>
   <security>
     <owner user="admin" domain="composite"/>
+    <privilege group="group1" domain="composite" privileges="NONE"/>
+    <privilege group="group2" domain="composite" privileges="NONE"/>
+    <privilege user="user1" domain="composite" privileges="READ EXECUTE SELECT"/>
+    <privilege user="user2" domain="composite" privileges="READ EXECUTE SELECT"/>
   </security>
   <dependency target="/shared/test00/DataSources/ds_orders/tutorial/cache_status" type="TABLE">
     <datatype name="Tree" type="TREE" refId="1"></datatype>
