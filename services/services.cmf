@@ -7,13 +7,13 @@
     <privilege group="all" domain="composite" privileges="READ"/>
     <privilege group="all" domain="dynamic" privileges="READ"/>
   </security>
-  <attribute name="creationDate" type="LONG">1526996942004</attribute>
+  <attribute name="creationDate" type="LONG">1527001248792</attribute>
   <attribute name="creatorUserDomain" type="STRING">composite</attribute>
   <attribute name="creatorUserId" type="INTEGER">-1974</attribute>
   <attribute name="creatorUserName" type="STRING">system</attribute>
-  <attribute name="lastModifiedDate" type="LONG">1526996942004</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1527001248792</attribute>
   <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
   <attribute name="lastModifiedUserId" type="INTEGER">-1974</attribute>
   <attribute name="lastModifiedUserName" type="STRING">system</attribute>
-  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1526996942004</attribute>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1527001248792</attribute>
 </metadata>
