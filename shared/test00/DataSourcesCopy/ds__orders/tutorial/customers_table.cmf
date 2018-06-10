@@ -1,5 +1,6 @@
 <?xml version="1.1" encoding="UTF-8"?>
 <metadata name="customers" path="/shared/test00/DataSourcesCopy/ds_orders/tutorial/customers" type="TABLE" subtype="DATABASE_TABLE" changeToken="0" tableType="TABLE">
+  <annotation/>
   <columns>
     <column name="customerid" nullable="false">
       <datatype name="int4" extendedName="int4" subType="DATASOURCE_TYPE" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
@@ -88,5 +89,8 @@
   <attribute name="creatorUserDomain" type="STRING"/>
   <attribute name="creatorUserName" type="STRING"/>
   <attribute name="i:0:indexSchema" type="STRING">tutorial</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1513893969241</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
   <attribute name="selectionState" type="INTEGER">2</attribute>
 </metadata>

@@ -78,7 +78,7 @@
   <attribute name="creatorUserDomain" type="STRING"/>
   <attribute name="creatorUserName" type="STRING"/>
   <attribute name="enabled" type="BOOLEAN">false</attribute>
-  <attribute name="lastModifiedDate" type="LONG">1526997493271</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1513637444654</attribute>
   <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
   <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
   <attribute name="maxEventsQueued" type="INTEGER">1</attribute>

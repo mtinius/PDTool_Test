@@ -1,11 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
 <metadata name="InventoryTransactions" path="/shared/test00/CisResources/InventoryTransactions" type="DEFINITION_SET" subtype="XML_SCHEMA_DEFINITION_SET" changeToken="0">
-  <annotation>### Begin Version Block: Do Not Modify ###
-v123|05/17/2018 18:00:00|OTI-2900|mtinius
-v123|05/17/2018 18:00:00|OTI-2900|mtinius
-v789|05/17/2018 18:00:00|OTI-3199|mtinius
-v8910|05/17/2018 18:00:00|OTI-3200|mtinius
-### End Version Block ###</annotation>
   <definitions>
     <definition name="{http://www.compositesw.com/services/webservices/system/admin/resource}InventoryTransactions" type="ELEMENT">
       <attribute name="creationDate" type="LONG">0</attribute>
@@ -28,9 +22,6 @@ v8910|05/17/2018 18:00:00|OTI-3200|mtinius
   <attribute name="creatorUserDomain" type="STRING"/>
   <attribute name="creatorUserName" type="STRING"/>
   <attribute name="explicitly.designed" type="BOOLEAN">true</attribute>
-  <attribute name="lastModifiedDate" type="LONG">1526648694856</attribute>
-  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
-  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
   <attribute name="schemaLocation" type="NULL"/>
   <attribute name="sourceText" type="NULL"/>
   <attribute name="sourceURI" type="NULL"/>

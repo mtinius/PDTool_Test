@@ -37,9 +37,9 @@
     <privilege user="user2" domain="composite" privileges="READ EXECUTE"/>
   </security>
   <dependency target="/shared/test00/DataSources/ServerAttributeDefinitions/getServerAttributeDefinitionModule.xml" type="TREE">
-    <datatype name="ServerAttributeModule" namespace="http://www.cisco.dvbu.com/ps/deploytool/modules" referenceDefinitionSet="/shared/test00/DataSources/ServerAttributeDefinitions/getServerAttributeDefinitionModuleDefinitions" referenceType="{http://www.cisco.dvbu.com/ps/deploytool/modules}ServerAttributeModule" subType="ELEMENT_DECL" type="XML" contentConstraint="SEQUENCE" schemaConstraint="ANY" componentType="ELEMENT" componentName="{http://www.cisco.dvbu.com/ps/deploytool/modules}ServerAttributeModule">
+    <datatype name="ServerAttributeModule" namespace="http://www.dvbu.cisco.com/ps/deploytool/modules" referenceDefinitionSet="/shared/test00/DataSources/ServerAttributeDefinitions/getServerAttributeDefinitionModuleDefinitions" referenceType="{http://www.dvbu.cisco.com/ps/deploytool/modules}ServerAttributeModule" subType="ELEMENT_DECL" type="XML" contentConstraint="SEQUENCE" schemaConstraint="ANY" componentType="ELEMENT" componentName="{http://www.dvbu.cisco.com/ps/deploytool/modules}ServerAttributeModule">
       <schemaDatatype>
-        <datatype name="ServerAttributeModule" namespace="http://www.cisco.dvbu.com/ps/deploytool/modules" superTypeName="anyType" superTypeNamespace="http://www.w3.org/2001/XMLSchema" subType="ELEMENT_DECL" anonymous="true" type="TREE" refId="1">
+        <datatype name="ServerAttributeModule" namespace="http://www.dvbu.cisco.com/ps/deploytool/modules" superTypeName="anyType" superTypeNamespace="http://www.w3.org/2001/XMLSchema" subType="ELEMENT_DECL" anonymous="true" type="TREE" refId="1">
           <element name="serverAttributeDef" maxOccurs="2147483647">
             <datatype superTypeName="anyType" superTypeNamespace="http://www.w3.org/2001/XMLSchema" subType="COMPLEX_TYPE" type="TREE" refId="2">
               <element name="id">
@@ -63,16 +63,13 @@
               <element name="maxValue" minOccurs="0">
                 <datatype name="integer" namespace="http://www.w3.org/2001/XMLSchema" superTypeName="decimal" superTypeNamespace="http://www.w3.org/2001/XMLSchema" type="DECIMAL" maxDigits="32" maxFractionalDigits="0"/>
               </element>
-              <element name="pattern" minOccurs="0">
-                <datatype name="string" namespace="http://www.w3.org/2001/XMLSchema" superTypeName="anySimpleType" superTypeNamespace="http://www.w3.org/2001/XMLSchema" type="STRING" maxLength="2147483647"/>
-              </element>
               <element name="minValue" minOccurs="0">
                 <datatype name="integer" namespace="http://www.w3.org/2001/XMLSchema" superTypeName="decimal" superTypeNamespace="http://www.w3.org/2001/XMLSchema" type="DECIMAL" maxDigits="32" maxFractionalDigits="0"/>
               </element>
-              <element name="unitName" minOccurs="0">
+              <element name="pattern" minOccurs="0">
                 <datatype name="string" namespace="http://www.w3.org/2001/XMLSchema" superTypeName="anySimpleType" superTypeNamespace="http://www.w3.org/2001/XMLSchema" type="STRING" maxLength="2147483647"/>
               </element>
-              <element name="updateRule" minOccurs="0">
+              <element name="updateRule">
                 <datatype name="NCName" namespace="http://www.w3.org/2001/XMLSchema" superTypeName="Name" superTypeNamespace="http://www.w3.org/2001/XMLSchema" type="STRING" maxLength="2147483647"/>
               </element>
             </datatype>

@@ -9,21 +9,22 @@
     <privilege user="user2" domain="composite" privileges="NONE"/>
   </security>
   <attribute name="OAuthConfig" type="NULL"/>
-  <attribute name="autoAddChildren" type="BOOLEAN">false</attribute>
+  <attribute name="autoAddChildren" type="STRING">false</attribute>
+  <attribute name="cacheStatusAndTrackingDS" type="STRING"/>
   <attribute name="charset" type="STRING">&lt;auto detect&gt;</attribute>
   <attribute name="creationDate" type="LONG">0</attribute>
   <attribute name="creatorUserDomain" type="STRING"/>
   <attribute name="creatorUserName" type="STRING"/>
   <attribute name="driverName" type="STRING">File-XML</attribute>
-  <attribute name="filters" type="STRING">getServerAttributeDefinitionModule.xml</attribute>
-  <attribute name="lastModifiedDate" type="LONG">1454163878858</attribute>
+  <attribute name="filters" type="STRING">*.xml</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1528474748588</attribute>
   <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
   <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
   <attribute name="local" type="BOOLEAN">true</attribute>
   <attribute name="name" type="STRING">ServerAttributeDefinitions</attribute>
   <attribute name="noNamespaceSchemaLocation" type="STRING"/>
-  <attribute name="password" type="NULL"/>
-  <attribute name="root" type="STRING">C:\CiscoSystems\PDTool_Regression_Datasource</attribute>
+  <attribute name="password" type="STRING"/>
+  <attribute name="root" type="STRING">C:\MyFiles\PDTool\PDTool7.0.0_GIT\PDTool/resources/modules/generated</attribute>
   <attribute name="schemaLocation" type="STRING"/>
   <attribute name="selectionState" type="INTEGER">1</attribute>
   <attribute name="type" type="STRING">XmlFile</attribute>

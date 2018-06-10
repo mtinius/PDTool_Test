@@ -1,12 +1,6 @@
 <?xml version="1.1" encoding="UTF-8"?>
 <metadata name="packagedCustomerQuery" path="/shared/test00/CisResources/packagedCustomerQuery" type="PROCEDURE" subtype="EXTERNAL_SQL_PROCEDURE" changeToken="0">
-  <annotation>### Begin Version Block: Do Not Modify ###
-v123|05/17/2018 18:00:00|OTI-2900|mtinius
-v123|05/17/2018 18:00:00|OTI-2900|mtinius
-v123|05/17/2018 18:00:00|OTI-2900|mtinius
-v789|05/17/2018 18:00:00|OTI-3199|mtinius
-v8910|05/17/2018 18:00:00|OTI-3200|mtinius
-### End Version Block ###</annotation>
+  <annotation/>
   <parameters>
     <parameter name="result" direction="OUT" nullable="true">
       <datatype type="TABLE" refId="1">
@@ -64,7 +58,7 @@ v8910|05/17/2018 18:00:00|OTI-3200|mtinius
   <attribute name="creatorUserDomain" type="STRING"/>
   <attribute name="creatorUserName" type="STRING"/>
   <attribute name="isSingleSelect" type="STRING">false</attribute>
-  <attribute name="lastModifiedDate" type="LONG">1526648693934</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1419008350849</attribute>
   <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
   <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
   <attribute name="p:0:Customized" type="STRING">metadata.added;datatype.changed</attribute>

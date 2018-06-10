@@ -11,7 +11,7 @@
   <attribute name="OAuthConfig" type="NULL"/>
   <attribute name="accessToken" type="STRING"/>
   <attribute name="authentication" type="STRING">BASIC</attribute>
-  <attribute name="autoAddChildren" type="BOOLEAN">true</attribute>
+  <attribute name="autoAddChildren" type="STRING">true</attribute>
   <attribute name="cacheStatusAndTrackingDS" type="STRING"/>
   <attribute name="creationDate" type="LONG">0</attribute>
   <attribute name="creatorUserDomain" type="STRING"/>
@@ -21,7 +21,7 @@
   <attribute name="environmentPassThrough" type="STRING"/>
   <attribute name="isPassThrough" type="STRING">Disabled</attribute>
   <attribute name="keystore" type="MAP"></attribute>
-  <attribute name="lastModifiedDate" type="LONG">1508352167406</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1528474751932</attribute>
   <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
   <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
   <attribute name="login" type="STRING">admin</attribute>
