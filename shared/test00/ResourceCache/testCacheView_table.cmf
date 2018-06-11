@@ -85,7 +85,7 @@
   <dependency target="/lib/sources/cacheDataSource" type="DATA_SOURCE">
     <datatype name="Tree" type="TREE" refId="1"></datatype>
   </dependency>
-  <dependency target="/lib/sources/cacheDataSource/view55830" type="TABLE">
+  <dependency target="/lib/sources/cacheDataSource/view80753" type="TABLE">
     <datatype name="Tree" type="TREE" refId="1"></datatype>
   </dependency>
   <dependency target="/shared/examples/ds_orders/tutorial/customers" type="TABLE">
@@ -146,7 +146,7 @@ FROM
   <attribute name="cacheStorageTargets" type="MAP">
     <item>
       <key type="STRING">result</key>
-      <value type="STRING">/lib/sources/cacheDataSource/view55830</value>
+      <value type="STRING">/lib/sources/cacheDataSource/view80753</value>
     </item>
   </attribute>
   <attribute name="cacheStorageType" type="STRING">AUTOMATIC</attribute>
