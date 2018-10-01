@@ -15,7 +15,7 @@
   <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
   <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
   <attribute name="requireAllAuthMethods" type="BOOLEAN">false</attribute>
-  <attribute name="soapAddressLocation" type="STRING">http://MTINIUS-MBPVM.na.tibco.com:9600/services/TEST00/testWebService/testService/testPort.ws</attribute>
+  <attribute name="soapAddressLocation" type="STRING">http://MTINIUS-MBPVM.na.tibco.com:9400/services/TEST00/testWebService/testService/testPort.ws</attribute>
   <attribute name="soapBindingStyle" type="STRING">document</attribute>
   <attribute name="soapBindingTransport" type="STRING">http://schemas.xmlsoap.org/soap/http</attribute>
 </metadata>

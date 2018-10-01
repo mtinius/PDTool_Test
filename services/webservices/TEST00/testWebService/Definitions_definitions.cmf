@@ -698,7 +698,7 @@
   &lt;/wsdl:binding&gt;
   &lt;wsdl:service name=&quot;testService&quot;&gt;
     &lt;wsdl:port name=&quot;testPort&quot; binding=&quot;ns1:testPortBinding&quot;&gt;
-      &lt;soap:address location=&quot;http://MTINIUS-MBPVM.na.tibco.com:9600/services/TEST00/testWebService/testService/testPort.ws&quot;/&gt;
+      &lt;soap:address location=&quot;http://MTINIUS-MBPVM.na.tibco.com:9400/services/TEST00/testWebService/testService/testPort.ws&quot;/&gt;
     &lt;/wsdl:port&gt;
   &lt;/wsdl:service&gt;
 &lt;/wsdl:definitions&gt;
