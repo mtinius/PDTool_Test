@@ -213,7 +213,7 @@
   &lt;/wsdl:binding&gt;
   &lt;wsdl:service name=&quot;testService&quot;&gt;
     &lt;wsdl:port name=&quot;testPort&quot; binding=&quot;ns1:testPortBinding&quot;&gt;
-      &lt;soap:address location=&quot;http://MTINIUS-MBPVM.na.tibco.com:9600/services/TEST00/testWebService/testService/testPort.ws&quot;/&gt;
+      &lt;soap:address location=&quot;http://MTINIUS-MBPVM.na.tibco.com:9400/services/TEST00/testWebService/testService/testPort.ws&quot;/&gt;
     &lt;/wsdl:port&gt;
   &lt;/wsdl:service&gt;
 &lt;/wsdl:definitions&gt;
@@ -320,7 +320,7 @@ ICAgPHNvYXA6Ym9keSB1c2U9ImxpdGVyYWwiLz4NCiAgICAgIDwvd3NkbDpvdXRwdXQ+DQogICAg
 PC93c2RsOm9wZXJhdGlvbj4NCiAgPC93c2RsOmJpbmRpbmc+DQogIDx3c2RsOnNlcnZpY2UgbmFt
 ZT0idGVzdFNlcnZpY2UiPg0KICAgIDx3c2RsOnBvcnQgbmFtZT0idGVzdFBvcnQiIGJpbmRpbmc9
 Im5zMTp0ZXN0UG9ydEJpbmRpbmciPg0KICAgICAgPHNvYXA6YWRkcmVzcyBsb2NhdGlvbj0iaHR0
-cDovL01USU5JVVMtTUJQVk0ubmEudGliY28uY29tOjk2MDAvc2VydmljZXMvVEVTVDAwL3Rlc3RX
+cDovL01USU5JVVMtTUJQVk0ubmEudGliY28uY29tOjk0MDAvc2VydmljZXMvVEVTVDAwL3Rlc3RX
 ZWJTZXJ2aWNlL3Rlc3RTZXJ2aWNlL3Rlc3RQb3J0LndzIi8+DQogICAgPC93c2RsOnBvcnQ+DQog
 IDwvd3NkbDpzZXJ2aWNlPg0KPC93c2RsOmRlZmluaXRpb25zPg0K</list>
   </attribute>

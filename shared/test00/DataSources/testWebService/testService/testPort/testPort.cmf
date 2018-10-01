@@ -15,7 +15,7 @@
   <attribute name="creatorUserName" type="STRING"/>
   <attribute name="portBindingProfile" type="STRING">SOAP HTTP</attribute>
   <attribute name="selectionState" type="INTEGER">2</attribute>
-  <attribute name="soapAddressLocation" type="STRING">http://MTINIUS-MBPVM.na.tibco.com:9600/services/TEST00/testWebService/testService/testPort.ws</attribute>
+  <attribute name="soapAddressLocation" type="STRING">http://MTINIUS-MBPVM.na.tibco.com:9400/services/TEST00/testWebService/testService/testPort.ws</attribute>
   <attribute name="soapBindingStyle" type="STRING">document</attribute>
   <attribute name="soapBindingTransport" type="STRING">http://schemas.xmlsoap.org/soap/http</attribute>
   <attribute name="timeout" type="LONG">0</attribute>

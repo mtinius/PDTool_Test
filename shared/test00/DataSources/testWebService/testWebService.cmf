@@ -21,7 +21,7 @@
   <attribute name="environmentPassThrough" type="STRING"/>
   <attribute name="isPassThrough" type="STRING">Disabled</attribute>
   <attribute name="keystore" type="MAP"></attribute>
-  <attribute name="lastModifiedDate" type="LONG">1528779254581</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1538428614902</attribute>
   <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
   <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
   <attribute name="login" type="STRING">admin</attribute>
@@ -33,6 +33,6 @@
   <attribute name="selectionState" type="INTEGER">1</attribute>
   <attribute name="spn" type="STRING"/>
   <attribute name="type" type="STRING">Wsdl</attribute>
-  <attribute name="url" type="STRING">http://localhost:9600/services/TEST00/testWebService?wsdl</attribute>
+  <attribute name="url" type="STRING">http://localhost:9400/services/TEST00/testWebService?wsdl</attribute>
   <attribute name="userDeletedSet" type="SET"></attribute>
 </metadata>
