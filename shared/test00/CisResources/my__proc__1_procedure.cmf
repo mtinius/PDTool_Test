@@ -3,19 +3,19 @@
   <parameters></parameters>
   <security>
     <owner user="admin" domain="composite"/>
-    <privilege group="group1" domain="composite" privileges="READ WRITE EXECUTE"/>
-    <privilege user="user1" domain="composite" privileges="READ EXECUTE"/>
-    <privilege user="user2" domain="composite" privileges="READ EXECUTE"/>
   </security>
   <attribute name="Script" type="STRING">PROCEDURE my_proc_1()
 BEGIN
   -- Add your code here
-	-- [mrt:2011-04-04]
+	-- [mrt:2018-12-04]
 END</attribute>
   <attribute name="creationDate" type="LONG">0</attribute>
   <attribute name="creatorUserDomain" type="STRING"/>
   <attribute name="creatorUserName" type="STRING"/>
   <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1543982356921</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
   <attribute name="model" type="NULL"/>
   <attribute name="native_only" type="STRING">false</attribute>
   <attribute name="references" type="NULL"/>
