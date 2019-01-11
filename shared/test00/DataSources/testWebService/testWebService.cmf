@@ -1,4 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:0dbd38eb-887f-4d86-bd70-081df0fc3dbf -->
 <metadata name="testWebService" path="/shared/test00/DataSources/testWebService" type="DATA_SOURCE" subtype="WSDL" changeToken="0">
   <annotation/>
   <security>
@@ -11,7 +12,7 @@
   <attribute name="OAuthConfig" type="NULL"/>
   <attribute name="accessToken" type="STRING"/>
   <attribute name="authentication" type="STRING">BASIC</attribute>
-  <attribute name="autoAddChildren" type="STRING">true</attribute>
+  <attribute name="autoAddChildren" type="BOOLEAN">true</attribute>
   <attribute name="cacheStatusAndTrackingDS" type="STRING"/>
   <attribute name="creationDate" type="LONG">0</attribute>
   <attribute name="creatorUserDomain" type="STRING"/>
@@ -21,12 +22,12 @@
   <attribute name="environmentPassThrough" type="STRING"/>
   <attribute name="isPassThrough" type="STRING">Disabled</attribute>
   <attribute name="keystore" type="MAP"></attribute>
-  <attribute name="lastModifiedDate" type="LONG">1538429622450</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1544841199560</attribute>
   <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
   <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
   <attribute name="login" type="STRING">admin</attribute>
   <attribute name="name" type="STRING">testWebService</attribute>
-  <attribute name="password" type="STRING">7F6324FFD300BE8F</attribute>
+  <attribute name="password" type="PASSWORD_STRING">ENC(Wo5UF1eRSmVA5vKG8nXHRQ==$aK4zHeJEE7e8fxAFWSUzIw==)</attribute>
   <attribute name="persistPassword" type="BOOLEAN">true</attribute>
   <attribute name="propertyPassThrough" type="STRING"/>
   <attribute name="retrieveToken" type="STRING">true</attribute>
