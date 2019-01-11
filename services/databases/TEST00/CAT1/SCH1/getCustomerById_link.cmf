@@ -1,5 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:e206edaa-b4cb-4bb2-a676-32c915e4caf3 -->
+<!-- salt:3608cbc5-f3a0-4ec4-9422-0fab37b7ce42 -->
 <metadata name="getCustomerById" path="/services/databases/TEST00/CAT1/SCH1/getCustomerById" type="LINK" subtype="NONE" changeToken="0" virtual="true">
   <security>
     <owner user="admin" domain="composite"/>
