@@ -1,5 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:2f204d68-a2d3-457f-a43b-814c6864ec7d -->
+<!-- salt:4b8132de-ba98-4283-bbd4-290954ae3960 -->
 <metadata name="trigger1" path="/shared/test00/ResourceTrigger/trigger1" type="TRIGGER" subtype="NONE" changeToken="0">
   <annotation>trigger 1 annotation</annotation>
   <security>
