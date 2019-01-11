@@ -1,5 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:bd3da03e-7092-4d4d-a56f-6758ec91bc45 -->
+<!-- salt:451943f5-a53e-4109-8ebe-9c746e27f6c9 -->
 <metadata name="ds_orders" path="/shared/test00/DataSources/ds_orders" type="DATA_SOURCE" subtype="RELATIONAL" changeToken="0">
   <annotation/>
   <security>
@@ -57,7 +57,6 @@
   <attribute name="minTargetToSourceRatioForSJ" type="STRING"/>
   <attribute name="name" type="STRING">ds_orders</attribute>
   <attribute name="nativeDataLoadingEnabled" type="BOOLEAN">true</attribute>
-  <attribute name="password" type="PASSWORD_STRING">ENC(GyF8dqLwwHmKM7sKYCynQA==$yHMg+3742K1gYI6ACT6q3g==)</attribute>
   <attribute name="patternSeparator" type="STRING">,</attribute>
   <attribute name="persistPassword" type="BOOLEAN">true</attribute>
   <attribute name="postgresqlEnableBulkLoad" type="BOOLEAN">true</attribute>

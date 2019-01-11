@@ -1,5 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:bd3da03e-7092-4d4d-a56f-6758ec91bc45 -->
+<!-- salt:451943f5-a53e-4109-8ebe-9c746e27f6c9 -->
 <metadata name="SCH2" path="/shared/test00/TestSecurity/CAT2/SCH2" type="CONTAINER" subtype="FOLDER" changeToken="0">
   <security>
     <owner user="admin" domain="composite"/>
