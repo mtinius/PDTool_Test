@@ -1,5 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:791889d8-2b6c-48fd-bffc-ab706c5436eb -->
+<!-- salt:8abde40f-b5ed-4f6f-80fc-1b10011b1d59 -->
 <metadata name="testWebService" path="/services/webservices/TEST00/testWebService" type="DATA_SOURCE" subtype="WSDL" changeToken="0" virtual="true">
   <annotation/>
   <security>
