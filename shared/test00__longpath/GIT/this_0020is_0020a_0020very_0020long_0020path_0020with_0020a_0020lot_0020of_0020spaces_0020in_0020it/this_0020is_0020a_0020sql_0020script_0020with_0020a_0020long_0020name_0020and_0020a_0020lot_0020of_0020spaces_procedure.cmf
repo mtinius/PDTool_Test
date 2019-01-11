@@ -1,5 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:23bf350f-e665-45cf-b4a0-a0771f3ca958 -->
+<!-- salt:dbea3ac8-1229-463a-ae0d-4576a12b56f4 -->
 <metadata name="this is a sql script with a long name and a lot of spaces" path="/shared/test00_longpath/GIT/this is a very long path with a lot of spaces in it/this is a sql script with a long name and a lot of spaces" type="PROCEDURE" subtype="SQL_SCRIPT_PROCEDURE" changeToken="0">
   <parameters></parameters>
   <security>
