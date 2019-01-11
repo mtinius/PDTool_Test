@@ -1,19 +1,15 @@
 <?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:dd5a69d0-7c5c-457e-9b03-42fd7ab4cc8e -->
 <metadata name="my_proc_1" path="/services/databases/TEST00/my_proc_1" type="LINK" subtype="NONE" changeToken="0" virtual="true">
   <annotation>test annotation</annotation>
   <security>
     <owner user="admin" domain="composite"/>
-    <privilege group="all" domain="composite" privileges="READ EXECUTE SELECT"/>
+    <privilege group="all" domain="composite" privileges="READ"/>
+    <privilege group="group1" domain="composite" privileges="READ"/>
+    <privilege group="group2" domain="composite" privileges="READ"/>
   </security>
   <dependency target="/shared/test00/CisResources/my_proc_1" type="PROCEDURE">
-    <datatype type="PROCEDURE" refId="1">
-      <element name="intval" direction="IN">
-        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
-      </element>
-      <element name="outval" direction="OUT">
-        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
-      </element>
-    </datatype>
+    <datatype type="PROCEDURE" refId="1"></datatype>
   </dependency>
   <attribute name="creationDate" type="LONG">1544031692424</attribute>
   <attribute name="creatorUserDomain" type="STRING">composite</attribute>
