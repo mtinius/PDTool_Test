@@ -1,5 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:7546602c-1205-4278-a732-f51aafe3fa5e -->
+<!-- salt:2f204d68-a2d3-457f-a43b-814c6864ec7d -->
 <metadata name="Definitions" path="/shared/test00/DataSources/testWebService/Definitions" type="DEFINITION_SET" subtype="WSDL_DEFINITION_SET" changeToken="0">
   <definitions>
     <definition name="{http://MTINIUS-MBPVM.home/services/webservices/TEST00/testWebService/testService}customers" type="ELEMENT">
