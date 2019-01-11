@@ -1,5 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:3608cbc5-f3a0-4ec4-9422-0fab37b7ce42 -->
+<!-- salt:9a848d95-1dcc-4c19-8d21-8e51c074f516 -->
 <metadata name="testprocsimple" path="/services/databases/TEST00/testprocsimple" type="LINK" subtype="NONE" changeToken="0" virtual="true">
   <security>
     <owner user="admin" domain="composite"/>
