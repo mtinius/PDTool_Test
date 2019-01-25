@@ -1,0 +1,360 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:56a055f1-05be-44e4-b8e2-a3fa6d842fe3 -->
+<metadata name="createDatasourceIntrospectGenerateTest_original" path="/shared/Common/GenerateViews/createDatasourceIntrospectGenerateTest_original" type="PROCEDURE" subtype="SQL_SCRIPT_PROCEDURE" changeToken="0">
+  <parameters>
+    <parameter name="success1" direction="OUT" nullable="true">
+      <datatype name="BIT" type="INTEGER" minValue="0" maxValue="1"/>
+    </parameter>
+    <parameter name="createDataSourceResponse" direction="OUT" nullable="true">
+      <datatype name="XML" type="XML" contentConstraint="SEQUENCE" schemaConstraint="ANY" componentType="TYPE" componentName="XML">
+        <schemaDatatype>
+          <datatype name="XML" type="TREE" refId="1"></datatype>
+        </schemaDatatype>
+      </datatype>
+    </parameter>
+    <parameter name="faultResponse" direction="OUT" nullable="true">
+      <datatype name="XML" type="XML" contentConstraint="SEQUENCE" schemaConstraint="ANY" componentType="TYPE" componentName="XML">
+        <schemaDatatype>
+          <datatype name="XML" type="TREE" refId="1"></datatype>
+        </schemaDatatype>
+      </datatype>
+    </parameter>
+    <parameter name="errStatus" direction="OUT" nullable="true">
+      <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+    </parameter>
+    <parameter name="errMessage" direction="OUT" nullable="true">
+      <datatype name="LONGVARCHAR" type="STRING" maxLength="2147483647"/>
+    </parameter>
+    <parameter name="introspectionResult" direction="OUT" nullable="true">
+      <datatype name="LONGVARCHAR" type="STRING" maxLength="2147483647"/>
+    </parameter>
+    <parameter name="numResourcesIntrospectAdd" direction="OUT" nullable="true">
+      <datatype name="INTEGER" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+    </parameter>
+    <parameter name="numTablesIntrospectAdd" direction="OUT" nullable="true">
+      <datatype name="INTEGER" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+    </parameter>
+    <parameter name="tablesIntrospectAdd" direction="OUT" nullable="true">
+      <datatype name="LONGVARCHAR" type="STRING" maxLength="2147483647"/>
+    </parameter>
+    <parameter name="numResourcesIntrospectSkip" direction="OUT" nullable="true">
+      <datatype name="INTEGER" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+    </parameter>
+    <parameter name="numTablesIntrospectSkip" direction="OUT" nullable="true">
+      <datatype name="INTEGER" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+    </parameter>
+    <parameter name="tablesIntrospectSkip" direction="OUT" nullable="true">
+      <datatype name="LONGVARCHAR" type="STRING" maxLength="2147483647"/>
+    </parameter>
+    <parameter name="numTotalViews" direction="OUT" nullable="true">
+      <datatype name="INTEGER" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+    </parameter>
+    <parameter name="numTotalColumns" direction="OUT" nullable="true">
+      <datatype name="INTEGER" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+    </parameter>
+  </parameters>
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <dependency target="/shared/Common/GenerateViews/createDatasourceIntrospectGenerate" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="1">
+      <element name="debug" direction="IN">
+        <datatype type="STRING" minLength="1" maxLength="1"/>
+      </element>
+      <element name="destroyDatasource" direction="IN">
+        <datatype type="STRING" minLength="1" maxLength="1"/>
+      </element>
+      <element name="dataSourceFullPath" direction="IN">
+        <datatype type="STRING" maxLength="4000"/>
+      </element>
+      <element name="dataSourceType" direction="IN">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="catalogName" direction="IN">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="schemaName" direction="IN">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="tableNames" direction="IN">
+        <datatype type="STRING" maxLength="2147483647"/>
+      </element>
+      <element name="procedureNames" direction="IN">
+        <datatype type="STRING" maxLength="2147483647"/>
+      </element>
+      <element name="urlIP" direction="IN">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="urlDatabaseName" direction="IN">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="urlPort" direction="IN">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="login" direction="IN">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="password" direction="IN">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="generateToFolder" direction="IN">
+        <datatype type="STRING" maxLength="2147483647"/>
+      </element>
+      <element name="generateMode" direction="IN">
+        <datatype type="STRING" minLength="1" maxLength="1"/>
+      </element>
+      <element name="overwrite" direction="IN">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="resourceCaseRule" direction="IN">
+        <datatype type="STRING" minLength="1" maxLength="1"/>
+      </element>
+      <element name="columnCaseRule" direction="IN">
+        <datatype type="STRING" minLength="1" maxLength="1"/>
+      </element>
+      <element name="resourcePrefix" direction="IN">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="resourceSuffix" direction="IN">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="newColumnList" direction="IN">
+        <datatype type="STRING" maxLength="2147483647"/>
+      </element>
+      <element name="generateCast" direction="IN">
+        <datatype type="INTEGER" minValue="-32768" maxValue="32767"/>
+      </element>
+      <element name="generateIndexes" direction="IN">
+        <datatype type="INTEGER" minValue="-32768" maxValue="32767"/>
+      </element>
+      <element name="success1" direction="OUT">
+        <datatype type="INTEGER" minValue="0" maxValue="1"/>
+      </element>
+      <element name="createDataSourceResponse" direction="OUT">
+        <datatype name="XML" type="XML" contentConstraint="SEQUENCE" schemaConstraint="ANY" componentType="TYPE" componentName="XML">
+          <schemaDatatype>
+            <datatype name="XML" type="TREE" refId="2"></datatype>
+          </schemaDatatype>
+        </datatype>
+      </element>
+      <element name="faultResponse" direction="OUT">
+        <datatype name="XML" type="XML" contentConstraint="SEQUENCE" schemaConstraint="ANY" componentType="TYPE" componentName="XML">
+          <schemaDatatype>
+            <reference refId="2"/>
+          </schemaDatatype>
+        </datatype>
+      </element>
+      <element name="errStatus" direction="OUT">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="errMessage" direction="OUT">
+        <datatype type="STRING" maxLength="2147483647"/>
+      </element>
+      <element name="introspectionResult" direction="OUT">
+        <datatype type="STRING" maxLength="2147483647"/>
+      </element>
+      <element name="numResourcesIntrospectAdd" direction="OUT">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="numTablesIntrospectAdd" direction="OUT">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="tablesIntrospectAdd" direction="OUT">
+        <datatype type="STRING" maxLength="2147483647"/>
+      </element>
+      <element name="numResourcesIntrospectSkip" direction="OUT">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="numTablesIntrospectSkip" direction="OUT">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="tablesIntrospectSkip" direction="OUT">
+        <datatype type="STRING" maxLength="2147483647"/>
+      </element>
+      <element name="numTotalViews" direction="OUT">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="numTotalColumns" direction="OUT">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+    </datatype>
+  </dependency>
+  <attribute name="Script" type="STRING">/* createDatasourceIntrospectGenerateTest:
+
+	This procedure is used to test the main procedure &quot;createDatasourceIntrospectGenerate&quot;.
+
+ 	Input:
+		NONE.  All variables are defined internally.
+
+	Output:
+		-- createDatasourceIntrospect Output Variables:
+		OUT success1						BIT,			-- 0=fail, 1=success.
+		OUT createDataSourceResponse		XML,			-- How the datasource was configured.
+		OUT faultResponse					XML,			-- If not null then there was an error.
+		OUT errStatus 						VARCHAR,		-- SUCCESS OR FAIL
+		OUT errMessage 						LONGVARCHAR,	-- Error message if errStatus=FAIL
+		OUT introspectionResult 			LONGVARCHAR,	-- A line (CHR(10)) delimited string of results.  Use introspectResourcesResultCursor() to  return a cursor.
+		OUT numResourcesIntrospectAdd		INTEGER,		-- Number of resources added during introspection.  Includes catalogs and schemas in the count.
+		OUT numTablesIntrospectAdd			INTEGER,		-- Number of tables added during introspection.  Only tables are counted.
+		OUT tablesIntrospectAdd				LONGVARCHAR,	-- List of tables added during introspection.  Excludes catalogs and schemas.
+		OUT numResourcesIntrospectSkip		INTEGER,		-- Number of resources skipped during introspection.  Includes catalogs and schemas in the count.
+		OUT numTablesIntrospectSkip			INTEGER,		-- Number of tables skipped during introspection.  Only tables are counted.
+		OUT tablesIntrospectSkip			LONGVARCHAR,	-- List of tables skipped during introspection.  Excludes catalogs and schemas.
+		-- createSourceViews Variables:
+		OUT numTotalViews					INTEGER,		-- Total number of source views created
+		OUT numTotalColumns					INTEGER			-- Total number of columns created with the source views
+	
+	Modified Date:	Modified By:		DV Version:		Reason:
+	01/23/2019		Mike Tinius			8.0.0			Created new to to test the main procedure &quot;createDatasourceIntrospectGenerate&quot;.
+*/
+PROCEDURE createDatasourceIntrospectGenerateTest_original(
+	-- createDatasourceIntrospect Variables:
+	OUT success1						BIT,			-- 0=fail, 1=success.
+	OUT createDataSourceResponse		XML,			-- How the datasource was configured.
+	OUT faultResponse					XML,			-- If not null then there was an error.
+	OUT errStatus 						VARCHAR,		-- SUCCESS OR FAIL
+	OUT errMessage 						LONGVARCHAR,	-- Error message if errStatus=FAIL
+	OUT introspectionResult 			LONGVARCHAR,	-- A line (CHR(10)) delimited string of results.  Use introspectResourcesResultCursor() to  return a cursor.
+	OUT numResourcesIntrospectAdd		INTEGER,		-- Number of resources added during introspection.  Includes catalogs and schemas in the count.
+	OUT numTablesIntrospectAdd			INTEGER,		-- Number of tables added during introspection.  Only tables are counted.
+	OUT tablesIntrospectAdd				LONGVARCHAR,	-- List of tables added during introspection.  Excludes catalogs and schemas.
+	OUT numResourcesIntrospectSkip		INTEGER,		-- Number of resources skipped during introspection.  Includes catalogs and schemas in the count.
+	OUT numTablesIntrospectSkip			INTEGER,		-- Number of tables skipped during introspection.  Only tables are counted.
+	OUT tablesIntrospectSkip			LONGVARCHAR,	-- List of tables skipped during introspection.  Excludes catalogs and schemas.
+	-- createSourceViews Variables:
+	OUT numTotalViews					INTEGER,		-- Total number of source views created
+	OUT numTotalColumns					INTEGER			-- Total number of columns created with the source views
+)
+BEGIN
+	DECLARE  debug						CHAR(1)			DEFAULT &apos;Y&apos;;		-- Y=debug on.  N=debug off
+	/**************************************
+	 * createDatasourceIntrospect Variables:
+	 *************************************/
+	DECLARE  destroyDatasource			CHAR(1) 		DEFAULT &apos;Y&apos;;		-- Y=destroy datasource if exists,   N=do not destroy if exists
+	DECLARE  dataSourceFullPath			VARCHAR(4000)	DEFAULT &apos;/shared/PWC_template_original/00_DataSource/DS_ORDERS&apos;;-- The full DV path to the datasource where it will be created. 
+	DECLARE  dataSourceType 			VARCHAR			DEFAULT &apos;PostgreSQL 9.1&apos;;-- The type of data source.  This is very specific.  Hive=&apos;Hive2&apos;.  Postgres=&apos;PostgreSQL 9.1&apos;
+	DECLARE  catalogName				VARCHAR			DEFAULT null; 		-- optional (null) - Database catalog Name if applicable
+	DECLARE  schemaName					VARCHAR			DEFAULT &apos;tutorial&apos;;	-- mandatory.  Database schema name
+	DECLARE  tableNames					LONGVARCHAR		DEFAULT null;		-- optional.  NULL=no specified table list OR one or more comma separated tables to introspect.  When NULL, all tables for the schema are introspected.
+	DECLARE  procedureNames				LONGVARCHAR		DEFAULT null;		-- NULL=no specified procedure list OR 1 or more comma separated procedures to introspect.  When NULL, all procedures are introspected.
+	DECLARE  urlIP						VARCHAR			DEFAULT &apos;localhost&apos;;-- This is the datasource hostname or ip address.  ex. &apos;localhost&apos;
+	DECLARE  urlDatabaseName			VARCHAR			DEFAULT &apos;orders&apos;;	-- This is the datasource database name.  ex. &apos;orders&apos;
+	DECLARE  urlPort					INTEGER			DEFAULT 9808;		-- This is the datasource port number.  ex. 9808
+	DECLARE  login						VARCHAR			DEFAULT &apos;tutorial&apos;;	-- This is the datasource login.  ex. &apos;tutorial&apos;
+	DECLARE  password					VARCHAR			DEFAULT &apos;tutorial&apos;; -- This is the datasource password.
+
+	/**************************************
+	 * createSourceViews Variables:
+	 *************************************/
+	DECLARE generateToFolder			VARCHAR(4000) 	DEFAULT &apos;/shared/PWC_template_original/01_SourceViewLayer/011_svInternal/tutorial&apos;;
+		-- This is the full path to the folder in which to generate the views
+		-- This is only required if option 1: targetResource is provided.
+    DECLARE generateMode				CHAR(1) 		DEFAULT &apos;G&apos;;
+    	-- G=Generate the resource names 
+		-- R=Retrieve the resource name from a spreadsheet. (resources include PATH names, VIEW names AND COLUMN names)
+	DECLARE overwrite					INTEGER			DEFAULT 2;	
+		-- allows user to decide whether they want to overwrite an existing view or not.
+		-- 0=&quot;FAIL_IF_EXISTS&quot;=do not overwrite the resource.  If the resource exists, raise an exception.
+		-- 1=&quot;SKIP_IF_EXISTS&quot;=skip the resource if it exists and continue processing
+		-- 2 (default)=&quot;OVERWRITE_IF_EXISTS&quot;=do overwrite the resource if it exists.
+	DECLARE tablePrefix					VARCHAR			DEFAULT &apos;sv&apos;;	
+		-- null/blank for no prefix or some value for a table prefix.  ex. &apos;sv&apos;
+	DECLARE tableSuffix					VARCHAR			DEFAULT null;		
+		-- null/blank for no suffix or some value for a table suffix.  ex. &apos;_app&apos;
+	DECLARE tableCaseRule				CHAR(1)			DEFAULT &apos;C&apos;;	
+		-- (used when generateMode=&apos;G&apos;) 
+		-- O=[default] Original_case - The word is not changed at all -- just pass it through as is
+    	-- j=javaCase - 1st word part is lower case, following word parts are 1st is letter is upper and remaining word part is lower with no separators
+		-- C=CamelCase - 1st letter of each word part is upper case and remaining word part is lower with no separators
+		-- T=Title_Case - 1st letter of each word part is upper case and remaining word part is lower with separators retained
+		-- U=UPPER_CASE - All word parts are UPPER case with separtors retained
+		-- l=lower_case - All word parts are lower case with separators retained
+	DECLARE columnCaseRule				CHAR(1)			DEFAULT &apos;J&apos;;	
+		-- (used when generateMode=&apos;G&apos;) 
+		-- O=[default] Original_case - The word is not changed at all -- just pass it through as is
+    	-- j=javaCase - 1st word part is lower case, following word parts are 1st is letter is upper and remaining word part is lower with no separators
+		-- C=CamelCase - 1st letter of each word part is upper case and remaining word part is lower with no separators
+		-- T=Title_Case - 1st letter of each word part is upper case and remaining word part is lower with separators retained
+		-- U=UPPER_CASE - All word parts are UPPER case with separtors retained
+		-- l=lower_case - All word parts are lower case with separators retained
+	DECLARE newColumnList				LONGVARCHAR		DEFAULT &apos;systemSourceCode&amp;&amp;VARCHAR(25)&amp;&amp;ds_orders//fetchTimeStamp&amp;&amp;TIMESTAMP&amp;&amp;CURRENT_TIMESTAMP//extractTimeStamp&amp;&amp;TIMESTAMP&amp;&amp;CURRENT_TIMESTAMP&apos;;
+		 --(used when generateMode=&apos;G&apos;)
+		-- A formatted list of new columns to add to the end of the view.  The column will not be added if it already exists.
+		-- The format is as follows:  column1&amp;&amp;type1&amp;&amp;value1//column2&amp;&amp;type2&amp;&amp;value2//column3&amp;&amp;type3&amp;&amp;value3
+	DECLARE generateCast 				SMALLINT		DEFAULT 1;		-- This parameter allows the user to control whether to generate the cast statement around the generated
+		--	   column or not.  It uses the column type from the source view.
+		--	0=Do not generate CAST statement.  Pass through column as is.  Default behavior.
+		-- 	1=Generate the CAST statement around the column
+		--	2-Generate the CAST statement around the non-index columns only (No CAST on index columns)
+		--	3-Generate the CAST statement around the non-index columns only and generate a &quot;display&quot; CAST column for each index column.  (No CAST o nindex columns)
+		--	4-Generate the CAST statement around the non-index columns and non-primary key index columns only (No CAST on primary key index columns)
+		--	5-Generate the CAST statement around the non-index columns and non-primary key index columns only and generate a &quot;display&quot; CAST column for each primary key index column.  (No CAST on primary key index columns)
+	DECLARE generateIndexes 			SMALLINT		DEFAULT 1;	--	generateIndexes - This parameter allows the user to control whether to generate indexes on the target views as derived from the underlying resources
+		--	0=[default] Do not generate indexes
+		-- 	1=Generate indexes
+
+	CALL /shared/Common/GenerateViews/createDatasourceIntrospectGenerate(
+		debug						,	-- Y=debug on.  N=debug off
+	/**************************************
+	 * createDatasourceIntrospect Variables:
+	 *************************************/
+		destroyDatasource			,	-- Y=destroy datasource if exists,   N=do not destroy if exists
+		dataSourceFullPath			,	-- The full DV path to the datasource where it will be created.  ex. &apos;/shared/PWC_template_flipped/04_DataSource/DS_ORDERS&apos;
+		dataSourceType 				,	-- The type of data source.  This is very specific.  Hive=&apos;Hive2&apos;.  Postgres=&apos;PostgreSQL 9.1&apos;
+		catalogName					,	-- optional (null) - Database catalog Name if applicable
+		schemaName					,	-- mandatory.  Database schema name
+		tableNames					,	-- optional.  NULL=no specified table list OR one or more comma separated tables to introspect.  When NULL, all tables for the schema are introspected.
+		procedureNames				,	-- NULL=no specified procedure list OR 1 or more comma separated procedures to introspect.  When NULL, all procedures are introspected.
+		urlIP						,	-- This is the datasource hostname or ip address.  ex. &apos;localhost&apos;
+		urlDatabaseName				,	-- This is the datasource database name.  ex. &apos;orders&apos;
+		urlPort						,	-- This is the datasource port number.  ex. 9808
+		login						,	-- This is the datasource login.  ex. &apos;tutorial&apos;
+		password					,	-- This is the datasource password.  ex. &apos;Encrypted:ENC(iCJKSlfNUeHFVHAVtShr7A==$PLtM6oLQLR3smjq4jn1hJg==)&apos;
+
+	/**************************************
+	 * createSourceViews Variables:
+	 *************************************/
+		generateToFolder			,	-- This is the full path to the folder in which to generate the views
+		generateMode				,	-- Generate mode defaults to G
+		overwrite					,	-- allows user to decide whether they want to overwrite an existing view or not.
+		tableCaseRule				,	-- C=Camel Case	
+		columnCaseRule				,	-- J=java Case	
+		tablePrefix					,	-- null/blank for no prefix or some value for a table prefix.  ex. &apos;sv&apos;
+		tableSuffix					,	-- null/blank for no suffix or some value for a table suffix.  ex. &apos;_app&apos;
+		newColumnList				,	-- A formatted list of new columns to add to the end of the view.  The column will not be added if it already exists.
+										-- The format is as follows:  column1&amp;&amp;type1&amp;&amp;value1//column2&amp;&amp;type2&amp;&amp;value2//column3&amp;&amp;type3&amp;&amp;value3
+		generateCast 				,	-- This parameter allows the user to control whether to generate the cast statement around the generated
+ 		generateIndexes 			,	--	generateIndexes - This parameter allows the user to control whether to generate indexes on the target views as derived from the underlying resources
+
+	-- createDatasourceIntrospect Output Variables:
+		success1					,	-- 0=fail, 1=success.
+		createDataSourceResponse	, 	-- How the datasource was configured.
+		faultResponse				,	-- If not null then there was an error.
+		errStatus 					,	-- SUCCESS OR FAIL
+		errMessage 					,	-- Error message if errStatus=FAIL
+		introspectionResult 		,	-- A line (CHR(10)) delimited string of results.  Use introspectResourcesResultCursor() to  return a cursor.
+		numResourcesIntrospectAdd	,	-- Number of resources added during introspection.  Includes catalogs and schemas in the count.
+		numTablesIntrospectAdd		,	-- Number of tables added during introspection.  Only tables are counted.
+		tablesIntrospectAdd			,	-- List of tables added during introspection.  Excludes catalogs and schemas.
+		numResourcesIntrospectSkip	,	-- Number of resources skipped during introspection.  Includes catalogs and schemas in the count.
+		numTablesIntrospectSkip		,	-- Number of tables skipped during introspection.  Only tables are counted.
+		tablesIntrospectSkip		,	-- List of tables skipped during introspection.  Excludes catalogs and schemas.
+	-- createSourceViews Output Variables:
+		numTotalViews				,	-- Total number of source views created
+		numTotalColumns					-- Total number of columns created with the source views
+	);
+END</attribute>
+  <attribute name="creationDate" type="LONG">1548248299044</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1548449465148</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="model" type="NULL"/>
+  <attribute name="native_only" type="STRING">false</attribute>
+  <attribute name="references" type="NULL"/>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1548248299044</attribute>
+</metadata>

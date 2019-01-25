@@ -1,0 +1,628 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:56a055f1-05be-44e4-b8e2-a3fa6d842fe3 -->
+<metadata name="createSourceViews" path="/shared/Common/GenerateViews/helpers/createSourceViews" type="PROCEDURE" subtype="SQL_SCRIPT_PROCEDURE" changeToken="0">
+  <parameters>
+    <parameter name="debug" direction="IN" nullable="true">
+      <datatype name="CHAR" type="STRING" minLength="1" maxLength="1"/>
+    </parameter>
+    <parameter name="overwrite" direction="IN" nullable="true">
+      <datatype name="INTEGER" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+    </parameter>
+    <parameter name="derivedFilterPath" direction="IN" nullable="true">
+      <datatype name="LONGVARCHAR" type="STRING" maxLength="2147483647"/>
+    </parameter>
+    <parameter name="excludeDsPathsList" direction="IN" nullable="true">
+      <datatype name="LONGVARCHAR" type="STRING" maxLength="2147483647"/>
+    </parameter>
+    <parameter name="sourceResource" direction="IN" nullable="true">
+      <datatype name="LONGVARCHAR" type="STRING" maxLength="2147483647"/>
+    </parameter>
+    <parameter name="generateToFolder" direction="IN" nullable="true">
+      <datatype name="LONGVARCHAR" type="STRING" maxLength="2147483647"/>
+    </parameter>
+    <parameter name="generateMode" direction="IN" nullable="true">
+      <datatype name="CHAR" type="STRING" minLength="1" maxLength="1"/>
+    </parameter>
+    <parameter name="generateViews" direction="IN" nullable="true">
+      <datatype name="SMALLINT" type="INTEGER" minValue="-32768" maxValue="32767"/>
+    </parameter>
+    <parameter name="resourceCaseRule" direction="IN" nullable="true">
+      <datatype name="CHAR" type="STRING" minLength="1" maxLength="1"/>
+    </parameter>
+    <parameter name="columnCaseRule" direction="IN" nullable="true">
+      <datatype name="CHAR" type="STRING" minLength="1" maxLength="1"/>
+    </parameter>
+    <parameter name="useAliasRule" direction="IN" nullable="true">
+      <datatype name="SMALLINT" type="INTEGER" minValue="-32768" maxValue="32767"/>
+    </parameter>
+    <parameter name="resourcePrefix" direction="IN" nullable="true">
+      <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+    </parameter>
+    <parameter name="resourceSuffix" direction="IN" nullable="true">
+      <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+    </parameter>
+    <parameter name="newColumnList" direction="IN" nullable="true">
+      <datatype name="LONGVARCHAR" type="STRING" maxLength="2147483647"/>
+    </parameter>
+    <parameter name="generateWithSourceColumn" direction="IN" nullable="true">
+      <datatype name="SMALLINT" type="INTEGER" minValue="-32768" maxValue="32767"/>
+    </parameter>
+    <parameter name="generateCast" direction="IN" nullable="true">
+      <datatype name="SMALLINT" type="INTEGER" minValue="-32768" maxValue="32767"/>
+    </parameter>
+    <parameter name="generateIndexes" direction="IN" nullable="true">
+      <datatype name="SMALLINT" type="INTEGER" minValue="-32768" maxValue="32767"/>
+    </parameter>
+    <parameter name="generateUnsupportedColumnType" direction="IN" nullable="true">
+      <datatype name="INTEGER" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+    </parameter>
+    <parameter name="result" direction="OUT" nullable="true">
+      <datatype name="generateViewsRow" type="TABLE" refId="1">
+        <element name="datasourceName">
+          <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+        </element>
+        <element name="projectFolderName">
+          <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+        </element>
+        <element name="greatGrandParentName">
+          <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+        </element>
+        <element name="grandParentName">
+          <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+        </element>
+        <element name="parentName">
+          <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+        </element>
+        <element name="containerName">
+          <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+        </element>
+        <element name="containerType">
+          <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+        </element>
+        <element name="columnName">
+          <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+        </element>
+        <element name="logicalColumnName">
+          <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+        </element>
+        <element name="logicalColumnType">
+          <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+        </element>
+        <element name="logicalStatus">
+          <datatype name="VARCHAR" type="STRING" maxLength="1024"/>
+        </element>
+        <element name="containerPath">
+          <datatype name="LONGVARCHAR" type="STRING" maxLength="2147483647"/>
+        </element>
+        <element name="duration">
+          <datatype name="IntervalDay" type="INTERVAL_DAY" intervalMode="INTERVAL_HOUR_TO_SECOND" intervalPrecision="2" fractionalSecondPrecision="6"/>
+        </element>
+      </datatype>
+    </parameter>
+  </parameters>
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <dependency target="/lib/debug/Print" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="1">
+      <element name="textToPrint" direction="IN">
+        <datatype referenceDefinitionSet="/lib/util/System" referenceType="MessageValue" type="STRING" maxLength="64000"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/ASAssets/BestPractices_v81/Procedures/TypeDefinitions" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="1"></datatype>
+  </dependency>
+  <dependency target="/shared/PWC_template_original/_scripts/Generate/generateViews" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="1">
+      <element name="generateViewsWrapper" direction="IN">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="overwrite" direction="IN">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="copyAnnotation" direction="IN">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="copyPrivilegeMode" direction="IN">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="exactMatch" direction="IN">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="derivedFilterPath" direction="IN">
+        <datatype type="STRING" maxLength="2147483647"/>
+      </element>
+      <element name="excludeDsPathsList" direction="IN">
+        <datatype type="STRING" maxLength="2147483647"/>
+      </element>
+      <element name="sourceResource" direction="IN">
+        <datatype type="STRING" maxLength="2147483647"/>
+      </element>
+      <element name="generateToFolder" direction="IN">
+        <datatype type="STRING" maxLength="2147483647"/>
+      </element>
+      <element name="layerType" direction="IN">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="groupIds" direction="IN">
+        <datatype type="STRING" maxLength="2147483647"/>
+      </element>
+      <element name="generateMode" direction="IN">
+        <datatype type="STRING" minLength="1" maxLength="1"/>
+      </element>
+      <element name="outputMode" direction="IN">
+        <datatype type="STRING" minLength="1" maxLength="1"/>
+      </element>
+      <element name="generateViews" direction="IN">
+        <datatype type="INTEGER" minValue="-32768" maxValue="32767"/>
+      </element>
+      <element name="resourceCaseRule" direction="IN">
+        <datatype type="STRING" minLength="1" maxLength="1"/>
+      </element>
+      <element name="columnCaseRule" direction="IN">
+        <datatype type="STRING" minLength="1" maxLength="1"/>
+      </element>
+      <element name="useAliasRule" direction="IN">
+        <datatype type="INTEGER" minValue="-32768" maxValue="32767"/>
+      </element>
+      <element name="resourcePrefix" direction="IN">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="resourceSuffix" direction="IN">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="newColumnList" direction="IN">
+        <datatype type="STRING" maxLength="2147483647"/>
+      </element>
+      <element name="generateWithSourceColumn" direction="IN">
+        <datatype type="INTEGER" minValue="-32768" maxValue="32767"/>
+      </element>
+      <element name="generateCast" direction="IN">
+        <datatype type="INTEGER" minValue="-32768" maxValue="32767"/>
+      </element>
+      <element name="generateIndexes" direction="IN">
+        <datatype type="INTEGER" minValue="-32768" maxValue="32767"/>
+      </element>
+      <element name="generateUnsupportedColumnType" direction="IN">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="result" direction="OUT">
+        <datatype type="TABLE" refId="2">
+          <element name="datasourceName">
+            <datatype type="STRING" maxLength="255"/>
+          </element>
+          <element name="projectFolderName">
+            <datatype type="STRING" maxLength="255"/>
+          </element>
+          <element name="greatGrandParentName">
+            <datatype type="STRING" maxLength="255"/>
+          </element>
+          <element name="grandParentName">
+            <datatype type="STRING" maxLength="255"/>
+          </element>
+          <element name="parentName">
+            <datatype type="STRING" maxLength="255"/>
+          </element>
+          <element name="containerName">
+            <datatype type="STRING" maxLength="255"/>
+          </element>
+          <element name="containerType">
+            <datatype type="STRING" maxLength="255"/>
+          </element>
+          <element name="columnName">
+            <datatype type="STRING" maxLength="255"/>
+          </element>
+          <element name="logicalColumnName">
+            <datatype type="STRING" maxLength="255"/>
+          </element>
+          <element name="logicalColumnType">
+            <datatype type="STRING" maxLength="255"/>
+          </element>
+          <element name="logicalStatus">
+            <datatype type="STRING" maxLength="1024"/>
+          </element>
+          <element name="containerPath">
+            <datatype type="STRING" maxLength="2147483647"/>
+          </element>
+          <element name="duration">
+            <datatype type="INTERVAL_DAY" intervalMode="INTERVAL_HOUR_TO_SECOND" intervalPrecision="2" fractionalSecondPrecision="6"/>
+          </element>
+        </datatype>
+      </element>
+    </datatype>
+  </dependency>
+  <attribute name="Script" type="STRING">/* createSourceViews:
+
+	This procedure is Step 2 in the source view generation process.  Step 2 generates the source views.
+
+ 	Input:
+		debug
+			-- Y=debug on.  N=debug off
+		-- Primary parameters:
+		overwrite 
+			-- allows user to decide whether they want to overwrite an existing view or not.
+			-- 0=&quot;FAIL_IF_EXISTS&quot;=do not overwrite the resource.  If the resource exists, raise an exception.
+			-- 1=&quot;SKIP_IF_EXISTS&quot;=skip the resource if it exists and continue processing
+			-- 2 (default)=&quot;OVERWRITE_IF_EXISTS&quot;=do overwrite the resource if it exists.
+		derivedFilterPath	LONGVARCHAR, 
+			-- The path is derived by concatenating the partial filter path with the source path either from the sourceResource or of the designated layer type and groupId.
+			-- The layerType and the groupId are used to filter the rows from the configureStartingFolders.  The source path is
+			--    defined in configureStartingFolders per the layerType and groupId combination.
+			--   e.g. layerType=CP and sourceFolderPath=/shared/BestPractices/DataAbstractionAbstractionSample/Application/Views
+			--        The derivedFilterPath list=&quot;Orders_Closed,/Orders/Customers,Orders/Product&quot;
+			--        Even though there are several other views in the /Orders folder under the /Application/Views only the ones specified
+			--	      will be generated to the Application/Published.  Views directly under the source path do not require any qualifying path except the view name.
+			--        Lastly, a leading &apos;/&apos; is not required but may be present if desired.
+			-- If null, generate views from all source folders as directed by the sourceResource or &quot;configure starting folders&quot; and the designated layer type.
+		excludeDsPathsList	LONGVARCHAR,
+			-- comma separated list of resource paths or partials paths to exclude.  This may be useful when a data source has been moved and it&apos;s index or foreign keys
+			--	are pointing to another data source that does not exist anymore.  It may be necessary to exclude that path or paths.  If an exception is thrown during 
+			--	execution, try excluding those paths.
+			--	Values: /shared/MyPath/Physical/Metadata/MyDatasource
+
+		-- OPTION 1 - generate views is controlled by explicit folder settings for a source resource and the folder to generate views to.
+		-- 			  Use sourceResource and generateToFolder explicitly.   If blank then use layerType, groupIds and derivedFilterPath.
+		sourceResource				LONGVARCHAR,
+			-- The source folder in CIS to begin searching for views to generate CRUD procedures from
+			-- If this is set it supercedes the parameters set for layerType, groupIds and derivedFilterPath
+		generateToFolder			LONGVARCHAR,
+			-- This is the full path to the folder in which to generate the views
+			-- This is only required if option 1: sourceResource is provided.
+
+		-- Secondary parameters:
+		generateMode		CHAR(1),
+			-- G=Generate the resource names 
+			-- R=Retrieve the resource name from a spreadsheet. (resources include PATH names, VIEW names AND COLUMN names)
+		generateViews		SMALLINT,
+	 		-- 0=Do not generate - (browse only) print out what will happen but don&apos;t perform the generation.
+			-- 1=Do generate [DEFAULT] - Perform the VIEW Generation with a column projection.
+			-- 2= Do generate          - Perform the VIEW Generation with a select * projection.
+		caseRule			CHAR(1), -- (used when generateMode=&apos;G&apos;) 
+			-- O=[default] Original_case - The word is not changed at all -- just pass it through as is
+			-- j=javaCase - 1st word part is lower case, following word parts are 1st is letter is upper and remaining word part is lower with no separators
+			-- C=CamelCase - 1st letter of each word part is upper case and remaining word part is lower with no separators
+			-- T=Title_Case - 1st letter of each word part is upper case and remaining word part is lower with separators retained
+			-- U=UPPER_CASE - All word parts are UPPER case with separtors retained
+			-- l=lower_case - All word parts are lower case with separators retained
+		useAliasRule		SMALLINT,-- (used when generateMode=&apos;G&apos;)
+			-- 0=[default] DO NOT perform alias rule lookup at all.  Word Part is passed through
+			-- 1=Use alias rule and MATCH CASE exactly
+			-- 2=Use alias rule and DO NOT MATCH CASE
+		generateWithSourceColumn SMALLINT,-- (used when generateMode=&apos;R&apos;)
+			-- 0=Do NOT generate the view with the source column (no pass through)-Column status is DROPPED
+			-- 1=[default] Generate the view with the source column (pass through)-Column status is UNCHANGED
+		generateCast 		SMALLINT,-- (used when generateMode=&apos;G&apos;)
+			-- 	This parameter allows the user to control whether to generate the cast statement around the generated
+			--	   column or not.  It uses the column type from the source view.
+			--	0=Do not generate CAST statement.  Pass through column as is.  Default behavior.
+			-- 	1=Generate the CAST statement around the column
+			--	2-Generate the CAST statement around the non-index columns only (No CAST on index columns)
+			--	3-Generate the CAST statement around the non-index columns only and generate a &quot;display&quot; CAST column for each index column.  (No CAST o nindex columns)
+			--	4-Generate the CAST statement around the non-index columns and non-primary key index columns only (No CAST on primary key index columns)
+			--	5-Generate the CAST statement around the non-index columns and non-primary key index columns only and generate a &quot;display&quot; CAST column for each primary key index column.  (No CAST on primary key index columns)
+		generateIndexes	SMALLINT,
+			-- 	This parameter allows the user to control whether to generate indexes on the target views as derived from the underlying resources
+			--	0=[default] Do not generate indexes
+			-- 	1=Generate indexes
+		generateUnsupportedColumnType
+			--  flag indicating whether to ignore or generate unsupported column types.  For example in Oracle an SDO spatial type gets imported into Composite at &apos;OTHER&apos;.
+			--  0/null (default) - ignore column type = &apos;OTHER&apos; and do not generate that column
+			--  1 - generate columns where the column type = &apos;OTHER&apos;
+
+	Output:
+		OUT result 					PIPE /shared/ASAssets/BestPractices_v81/Procedures/TypeDefinitions.generateViewsRow
+	
+	Modified Date:	Modified By:		DV Version:		Reason:
+	01/23/2019		Mike Tinius			8.0.0			Created new to generate the source views.
+*/
+PROCEDURE createSourceViews(
+	IN debug						CHAR(1),
+	IN overwrite					INTEGER,	
+		-- allows user to decide whether they want to overwrite an existing view or not.
+		-- 0=&quot;FAIL_IF_EXISTS&quot;=do not overwrite the resource.  If the resource exists, raise an exception.
+		-- 1=&quot;SKIP_IF_EXISTS&quot;=skip the resource if it exists and continue processing
+		-- 2 (default)=&quot;OVERWRITE_IF_EXISTS&quot;=do overwrite the resource if it exists.
+	IN derivedFilterPath			LONGVARCHAR, 
+		-- The path is derived by concatenating the partial filter path with the source path either from the sourceResource or of the designated layer type and groupId.
+		-- The layerType and the groupId are used to filter the rows from the configureStartingFolders.  The source path is
+		--    defined in configureStartingFolders per the layerType and groupId combination.
+		--   e.g. layerType=CP and sourceFolderPath=/shared/BestPractices/DataAbstractionAbstractionSample/Application/Views
+		--        The derivedFilterPath list=&quot;Orders_Closed,/Orders/Customers,Orders/Product&quot;
+		--        Even though there are several other views in the /Orders folder under the /Application/Views only the ones specified
+		--	      will be generated to the Application/Published.  Views directly under the source path do not require any qualifying path except the view name.
+		--        Lastly, a leading &apos;/&apos; is not required but may be present if desired.
+		-- If null, generate views from all source folders as directed by the sourceResource or &quot;configure starting folders&quot; and the designated layer type.
+	IN excludeDsPathsList			LONGVARCHAR,
+		-- comma separated list of resource paths or partials paths to exclude.  This may be useful when a data source has been moved and it&apos;s index or foreign keys
+		--	are pointing to another data source that does not exist anymore.  It may be necessary to exclude that path or paths.  If an exception is thrown during 
+		--	execution, try excluding those paths.
+		--	Values: /shared/MyPath/Physical/Metadata/MyDatasource
+	
+	-- OPTION 1 - generate views is controlled by explicit folder settings for a source resource and the folder to generate views to.
+	-- 			  Use sourceResource and generateToFolder explicitly.   If blank then use layerType, groupIds and derivedFilterPath.
+	IN sourceResource				LONGVARCHAR,
+ 		-- The source folder in CIS to begin searching for views to generate CRUD procedures from
+		-- If this is set it supercedes the parameters set for layerType, groupIds and derivedFilterPath
+	IN generateToFolder				LONGVARCHAR,
+		-- This is the full path to the folder in which to generate the views
+		-- This is only required if option 1: sourceResource is provided.
+
+	-- Additional parameters
+    IN generateMode					CHAR(1),
+    	-- G=Generate the resource names 
+		-- R=Retrieve the resource name from a spreadsheet. (resources include PATH names, VIEW names AND COLUMN names)
+    IN generateViews				SMALLINT,
+ 		-- 0=Do not generate - (browse only) print out what will happen but don&apos;t perform the generation.
+		-- 1=Do generate [DEFAULT] - Perform the VIEW Generation with a column projection.
+		-- 2=Do generate           - Perform the VIEW Generation with a select * projection.
+	IN resourceCaseRule				CHAR(1), -- (used when generateMode=&apos;G&apos;) 
+		--  TABLES only.  This resourceCaseRule is only used for tables.
+		--	 Assumption:  The original table name has to have separators (_) for this to work properly.
+		--			     If the original word has no separators then the case rule gets applied to the single word
+    	-- 	j=javaCase - 1st word part is lower case, following word parts are 1st is letter is upper and remaining word part is lower with no separators
+		-- 	C=CamelCase - 1st letter of each word part is upper case and remaining word part is lower with no separators
+		-- 	T=Title_Case - 1st letter of each word part is upper case and remaining word part is lower with separators retained
+		-- 	U=UPPER_CASE - All word parts are UPPER case with separtors retained
+		-- 	l=lower_case - All word parts are lower case with separators retained
+		-- 	O=Original_case - The word is not changed at all -- just pass it through as is
+	IN columnCaseRule				CHAR(1), -- (used when generateMode=&apos;G&apos;) 
+		--  COLUMNS only.  This caseRule is only used for columns.
+		--	 Assumption:  The original column name has to have separators (_) for this to work properly.
+		--			     If the original word has no separators then the case rule gets applied to the single word
+		--	j=javaCase - 1st word part is lower case, following word parts are 1st is letter is upper and remaining word part is lower with no separators
+		--	C=CamelCase - 1st letter of each word part is upper case and remaining word part is lower with no separators
+		--	T=Title_Case - 1st letter of each word part is upper case and remaining word part is lower with separators retained
+		--	U=UPPER_CASE - All word parts are UPPER case with separtors retained
+		--	l=lower_case - All word parts are lower case with separators retained
+		--	O=Original_case - The word is not changed at all -- just pass it through as is
+	IN useAliasRule					SMALLINT,	-- (used when generateMode=&apos;G&apos;)
+    	-- 0=DO NOT perform alias rule lookup at all.  Word Part is passed through
+		-- 1=Use alias rule and MATCH CASE exactly
+		-- 2=Use alias rule and DO NOT MATCH CASE
+	IN resourcePrefix 				VARCHAR, --(used when generateMode=&apos;G&apos;)
+		--  Any set of characters used to prefix a table or procedure name.  Include underscores with the suffix if applicable.
+		--	Example: V_ MY_TABLE or V_MY_TABLE 	
+	IN resourceSuffix 				VARCHAR, --(used when generateMode=&apos;G&apos;)
+		--  Any set of characters used to suffix a table or procedure name.  Include underscores with the suffix if applicable.
+		--	Example: _APP MY_TABLE or MY_TABLE_APP 	
+	IN newColumnList				LONGVARCHAR, --(used when generateMode=&apos;G&apos;)
+		-- A formatted list of new columns to add to the end of the view.  The column will not be added if it already exists.
+		-- The format is as follows:  column1&amp;&amp;type1&amp;&amp;value1//column2&amp;&amp;type2&amp;&amp;value2//column3&amp;&amp;type3&amp;&amp;value3
+    IN generateWithSourceColumn 	SMALLINT,-- (used when generateMode=&apos;R&apos;)
+		-- 0=Do NOT generate the view with the source column (no pass through)-Column status is DROPPED
+    	-- 1=[default] Generate the view with the source column (pass through)-Column status is UNCHANGED
+	IN generateCast 				SMALLINT,-- (used when generateMode=&apos;G&apos; or &apos;R&apos;)
+		-- 	This parameter allows the user to control whether to generate the cast statement around the generated
+		--	   column or not.  It uses the column type from the source view.
+		--	0=Do not generate CAST statement.  Pass through column as is.  Default behavior.
+		-- 	1=Generate the CAST statement around the column
+		--	2-Generate the CAST statement around the non-index columns only (No CAST on index columns)
+		--	3-Generate the CAST statement around the non-index columns only and generate a &quot;display&quot; CAST column for each index column.  (No CAST o nindex columns)
+		--	4-Generate the CAST statement around the non-index columns and non-primary key index columns only (No CAST on primary key index columns)
+		--	5-Generate the CAST statement around the non-index columns and non-primary key index columns only and generate a &quot;display&quot; CAST column for each primary key index column.  (No CAST on primary key index columns)
+	IN generateIndexes 				SMALLINT,
+		--	generateIndexes - This parameter allows the user to control whether to generate indexes on the target views as derived from the underlying resources
+		--	0=[default] Do not generate indexes
+		-- 	1=Generate indexes
+	IN generateUnsupportedColumnType INTEGER,
+		-- flag indicating whether to ignore or generate unsupported column types.  For example in Oracle an SDO spatial type gets imported into Composite as &apos;OTHER&apos;.
+		-- 0/null (default) - ignore column type = &apos;OTHER&apos; and do not generate that column
+		-- 1 - generate columns where the column type = &apos;OTHER&apos;
+
+    OUT result 						PIPE /shared/ASAssets/BestPractices_v81/Procedures/TypeDefinitions.generateViewsRow
+)
+BEGIN
+	DECLARE moduleName				VARCHAR DEFAULT &apos;createSourceViews&apos;;
+	DECLARE startTime				TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+	DECLARE endTime					TIMESTAMP;
+	DECLARE duration				INTERVAL DAY TO SECOND;
+
+	/**********************************************************
+	 * Defaulted Variables instead of passed in as parameters.
+	 **********************************************************/
+	DECLARE generateViewsWrapper	INTEGER DEFAULT 0;
+		-- 0           - print the output to the cursor.  The cursor is bound by Composite Studio &quot;Fetch Row Size&quot; and &quot;Cursor Fetch Limit&quot;
+		--               The cursor stops producing output when it hits those limits.  The limits are configured in Composite Studio
+		--                  AdministrationConfigurationStudioDataFetch Rows Size and Cursor Fetch Limit.  
+		--                  Modify the Cursor Fetch Limit to an arbitrary number such as 500
+		-- 1 (default) - print TABLE only information to console window.  Do not print to the cursor result window.  The aforementioned limits do not apply.
+		-- 2           - print TABLE and COLUMN information to console window.  Do not print to the cursor result window.
+	DECLARE copyAnnotation			INTEGER DEFAULT	1;	
+		-- allows user to decide whether they want to copy annotations or not form both resource and columns.
+		-- 0 (default)=false=do not copy the annotation from the target resource
+		-- 1=true=do copy the annotation from the target resource
+	DECLARE copyPrivilegeMode		INTEGER DEFAULT 1;
+		-- flag indicating the mode in which to copy privileges.  Privileges are only copied from the parent when creating new resources including folders.
+		-- null (default) - do not set any privileges at all
+		-- 0 - set mode to &quot;OVERWRITE_APPEND&quot; - merges and does not update privileges for users or groups not mentioned.
+		-- 1 - set the mode to &quot;SET_EXACTLY&quot; - makes privileges look exactly like those provided in the call.
+	DECLARE exactMatch				INTEGER DEFAULT 1;
+		-- specifies how the source resource will be matched against the resource being interrogated
+		-- 0=fuzzy match - sourcePath + derivedFilterPath must simply be contained within resourcePath
+		-- 1 (default)=exact match - sourcePath + derivedFilterPath must match exactly in resourcePath
+
+	-- OPTION 2 - generate views is controlled via layerType, groupIds and derivedFilter from the ConfigureStartingFolders
+ 	-- If sourceResource is blank, then groupIds must be set with derivedFilterPath being optional
+    DECLARE layerType				VARCHAR DEFAULT null;
+		-- PV=Physical Views - generatePhysicalViews invokes generateViews
+		-- FV=Formatting Views - generateFormattingViews invokes generateViews
+		-- BV=Business Views - use generateViews
+		-- LV=Logical Views - generateLoicalViews invokes generateViews
+		-- CV=Client Views - generateClientViews invokes generateViews
+		-- CP=Client Published - generateClientPublished invokes generateViews
+		-- DB=Database link - generatePublishedResource invokes generateViews
+	DECLARE groupIds				LONGVARCHAR DEFAULT null; 
+		-- This is a comma separate list group ids to process. 
+		-- This is a filter that allows the user to only generate for a specific group or list of groups
+		--   found in the /_scripts/Configure/ConfigureStartingFolders.
+		--   Pass in null to select all groupIds.
+    DECLARE outputMode	 			CHAR(1) DEFAULT &apos;A&apos;;
+    	-- A=Return All abstract columns, 
+    	-- U=Return ONLY Unchanged/Dropped columns that were NOT found.
+
+	-- Generate the source views (aka formatting layer).
+	IF (UPPER(debug) = &apos;Y&apos;) THEN
+		SET startTime = CURRENT_TIMESTAMP;
+		CALL PRINT(moduleName||&apos; : Begin generating the source views.   sourceResource=&apos;||NVL(sourceResource,&apos;null&apos;));
+		CALL PRINT(moduleName||&apos; :                                      generateToFolder=&apos;||NVL(generateToFolder,&apos;null&apos;));
+	END IF;
+	FOR r AS
+		SELECT * FROM /shared/PWC_template_original/&quot;_scripts&quot;/Generate/generateViews(
+			generateViewsWrapper,
+				-- 0           - print the output to the cursor.  The cursor is bound by Composite Studio &quot;Fetch Row Size&quot; and &quot;Cursor Fetch Limit&quot;
+				--               The cursor stops producing output when it hits those limits.  The limits are configured in Composite Studio
+				--                  AdministrationConfigurationStudioDataFetch Rows Size and Cursor Fetch Limit.  
+				--                  Modify the Cursor Fetch Limit to an arbitrary number such as 500
+				-- 1 (default) - print TABLE only information to console window.  Do not print to the cursor result window.  The aforementioned limits do not apply.
+				-- 2           - print TABLE and COLUMN information to console window.  Do not print to the cursor result window.
+			overwrite,	
+				-- allows user to decide whether they want to overwrite an existing view or not.
+				-- 0=&quot;FAIL_IF_EXISTS&quot;=do not overwrite the resource.  If the resource exists, raise an exception.
+				-- 1=&quot;SKIP_IF_EXISTS&quot;=skip the resource if it exists and continue processing
+				-- 2 (default)=&quot;OVERWRITE_IF_EXISTS&quot;=do overwrite the resource if it exists.
+			copyAnnotation,		
+				-- allows user to decide whether they want to copy annotations or not form both resource and columns.
+				-- 0 (default)=false=do not copy the annotation from the target resource
+				-- 1=true=do copy the annotation from the target resource
+			copyPrivilegeMode,
+				-- flag indicating the mode in which to copy privileges.  Privileges are only copied from the parent when creating new resources including folders.
+				-- null (default) - do not set any privileges at all
+				-- 0 - set mode to &quot;OVERWRITE_APPEND&quot; - merges and does not update privileges for users or groups not mentioned.
+				-- 1 - set the mode to &quot;SET_EXACTLY&quot; - makes privileges look exactly like those provided in the call.
+			exactMatch,
+				-- specifies how the source resource will be matched against the resource being interrogated
+				-- 0=fuzzy match - sourcePath + derivedFilterPath must simply be contained within resourcePath
+				-- 1 (default)=exact match - sourcePath + derivedFilterPath must match exactly in resourcePath
+			derivedFilterPath, 
+				-- The path is derived by concatenating the partial filter path with the source path either from the sourceResource or of the designated layer type and groupId.
+				-- The layerType and the groupId are used to filter the rows from the configureStartingFolders.  The source path is
+				--    defined in configureStartingFolders per the layerType and groupId combination.
+				--   e.g. layerType=CP and sourceFolderPath=/shared/BestPractices/DataAbstractionAbstractionSample/Application/Views
+				--        The derivedFilterPath list=&quot;Orders_Closed,/Orders/Customers,Orders/Product&quot;
+				--        Even though there are several other views in the /Orders folder under the /Application/Views only the ones specified
+				--	      will be generated to the Application/Published.  Views directly under the source path do not require any qualifying path except the view name.
+				--        Lastly, a leading &apos;/&apos; is not required but may be present if desired.
+				-- If null, generate views from all source folders as directed by the sourceResource or &quot;configure starting folders&quot; and the designated layer type.
+			excludeDsPathsList,
+				-- comma separated list of resource paths or partials paths to exclude.  This may be useful when a data source has been moved and it&apos;s index or foreign keys
+				--	are pointing to another data source that does not exist anymore.  It may be necessary to exclude that path or paths.  If an exception is thrown during 
+				--	execution, try excluding those paths.
+				--	Values: /shared/MyPath/Physical/Metadata/MyDatasource
+		
+			-- OPTION 1 - generate views is controlled by explicit folder settings for a source resource and the folder to generate views to.
+			-- If sourceResource is not blank, then use targetResource and groupIds and derivedFilterPath are ignored
+			sourceResource,
+				-- The source folder in CIS to begin searching for views to publish to a Composite data source
+				-- or the full path to a specific source View or Procedure to generate to the folder &quot;publishToFolder&quot;
+				-- If this is set it supercedes the parameters set for layerType, groupIds and derivedFilterPath
+
+			generateToFolder,
+				-- This is the full path to the folder in which to generate the views
+				-- This is only required if option 1: targetResource is provided.
+
+			-- OPTION 2 - generate views is controlled via layerType, groupIds and derivedFilter from the ConfigureStartingFolders
+			-- If sourceResource is blank, then groupIds must be set with derivedFilterPath being optional
+			layerType,
+				-- PV=Physical Views - generatePhysicalViews invokes generateViews
+				-- FV=Formatting Views - generateFormattingViews invokes generateViews
+				-- BV=Business Views - use generateViews
+				-- LV=Logical Views - generateLoicalViews invokes generateViews
+				-- CV=Client Views - generateClientViews invokes generateViews
+				-- CP=Client Published - generateClientPublished invokes generateViews
+				-- DB=Database link - generatePublishedResource invokes generateViews
+			groupIds, 
+				-- This is a comma separate list group ids to process. 
+				-- This is a filter that allows the user to only generate for a specific group or list of groups
+				--   found in the /_scripts/Configure/ConfigureStartingFolders.
+				--   Pass in null to select all groupIds.
+
+			-- Additional parameters
+			generateMode,
+				-- G=Generate the resource names 
+				-- R=Retrieve the resource name from a spreadsheet. (resources include PATH names, VIEW names AND COLUMN names)
+			outputMode,
+				-- A=Return All abstract columns, 
+				-- U=Return ONLY Unchanged/Dropped columns that were NOT found.
+			generateViews,
+				-- 0=Do not generate - (browse only) print out what will happen but don&apos;t perform the generation.
+				-- 1=Do generate [DEFAULT] - Perform the VIEW Generation with a column projection.
+				-- 2=Do generate           - Perform the VIEW Generation with a select * projection.
+			resourceCaseRule, -- (used when generateMode=&apos;G&apos;) 
+				--  TABLES/PROCEDURES only.  This resourceCaseRule is only used for tables or procedures.
+				--	 	Assumption:  The original table name has to have separators (_) for this to work properly.
+				--			     If the original word has no separators then the case rule gets applied to the single word
+				-- 		j=javaCase - 1st word part is lower case, following word parts are 1st is letter is upper and remaining word part is lower with no separators
+				-- 		C=CamelCase - 1st letter of each word part is upper case and remaining word part is lower with no separators
+				-- 		T=Title_Case - 1st letter of each word part is upper case and remaining word part is lower with separators retained
+				-- 		U=UPPER_CASE - All word parts are UPPER case with separtors retained
+				-- 		l=lower_case - All word parts are lower case with separators retained
+				-- 		O=Original_case - The word is not changed at all -- just pass it through as is
+			columnCaseRule, -- (used when generateMode=&apos;G&apos;) 
+				--  COLUMNS only.  This caseRule is only used for columns.
+				--	 	Assumption:  The original column name has to have separators (_) for this to work properly.
+				--			     If the original word has no separators then the case rule gets applied to the single word
+				--		j=javaCase - 1st word part is lower case, following word parts are 1st is letter is upper and remaining word part is lower with no separators
+				--		C=CamelCase - 1st letter of each word part is upper case and remaining word part is lower with no separators
+				--		T=Title_Case - 1st letter of each word part is upper case and remaining word part is lower with separators retained
+				--		U=UPPER_CASE - All word parts are UPPER case with separtors retained
+				--		l=lower_case - All word parts are lower case with separators retained
+				--		O=Original_case - The word is not changed at all -- just pass it through as is
+			useAliasRule,	-- (used when generateMode=&apos;G&apos;)
+				-- 0=DO NOT perform alias rule lookup at all.  Word Part is passed through
+				-- 1=Use alias rule and MATCH CASE exactly
+				-- 2=Use alias rule and DO NOT MATCH CASE
+			resourcePrefix, --(used when generateMode=&apos;G&apos;)
+				--  Any set of characters used to prefix a table or procedure name.  Include underscores with the suffix if applicable.
+				--	Example: V_ MY_TABLE or V_MY_TABLE 	
+			resourceSuffix, --(used when generateMode=&apos;G&apos;)
+				--  Any set of characters used to suffix a table or procedure name.  Include underscores with the suffix if applicable.
+				--	Example: _APP MY_TABLE or MY_TABLE_APP 	
+			newColumnList, --(used when generateMode=&apos;G&apos;)
+				-- A formatted list of new columns to add to the end of the view.  The column will not be added if it already exists.
+				-- The format is as follows:  column1&amp;&amp;type1&amp;&amp;value1//column2&amp;&amp;type2&amp;&amp;value2//column3&amp;&amp;type3&amp;&amp;value3
+			generateWithSourceColumn,-- (used when generateMode=&apos;R&apos;)
+				-- 0=Do NOT generate the view with the source column (no pass through)-Column status is DROPPED
+				-- 1=[default] Generate the view with the source column (pass through)-Column status is UNCHANGED
+			generateCast,-- (used when generateMode=&apos;G&apos; or &apos;R&apos;)
+				-- 	This parameter allows the user to control whether to generate the cast statement around the generated
+				--	   column or not.  It uses the column type from the source view.
+				--	0=Do not generate CAST statement.  Pass through column as is.  Default behavior.
+				-- 	1=Generate the CAST statement around the column
+				--	2-Generate the CAST statement around the non-index columns only (No CAST on index columns)
+				--	3-Generate the CAST statement around the non-index columns only and generate a &quot;display&quot; CAST column for each index column.  (No CAST o nindex columns)
+				--	4-Generate the CAST statement around the non-index columns and non-primary key index columns only (No CAST on primary key index columns)
+				--	5-Generate the CAST statement around the non-index columns and non-primary key index columns only and generate a &quot;display&quot; CAST column for each primary key index column.  (No CAST on primary key index columns)
+			generateIndexes,
+				--	generateIndexes - This parameter allows the user to control whether to generate indexes on the target views as derived from the underlying resources
+				--	0=[default] Do not generate indexes
+				-- 	1=Generate indexes
+			generateUnsupportedColumnType
+				-- flag indicating whether to ignore or generate unsupported column types.  For example in Oracle an SDO spatial type gets imported into Composite as &apos;OTHER&apos;.
+				-- 0/null (default) - ignore column type = &apos;OTHER&apos; and do not generate that column
+				-- 1 - generate columns where the column type = &apos;OTHER&apos;
+		)
+	DO
+		INSERT INTO result VALUES (r);
+	END FOR;
+	IF (UPPER(debug) = &apos;Y&apos;) THEN
+		SET endTime = CURRENT_TIMESTAMP;
+		SET duration = endTime - startTime;
+		CALL PRINT(moduleName||&apos; : Finished generating the source views.  duration=&apos;||CAST(duration AS VARCHAR));
+	END IF;
+
+END </attribute>
+  <attribute name="creationDate" type="LONG">1547837099654</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1548449312790</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="model" type="NULL"/>
+  <attribute name="native_only" type="STRING">false</attribute>
+  <attribute name="references" type="NULL"/>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1547837099654</attribute>
+</metadata>

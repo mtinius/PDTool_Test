@@ -1,0 +1,731 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:56a055f1-05be-44e4-b8e2-a3fa6d842fe3 -->
+<metadata name="createDatasourceIntrospect" path="/shared/Common/GenerateViews/helpers/createDatasourceIntrospect" type="PROCEDURE" subtype="SQL_SCRIPT_PROCEDURE" changeToken="0">
+  <parameters>
+    <parameter name="debug" direction="IN" nullable="true">
+      <datatype name="CHAR" type="STRING" minLength="1" maxLength="1"/>
+    </parameter>
+    <parameter name="destroyDatasource" direction="IN" nullable="true">
+      <datatype name="CHAR" type="STRING" minLength="1" maxLength="1"/>
+    </parameter>
+    <parameter name="dataSourceFullPath" direction="IN" nullable="true">
+      <datatype name="VARCHAR" type="STRING" maxLength="4000"/>
+    </parameter>
+    <parameter name="dataSourceType" direction="IN" nullable="true">
+      <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+    </parameter>
+    <parameter name="catalogName" direction="IN" nullable="true">
+      <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+    </parameter>
+    <parameter name="schemaName" direction="IN" nullable="true">
+      <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+    </parameter>
+    <parameter name="tableNames" direction="IN" nullable="true">
+      <datatype name="LONGVARCHAR" type="STRING" maxLength="2147483647"/>
+    </parameter>
+    <parameter name="procedureNames" direction="IN" nullable="true">
+      <datatype name="LONGVARCHAR" type="STRING" maxLength="2147483647"/>
+    </parameter>
+    <parameter name="urlIP" direction="IN" nullable="true">
+      <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+    </parameter>
+    <parameter name="urlDatabaseName" direction="IN" nullable="true">
+      <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+    </parameter>
+    <parameter name="urlPort" direction="IN" nullable="true">
+      <datatype name="INTEGER" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+    </parameter>
+    <parameter name="login" direction="IN" nullable="true">
+      <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+    </parameter>
+    <parameter name="password" direction="IN" nullable="true">
+      <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+    </parameter>
+    <parameter name="success" direction="OUT" nullable="true">
+      <datatype name="BIT" type="INTEGER" minValue="0" maxValue="1"/>
+    </parameter>
+    <parameter name="createDataSourceResponse" direction="OUT" nullable="true">
+      <datatype name="XML" type="XML" contentConstraint="SEQUENCE" schemaConstraint="ANY" componentType="TYPE" componentName="XML">
+        <schemaDatatype>
+          <datatype name="XML" type="TREE" refId="1"></datatype>
+        </schemaDatatype>
+      </datatype>
+    </parameter>
+    <parameter name="faultResponse" direction="OUT" nullable="true">
+      <datatype name="XML" type="XML" contentConstraint="SEQUENCE" schemaConstraint="ANY" componentType="TYPE" componentName="XML">
+        <schemaDatatype>
+          <datatype name="XML" type="TREE" refId="1"></datatype>
+        </schemaDatatype>
+      </datatype>
+    </parameter>
+    <parameter name="errStatus" direction="OUT" nullable="true">
+      <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+    </parameter>
+    <parameter name="errMessage" direction="OUT" nullable="true">
+      <datatype name="LONGVARCHAR" type="STRING" maxLength="2147483647"/>
+    </parameter>
+    <parameter name="introspectionResult" direction="OUT" nullable="true">
+      <datatype name="LONGVARCHAR" type="STRING" maxLength="2147483647"/>
+    </parameter>
+    <parameter name="numResourcesIntrospectAdd" direction="OUT" nullable="true">
+      <datatype name="INTEGER" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+    </parameter>
+    <parameter name="numTablesIntrospectAdd" direction="OUT" nullable="true">
+      <datatype name="INTEGER" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+    </parameter>
+    <parameter name="tablesIntrospectAdd" direction="OUT" nullable="true">
+      <datatype name="LONGVARCHAR" type="STRING" maxLength="2147483647"/>
+    </parameter>
+    <parameter name="numResourcesIntrospectSkip" direction="OUT" nullable="true">
+      <datatype name="INTEGER" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+    </parameter>
+    <parameter name="numTablesIntrospectSkip" direction="OUT" nullable="true">
+      <datatype name="INTEGER" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+    </parameter>
+    <parameter name="tablesIntrospectSkip" direction="OUT" nullable="true">
+      <datatype name="LONGVARCHAR" type="STRING" maxLength="2147483647"/>
+    </parameter>
+  </parameters>
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <dependency target="/lib/debug/Print" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="1">
+      <element name="textToPrint" direction="IN">
+        <datatype referenceDefinitionSet="/lib/util/System" referenceType="MessageValue" type="STRING" maxLength="64000"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/lib/resource/ResourceExists" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="1">
+      <element name="path" direction="IN">
+        <datatype referenceDefinitionSet="/lib/resource/ResourceDefs" referenceType="ResourcePath" type="STRING" maxLength="4096"/>
+      </element>
+      <element name="type" direction="IN">
+        <datatype referenceDefinitionSet="/lib/resource/ResourceDefs" referenceType="ResourceType" type="STRING" maxLength="40"/>
+      </element>
+      <element name="version" direction="IN">
+        <datatype referenceDefinitionSet="/lib/resource/ResourceDefs" referenceType="ResourceVersion" type="STRING" maxLength="255"/>
+      </element>
+      <element name="exists" direction="OUT">
+        <datatype type="BOOLEAN"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/ASAssets/Utilities/generate/generateViews" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="1">
+      <element name="datasourcePath" direction="IN">
+        <datatype type="STRING" maxLength="2147483647"/>
+      </element>
+      <element name="catalogName" direction="IN">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="schemaName" direction="IN">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="schemaTablePatterns" direction="IN">
+        <datatype type="STRING" maxLength="4096"/>
+      </element>
+      <element name="tableNames" direction="IN">
+        <datatype type="STRING" maxLength="2147483647"/>
+      </element>
+      <element name="schemaProcedurePatterns" direction="IN">
+        <datatype type="STRING" maxLength="4096"/>
+      </element>
+      <element name="procedureNames" direction="IN">
+        <datatype type="STRING" maxLength="2147483647"/>
+      </element>
+      <element name="separator" direction="IN">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="formattingLayerPath" direction="IN">
+        <datatype type="STRING" maxLength="2147483647"/>
+      </element>
+      <element name="businessLayerPath" direction="IN">
+        <datatype type="STRING" maxLength="2147483647"/>
+      </element>
+      <element name="applicationLayerPath" direction="IN">
+        <datatype type="STRING" maxLength="2147483647"/>
+      </element>
+      <element name="publishedDBLayerPath" direction="IN">
+        <datatype type="STRING" maxLength="2147483647"/>
+      </element>
+      <element name="prefix" direction="IN">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="overwrite" direction="IN">
+        <datatype type="INTEGER" minValue="-32768" maxValue="32767"/>
+      </element>
+      <element name="copyAnnotation" direction="IN">
+        <datatype type="INTEGER" minValue="-32768" maxValue="32767"/>
+      </element>
+      <element name="copySqlIndexes" direction="IN">
+        <datatype type="INTEGER" minValue="-32768" maxValue="32767"/>
+      </element>
+      <element name="copyForeignKeys" direction="IN">
+        <datatype type="INTEGER" minValue="-32768" maxValue="32767"/>
+      </element>
+      <element name="inDebug" direction="IN">
+        <datatype type="STRING" minLength="1" maxLength="1"/>
+      </element>
+      <element name="errStatus" direction="OUT">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="errMessage" direction="OUT">
+        <datatype type="STRING" maxLength="2147483647"/>
+      </element>
+      <element name="introspectionResult" direction="OUT">
+        <datatype type="STRING" maxLength="2147483647"/>
+      </element>
+      <element name="dataSourceType" direction="OUT">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="dataSourceSubtype" direction="OUT">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="numResourcesIntrospectAdd" direction="OUT">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="numTablesIntrospectAdd" direction="OUT">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="tablesIntrospectAdd" direction="OUT">
+        <datatype type="STRING" maxLength="2147483647"/>
+      </element>
+      <element name="numResourcesIntrospectSkip" direction="OUT">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="numTablesIntrospectSkip" direction="OUT">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="tablesIntrospectSkip" direction="OUT">
+        <datatype type="STRING" maxLength="2147483647"/>
+      </element>
+      <element name="generatedViewsCursor" direction="OUT">
+        <datatype type="TABLE" refId="2">
+          <element name="actionType">
+            <datatype type="STRING" maxLength="255"/>
+          </element>
+          <element name="layerType">
+            <datatype type="STRING" maxLength="255"/>
+          </element>
+          <element name="resName">
+            <datatype type="STRING" maxLength="255"/>
+          </element>
+          <element name="resPath">
+            <datatype type="STRING" maxLength="2147483647"/>
+          </element>
+          <element name="resType">
+            <datatype type="STRING" maxLength="255"/>
+          </element>
+          <element name="subtype">
+            <datatype type="STRING" maxLength="255"/>
+          </element>
+          <element name="parentLineageLayerType">
+            <datatype type="STRING" maxLength="255"/>
+          </element>
+          <element name="parentLineagePath">
+            <datatype type="STRING" maxLength="2147483647"/>
+          </element>
+          <element name="metadataLineageName">
+            <datatype type="STRING" maxLength="2147483647"/>
+          </element>
+          <element name="metadataLineagePath">
+            <datatype type="STRING" maxLength="2147483647"/>
+          </element>
+        </datatype>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/ASAssets/Utilities/repository/createAllFoldersPrivileges" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="1">
+      <element name="inSourceFolderPath" direction="IN">
+        <datatype referenceDefinitionSet="/shared/ASAssets/Utilities/TypeDefinitions" referenceType="pathType" type="STRING" maxLength="1000"/>
+      </element>
+      <element name="updatePrivilegesRecursively" direction="IN">
+        <datatype type="INTEGER" minValue="0" maxValue="1"/>
+      </element>
+      <element name="copyPrivilegeMode" direction="IN">
+        <datatype type="INTEGER" minValue="0" maxValue="1"/>
+      </element>
+      <element name="success" direction="OUT">
+        <datatype type="INTEGER" minValue="0" maxValue="1"/>
+      </element>
+      <element name="faultResponse" direction="OUT">
+        <datatype name="XML" referenceType="XML" type="XML" contentConstraint="SEQUENCE" schemaConstraint="ANY" componentType="TYPE" componentName="XML">
+          <schemaDatatype>
+            <datatype name="XML" type="TREE" refId="2"></datatype>
+          </schemaDatatype>
+        </datatype>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/ASAssets/Utilities/repository/createDataSource" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="1">
+      <element name="dataSourcePath" direction="IN">
+        <datatype referenceDefinitionSet="/lib/resource/ResourceDefs" referenceType="ResourcePath" type="STRING" maxLength="4096"/>
+      </element>
+      <element name="dataSourceName" direction="IN">
+        <datatype referenceDefinitionSet="/lib/resource/ResourceDefs" referenceType="ResourceName" type="STRING" maxLength="255"/>
+      </element>
+      <element name="dataSourceType" direction="IN">
+        <datatype referenceDefinitionSet="/lib/resource/ResourceDefs" referenceType="ResourceType" type="STRING" maxLength="40"/>
+      </element>
+      <element name="success" direction="OUT">
+        <datatype type="INTEGER" minValue="0" maxValue="1"/>
+      </element>
+      <element name="createDataSourceResponse" direction="OUT">
+        <datatype name="XML" referenceType="XML" type="XML" contentConstraint="SEQUENCE" schemaConstraint="ANY" componentType="TYPE" componentName="XML">
+          <schemaDatatype>
+            <datatype name="XML" type="TREE" refId="2"></datatype>
+          </schemaDatatype>
+        </datatype>
+      </element>
+      <element name="faultResponse" direction="OUT">
+        <datatype name="XML" referenceType="XML" type="XML" contentConstraint="SEQUENCE" schemaConstraint="ANY" componentType="TYPE" componentName="XML">
+          <schemaDatatype>
+            <reference refId="2"/>
+          </schemaDatatype>
+        </datatype>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/ASAssets/Utilities/repository/definitions/RepositoryDefinitions" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="1"></datatype>
+  </dependency>
+  <dependency target="/shared/ASAssets/Utilities/repository/destroyResource" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="1">
+      <element name="resourcePath" direction="IN">
+        <datatype referenceDefinitionSet="/shared/ASAssets/Utilities/TypeDefinitions" referenceType="pathType" type="STRING" maxLength="1000"/>
+      </element>
+      <element name="resourceName" direction="IN">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="resourceType" direction="IN">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="success" direction="OUT">
+        <datatype type="INTEGER" minValue="0" maxValue="1"/>
+      </element>
+      <element name="createResponse" direction="OUT">
+        <datatype name="XML" referenceType="XML" type="XML" contentConstraint="SEQUENCE" schemaConstraint="ANY" componentType="TYPE" componentName="XML">
+          <schemaDatatype>
+            <datatype name="XML" type="TREE" refId="2"></datatype>
+          </schemaDatatype>
+        </datatype>
+      </element>
+      <element name="faultResponse" direction="OUT">
+        <datatype name="XML" referenceType="XML" type="XML" contentConstraint="SEQUENCE" schemaConstraint="ANY" componentType="TYPE" componentName="XML">
+          <schemaDatatype>
+            <reference refId="2"/>
+          </schemaDatatype>
+        </datatype>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/ASAssets/Utilities/repository/getBasicResourceCursor" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="1">
+      <element name="fullResourcePath" direction="IN">
+        <datatype referenceDefinitionSet="/shared/ASAssets/Utilities/TypeDefinitions" referenceType="pathType" type="STRING" maxLength="1000"/>
+      </element>
+      <element name="resourceType" direction="IN">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="resourceCursor" direction="OUT">
+        <datatype type="TABLE" refId="2">
+          <element name="name">
+            <datatype type="STRING" maxLength="255"/>
+          </element>
+          <element name="path">
+            <datatype type="STRING" maxLength="32768"/>
+          </element>
+          <element name="type">
+            <datatype type="STRING" maxLength="32768"/>
+          </element>
+          <element name="subtype">
+            <datatype type="STRING" maxLength="255"/>
+          </element>
+          <element name="enabled">
+            <datatype type="INTEGER" minValue="0" maxValue="1"/>
+          </element>
+          <element name="id">
+            <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+          </element>
+          <element name="changeid">
+            <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+          </element>
+          <element name="version">
+            <datatype type="STRING" maxLength="255"/>
+          </element>
+          <element name="introspectState">
+            <datatype type="STRING" maxLength="255"/>
+          </element>
+          <element name="ownerDomain">
+            <datatype type="STRING" maxLength="255"/>
+          </element>
+          <element name="ownerName">
+            <datatype type="STRING" maxLength="255"/>
+          </element>
+          <element name="impactLevel">
+            <datatype type="STRING" maxLength="255"/>
+          </element>
+          <element name="impactMessage">
+            <datatype type="STRING" maxLength="32768"/>
+          </element>
+          <element name="annotation">
+            <datatype type="STRING" maxLength="2147483647"/>
+          </element>
+          <element name="explicitlyDesigned">
+            <datatype type="INTEGER" minValue="0" maxValue="1"/>
+          </element>
+          <element name="tableType">
+            <datatype type="STRING" maxLength="255"/>
+          </element>
+          <element name="sqlText">
+            <datatype type="STRING" maxLength="2147483647"/>
+          </element>
+          <element name="scriptText">
+            <datatype type="STRING" maxLength="2147483647"/>
+          </element>
+          <element name="childCount">
+            <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+          </element>
+          <element name="dataSourceType">
+            <datatype type="STRING" maxLength="255"/>
+          </element>
+        </datatype>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/ASAssets/Utilities/repository/updateResourceDataSource" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="1">
+      <element name="fullResourcePath" direction="IN">
+        <datatype referenceDefinitionSet="/shared/ASAssets/Utilities/TypeDefinitions" referenceType="pathType" type="STRING" maxLength="1000"/>
+      </element>
+      <element name="resourceType" direction="IN">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="subtype" direction="IN">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="dataSourceType" direction="IN">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="dataSourceAttrVector" direction="IN">
+        <datatype type="ARRAY" maxLength="0">
+          <itemDatatype>
+            <datatype name="AttributeType" type="TREE" refId="2">
+              <element name="attrName">
+                <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+              </element>
+              <element name="attrType">
+                <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+              </element>
+              <element name="attrValue">
+                <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+              </element>
+            </datatype>
+          </itemDatatype>
+        </datatype>
+      </element>
+      <element name="success" direction="OUT">
+        <datatype type="INTEGER" minValue="0" maxValue="1"/>
+      </element>
+      <element name="createResponse" direction="OUT">
+        <datatype name="XML" referenceType="XML" type="XML" contentConstraint="SEQUENCE" schemaConstraint="ANY" componentType="TYPE" componentName="XML">
+          <schemaDatatype>
+            <datatype name="XML" type="TREE" refId="3"></datatype>
+          </schemaDatatype>
+        </datatype>
+      </element>
+      <element name="faultResponse" direction="OUT">
+        <datatype name="XML" referenceType="XML" type="XML" contentConstraint="SEQUENCE" schemaConstraint="ANY" componentType="TYPE" componentName="XML">
+          <schemaDatatype>
+            <reference refId="3"/>
+          </schemaDatatype>
+        </datatype>
+      </element>
+    </datatype>
+  </dependency>
+  <attribute name="Script" type="STRING">/* createDatasourceIntrospect:
+
+	This procedure is Step 1 in the source view generation process.  Step 1 creates the datasource, 
+		configures the datasource and introspects the table metadata into the datasource.
+
+ 	Input:
+		IN  debug						CHAR(1),		-- Y=debug on.  N=debug off
+		IN  destroyDatasource			CHAR(1),		-- Y=destroy datasource if exists,   N=do not destroy if exists
+		IN  dataSourceFullPath			VARCHAR(4000),	-- The full DV path to the datasource where it will be created.  ex. &apos;/shared/PWC_template_flipped/04_DataSource/DS_ORDERS&apos;
+		IN  dataSourceType 				VARCHAR,		-- The type of data source.  This is very specific.  Hive=&apos;Hive2&apos;.  Postgres=&apos;PostgreSQL 9.1&apos;
+		IN  catalogName					VARCHAR,		-- optional (null) - Database catalog Name if applicable
+		IN  schemaName					VARCHAR,		-- mandatory.  Database schema name
+		IN  tableNames					LONGVARCHAR,	-- optional.  NULL=no specified table list OR one or more comma separated tables to introspect.  When NULL, all tables for the schema are introspected.
+		IN  procedureNames				LONGVARCHAR,	-- NULL=no specified procedure list OR 1 or more comma separated procedures to introspect.  When NULL, all procedures are introspected.
+		IN  urlIP						VARCHAR,		-- This is the datasource hostname or ip address.  ex. &apos;localhost&apos;
+		IN  urlDatabaseName				VARCHAR,		-- This is the datasource database name.  ex. &apos;orders&apos;
+		IN  urlPort						INTEGER,		-- This is the datasource port number.  ex. 9808
+		IN  login						VARCHAR,		-- This is the datasource login.  ex. &apos;tutorial&apos;
+		IN  password					VARCHAR,		-- This is the datasource password.  ex. &apos;Encrypted:ENC(iCJKSlfNUeHFVHAVtShr7A==$PLtM6oLQLR3smjq4jn1hJg==)&apos;
+
+	Output:
+		OUT success						BIT,			-- 0=fail, 1=success.
+		OUT createDataSourceResponse	XML,			-- How the datasource was configured.
+		OUT faultResponse				XML,			-- If not null then there was an error.
+		OUT errStatus 					VARCHAR,		-- SUCCESS OR FAIL
+		OUT errMessage 					LONGVARCHAR,	-- Error message if errStatus=FAIL
+		OUT introspectionResult 		LONGVARCHAR,	-- A line (CHR(10)) delimited string of results.  Use introspectResourcesResultCursor() to  return a cursor.
+		OUT numResourcesIntrospectAdd	INTEGER,		-- Number of resources added during introspection.  Includes catalogs and schemas in the count.
+		OUT numTablesIntrospectAdd		INTEGER,		-- Number of tables added during introspection.  Only tables are counted.
+		OUT tablesIntrospectAdd			LONGVARCHAR,	-- List of tables added during introspection.  Excludes catalogs and schemas.
+		OUT numResourcesIntrospectSkip	INTEGER,		-- Number of resources skipped during introspection.  Includes catalogs and schemas in the count.
+		OUT numTablesIntrospectSkip		INTEGER,		-- Number of tables skipped during introspection.  Only tables are counted.
+		OUT tablesIntrospectSkip		LONGVARCHAR		-- List of tables skipped during introspection.  Excludes catalogs and schemas.
+	
+	Modified Date:	Modified By:		DV Version:		Reason:
+	01/23/2019		Mike Tinius			8.0.0			Created new to create and introspect a datasource
+*/
+PROCEDURE createDatasourceIntrospect(
+	IN  debug						CHAR(1),		-- Y=debug on.  N=debug off
+	IN  destroyDatasource			CHAR(1),		-- Y=destroy datasource if exists,   N=do not destroy if exists
+	IN  dataSourceFullPath			VARCHAR(4000),	-- DEFAULT &apos;/shared/PWC_template_flipped/04_DataSource/DS_ORDERS&apos;;
+	IN  dataSourceType 				VARCHAR,		-- DEFAULT &apos;PostgreSQL 9.1&apos;;
+	IN  catalogName					VARCHAR,		-- optional (null) - Database catalog Name if applicable
+	IN  schemaName					VARCHAR,		-- mandatory.  Database schema name
+	IN  tableNames					LONGVARCHAR,	-- optional.  NULL=no specified table list OR one or more comma separated tables to introspect.  When NULL, all tables for the schema are introspected.
+	IN  procedureNames				LONGVARCHAR,	-- NULL=no specified procedure list OR 1 or more comma separated procedures to introspect.  When NULL, all procedures are introspected.
+	IN  urlIP						VARCHAR,		-- DEFAULT &apos;localhost&apos;;
+	IN  urlDatabaseName				VARCHAR,		-- DEFAULT &apos;orders&apos;;
+	IN  urlPort						INTEGER,		-- DEFAULT 9808;
+	IN  login						VARCHAR,		-- DEFAULT &apos;tutorial&apos;;
+	IN  password					VARCHAR,		-- DEFAULT &apos;Encrypted:ENC(iCJKSlfNUeHFVHAVtShr7A==$PLtM6oLQLR3smjq4jn1hJg==)&apos;;
+	OUT success						BIT,
+    OUT createDataSourceResponse	XML,
+    OUT faultResponse				XML,
+	OUT errStatus 					VARCHAR,		-- SUCCESS OR FAIL
+	OUT errMessage 					LONGVARCHAR,	-- Error message if errStatus=FAIL
+	OUT introspectionResult 		LONGVARCHAR,	-- A line (CHR(10)) delimited string of results.  Use introspectResourcesResultCursor() to  return a cursor.
+	OUT numResourcesIntrospectAdd	INTEGER,		-- Number of resources added during introspection.  Includes catalogs and schemas in the count.
+	OUT numTablesIntrospectAdd		INTEGER,		-- Number of tables added during introspection.  Only tables are counted.
+	OUT tablesIntrospectAdd			LONGVARCHAR,	-- List of tables added during introspection.  Excludes catalogs and schemas.
+	OUT numResourcesIntrospectSkip	INTEGER,		-- Number of resources skipped during introspection.  Includes catalogs and schemas in the count.
+	OUT numTablesIntrospectSkip		INTEGER,		-- Number of tables skipped during introspection.  Only tables are counted.
+	OUT tablesIntrospectSkip		LONGVARCHAR		-- List of tables skipped during introspection.  Excludes catalogs and schemas.
+)
+BEGIN
+	DECLARE moduleName						VARCHAR DEFAULT &apos;createDatasourceIntrospect&apos;;
+	DECLARE dataSourceSubtype				VARCHAR DEFAULT &apos;RELATIONAL_DATA_SOURCE&apos;;
+    DECLARE dataSourceFolderPath			VARCHAR(4000);
+	DECLARE dataSourceAttrVector 			/shared/ASAssets/Utilities/repository/definitions/RepositoryDefinitions.AttributeVectorType;
+	DECLARE resExists						BOOLEAN;
+	DECLARE pos								INTEGER;
+	DECLARE ex								EXCEPTION;
+
+--	DECLARE basePath						VARCHAR(32768);	-- Base path for the project
+--	DECLARE  datasourcePath 				VARCHAR(4096);	-- mandatory.   Full path to datasource
+--	DECLARE  	catalogName 				VARCHAR;		-- optional (null) - Database catalog Name if applicable
+--	DECLARE  	schemaName 					VARCHAR;		-- mandatory.  Database schema name
+	DECLARE  	schemaTablePatterns			VARCHAR(4096);	-- comma separated list of patterns such as D%, E%, F%.    introspect all new tables starting with D, E and F.
+--	DECLARE  	tableNames 					LONGVARCHAR;	-- optional.  NULL=no specified table list OR one or more comma separated tables to introspect.  When NULL, all tables for the schema are introspected.
+	DECLARE  	schemaProcedurePatterns		VARCHAR(4096);	-- comma separated list of patterns such as D%, E%, F%.    Introspect all new procedures starting with D, E and F.
+--	DECLARE  	procedureNames 				LONGVARCHAR;	-- NULL=no specified procedure list OR 1 or more comma separated procedures to introspect.  When NULL, all procedures are introspected.
+	DECLARE	formattingLayerPath				VARCHAR(32768);	-- Path to target Formatting layer views.  Missing folders are automatically created.
+	DECLARE	businessLayerPath				VARCHAR(32768);	-- Path to target Business layer views.  Missing folders are automatically created.
+	DECLARE	applicationLayerPath			VARCHAR(32768);	-- Path to target Application layer views.  Missing folders are automatically created.
+	DECLARE	publishedDBLayerPath			VARCHAR(32768);	-- Path to target Published Database Schema layer views.  Datasource and schema &quot;must&quot; exist already
+	DECLARE prefix 							VARCHAR(255);	-- prefix for views.  It is recommended that no prefix be added even though the option exists.
+															--		Example: V_
+	DECLARE overwrite						SMALLINT;		-- 1=overwrite existing views, 0=do not overwrite existing views (throws exception if views exist)
+	DECLARE copyAnnotation					SMALLINT;		-- 1=copy table and column annotations. 0=do not copy
+	DECLARE copySqlIndexes					SMALLINT;		-- 1=copy SQL indexes from source to target.  0=do not copy 
+	DECLARE copyForeignKeys					SMALLINT;		-- 1=copy foreign keys from source to target.  0=do not copy
+	DECLARE publishedDSPath					VARCHAR DEFAULT null;--&apos;/services/databases/PWC&apos;;
+	DECLARE publishedCatalog				VARCHAR DEFAULT null;--&apos;Flipped&apos;;
+	DECLARE publishedSchema					VARCHAR DEFAULT null;--&apos;tutorial&apos;;
+	DECLARE separator						VARCHAR DEFAULT &apos;,&apos;;-- Default=,  The separator used to separate lists for the input parameters: tableNames and procedureNames
+	DECLARE physicalMetadataPath			VARCHAR(32768);
+	DECLARE dataSourceTypeIntrospect		VARCHAR;		-- The type of data source that was introspected.
+	DECLARE dataSourceSubtypeIntrospect		VARCHAR;		-- The subtype of data source that was introspected.
+	DECLARE generatedViewsCursor			CURSOR (		-- A cursor of results for each row created or updated			
+		actionType						VARCHAR,		-- The action taken for this resource:  CREATED, OVERWRITTEN, SKIPPED [EXISTS].
+		layerType						VARCHAR,		-- The layer type that the view is being generated in:  METADATA, FORMATTING, BUSINESS, APPLICATION, PUBLISHED.
+		resName							VARCHAR,		-- The name of the resource.
+		resPath							LONGVARCHAR,	-- The full path to the resource.
+		resType							VARCHAR,		-- The type of the resource.
+		subtype							VARCHAR,		-- The subtype of the resource.
+		parentLineageLayerType			VARCHAR,		-- The layer type of the parent resource according to the lineage.
+		parentLineagePath				LONGVARCHAR,	-- The full path of the parent resource according to the lineage.
+		metadataLineageName				LONGVARCHAR,	-- Placeholder for generateViews - always null.
+		metadataLineagePath				LONGVARCHAR		-- Placeholder for generateViews - always null.
+	);
+
+
+	/***********************************************
+	 * 1. Create the Data Source
+	 ***********************************************/
+	-- Extract the parent folder path
+	SET pos = INSTR(REVERSE(dataSourceFullPath), &apos;/&apos;);
+	IF (pos &gt; 0) THEN
+		SET dataSourceFolderPath = REVERSE(SUBSTRING(REVERSE(dataSourceFullPath), pos+1));
+	END IF;
+	IF (UPPER(debug) = &apos;Y&apos;) THEN
+		call print(moduleName||&apos; : dataSourceFullPath=&apos;||dataSourceFullPath);
+		call print(moduleName||&apos; : dataSourceFolderPath=&apos;||dataSourceFolderPath);
+	END IF;
+
+	CALL /lib/resource/ResourceExists(dataSourceFullPath, &apos;DATA_SOURCE&apos;, null, resExists);
+	IF (NOT resExists OR (resExists AND destroyDatasource IS NOT NULL AND UPPER(destroyDatasource) = &apos;Y&apos;)) THEN
+		IF (UPPER(debug) = &apos;Y&apos;) THEN
+			call print(moduleName||&apos; : Datasource Exists. resource=&apos;||dataSourceFullPath);
+		END IF;
+		IF (resExists AND destroyDatasource IS NOT NULL AND UPPER(destroyDatasource) = &apos;Y&apos;) THEN
+			BEGIN INDEPENDENT TRANSACTION
+				IF (UPPER(debug) = &apos;Y&apos;) THEN
+					call print(moduleName||&apos; : Destroying resource=&apos;||dataSourceFullPath);
+				END IF;
+				CALL /shared/ASAssets/Utilities/repository/destroyResource(dataSourceFullPath, null, &apos;DATA_SOURCE&apos;, success, createDataSourceResponse, faultResponse);
+				IF (faultResponse IS NOT NULL) THEN
+					RAISE ex VALUE CAST(faultResponse AS LONGVARCHAR);
+				END IF;
+			END;
+		END IF;
+
+		BEGIN INDEPENDENT TRANSACTION
+			IF (UPPER(debug) = &apos;Y&apos;) THEN
+				call print(moduleName||&apos; : Create folder with privileges resource=&apos;||dataSourceFolderPath);
+			END IF;
+			-- Insure that the folder structure exists before creating the datasource
+			CALL /shared/ASAssets/Utilities/repository/createAllFoldersPrivileges(dataSourceFolderPath, 1, 1, success, faultResponse);
+			IF (faultResponse IS NOT NULL) THEN
+				RAISE ex VALUE CAST(faultResponse AS LONGVARCHAR);
+			END IF;
+		END;
+	
+		BEGIN INDEPENDENT TRANSACTION
+			IF (UPPER(debug) = &apos;Y&apos;) THEN
+				call print(moduleName||&apos; : Create datasource resource=&apos;||dataSourceFullPath||&apos;  dataSourceType=&apos;||dataSourceType);
+			END IF;
+			CALL /shared/ASAssets/Utilities/repository/createDataSource(
+				dataSourceFullPath,
+				null,
+				dataSourceType,
+				success,
+				createDataSourceResponse,
+				faultResponse              	
+			);
+			IF (faultResponse IS NOT NULL) THEN
+				RAISE ex VALUE CAST(faultResponse AS LONGVARCHAR);
+			END IF;
+		END;
+
+		BEGIN INDEPENDENT TRANSACTION
+			FOR r AS SELECT * FROM /shared/ASAssets/Utilities/repository/getBasicResourceCursor(dataSourceFullPath, &apos;DATA_SOURCE&apos;) DO
+				SET dataSourceSubtype = r.subtype; 
+			END FOR;
+		END;
+
+		BEGIN INDEPENDENT TRANSACTION
+			SET dataSourceAttrVector = VECTOR[
+				-- Name, Type, Value
+				(&apos;urlIP&apos;,			&apos;STRING&apos;,			urlIP),
+				(&apos;urlDatabaseName&apos;,	&apos;STRING&apos;,			urlDatabaseName),
+				(&apos;urlPort&apos;,			&apos;INTEGER&apos;,			CAST(urlPort AS VARCHAR)),
+				(&apos;login&apos;,			&apos;STRING&apos;,			login),
+				(&apos;password&apos;,		&apos;PASSWORD_STRING&apos;, 	password)
+			];
+			IF (UPPER(debug) = &apos;Y&apos;) THEN
+				call print(moduleName||&apos; : Update datasource resource=&apos;||dataSourceFullPath||&apos;  dataSourceSubtype=&apos;||dataSourceSubtype||&apos;  dataSourceType=&apos;||dataSourceType);
+			END IF;
+			CALL /shared/ASAssets/Utilities/repository/updateResourceDataSource(
+					dataSourceFullPath, &apos;DATA_SOURCE&apos;, dataSourceSubtype, dataSourceType, dataSourceAttrVector,
+					success, createDataSourceResponse, faultResponse 
+			);
+	
+			IF (faultResponse IS NOT NULL) THEN
+				RAISE ex VALUE CAST(faultResponse AS LONGVARCHAR);
+			END IF;
+		END;
+	ELSE
+		IF (UPPER(debug) = &apos;Y&apos;) THEN
+			call print(moduleName||&apos; : Datasource does not exist. resource=&apos;||dataSourceFullPath);
+		END IF;
+		SET success = 1;
+	END IF;
+
+	/***********************************************
+	 * 2. Introspect the Data Source
+	 ***********************************************/
+--	SET basePath 				= /shared/PWC_template_flipped/&quot;_scripts&quot;/Constants/defaultValues.basePath;-- Base path for the examples project
+--	SET physicalMetadataPath	= /shared/PWC_template_flipped/&quot;_scripts&quot;/Constants/defaultValues.physicalMetadataPath;
+--	SET 	datasourcePath 		= physicalMetadataPath||&apos;/svInternal/dsOrders/DS_ORDERS&apos;;		-- Physical datasource path
+--	SET		catalogName 		= null;															-- Physical datasource catalog name
+--	SET		schemaName 			= &apos;tutorial&apos;;													-- Physical datasource schema name
+	SET		schemaTablePatterns = null;															-- Schema patterns used for introspection of new tables
+--	SET		tableNames			= null; 														-- no list so all tables in schema will be introspected
+	SET		schemaProcedurePatterns = NULL;														-- Schema patterns used for introspectino of new procedures
+--	SET		procedureNames		= NULL;															-- no list so all procedures in schema will be introspected
+	SET formattingLayerPath 	= null;															-- layer path is null so no generation will be done
+	SET businessLayerPath 		= null; 														-- layer path is null so no generation will be done
+	SET applicationLayerPath 	= null; 														-- layer path is null so no generation will be done
+	SET publishedDBLayerPath 	= publishedDSPath;												-- Construct the Published Layer Path
+	IF (publishedCatalog IS NOT NULL) THEN	
+		SET publishedDBLayerPath = publishedDBLayerPath||&apos;/&apos;||publishedCatalog; 				-- Append the published catalog name
+	END IF;	
+	SET publishedDBLayerPath = publishedDBLayerPath||&apos;/&apos;||publishedSchema; 						-- Append the published schema name
+	SET prefix 					= null;															-- View prefix or null if not applicable
+	SET overwrite 				= 0;															-- 0=Do not overwrite.  1=overwrite existing views.
+	SET copyAnnotation			= 0;															-- 0=do not copy.  1=copy table and column annotations. 
+	SET copySqlIndexes			= 0;															-- 0=do not copy.  1=copy SQL indexes from source to target.   
+	SET copyForeignKeys			= 0;															-- 0=do not copy.  1=copy foreign keys from source to target.  
+
+	BEGIN INDEPENDENT TRANSACTION
+		CALL /shared/ASAssets/Utilities/generate/generateViews(
+			dataSourceFullPath,			-- mandatory.   Full path to datasource
+				catalogName,			-- optional (null) - Database catalog Name if applicable
+				schemaName,				-- mandatory.  Database schema name
+				schemaTablePatterns,	-- comma separated list of patterns such as D%, E%, F%.    Introspect all new tables starting with D, E and F.
+				tableNames,				-- optional.  NULL=no specified table list OR one or more comma separated tables to introspect.
+				schemaProcedurePatterns,-- Schema patterns used for introspectino of new procedures 
+				procedureNames,			-- no list so all procedures in schema will be introspected
+				separator,				-- Default=,  The separator used to separate lists for the input parameters: tableNames and procedureNames
+			formattingLayerPath,		-- Path to target Formatting layer views.  Missing folders are automatically created.
+			businessLayerPath,			-- Path to target Business layer views.  Missing folders are automatically created.
+			applicationLayerPath,		-- Path to target Application layer views.  Missing folders are automatically created.
+			publishedDBLayerPath,		-- Path to target Published Database Schema layer views.  Datasource and schema &quot;must&quot; exist already
+			prefix,						-- prefix for views.  It is recommended that no prefix be added even though the option exists.
+										--		Example: V_
+			overwrite,					-- 1=overwrite existing views, 0=do not overwrite existing views (throws exception if views exist)
+			copyAnnotation,				-- 1=copy table and column annotations. 0=do not copy
+			copySqlIndexes,				-- 1=copy SQL indexes from source to target.  0=do not copy 
+			copyForeignKeys,			-- 1=copy foreign keys from source to target.  0=do not copy
+			debug,						-- Y=debug on, N=debug off, null=N
+	
+			errStatus,
+			errMessage,
+			introspectionResult,
+			dataSourceTypeIntrospect,
+			dataSourceSubtypeIntrospect,
+			numResourcesIntrospectAdd, 
+			numTablesIntrospectAdd, 
+			tablesIntrospectAdd, 
+			numResourcesIntrospectSkip,
+			numTablesIntrospectSkip,
+			tablesIntrospectSkip,
+			generatedViewsCursor
+		);
+	END;
+
+END</attribute>
+  <attribute name="creationDate" type="LONG">1548214384301</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1548449328961</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="model" type="NULL"/>
+  <attribute name="native_only" type="STRING">false</attribute>
+  <attribute name="references" type="NULL"/>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1548214384301</attribute>
+</metadata>
