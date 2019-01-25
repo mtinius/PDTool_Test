@@ -1,0 +1,282 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:8cb1adda-d866-4c10-83d8-a087f3b9074d -->
+<metadata name="updateAnnotations" path="/shared/ASAssets/BestPractices_v81/ManageAnnotations/updateAnnotations" type="PROCEDURE" subtype="SQL_SCRIPT_PROCEDURE" changeToken="0">
+  <annotation>	(c) 2017 TIBCO Software Inc.  All rights reserved.
+	
+	Except as specified below, this software is licensed pursuant to the Eclipse Public License v. 1.0.
+	The details can be found in the file LICENSE.
+	
+	The following proprietary files are included as a convenience, and may not be used except pursuant
+	to valid license to Composite Information Server or TIBCO® Data Virtualization Server:
+	csadmin-XXXX.jar, csarchive-XXXX.jar, csbase-XXXX.jar, csclient-XXXX.jar, cscommon-XXXX.jar,
+	csext-XXXX.jar, csjdbc-XXXX.jar, csserverutil-XXXX.jar, csserver-XXXX.jar, cswebapi-XXXX.jar,
+	and customproc-XXXX.jar (where -XXXX is an optional version number).  Any included third party files
+	are licensed under the terms contained in their own accompanying LICENSE files, generally named .LICENSE.txt.
+	
+	This software is licensed AS-IS. Support for this software is not covered by standard maintenance agreements with TIBCO.
+	If you would like to obtain assistance with this software, such assistance may be obtained through a separate paid consulting
+	agreement with TIBCO.
+</annotation>
+  <parameters>
+    <parameter name="performUpdate" direction="IN" nullable="true">
+      <datatype name="INTEGER" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+    </parameter>
+    <parameter name="inSqlStatement" direction="IN" nullable="true">
+      <datatype name="LONGVARCHAR" type="STRING" maxLength="2147483647"/>
+    </parameter>
+    <parameter name="rowsProcessed" direction="OUT" nullable="true">
+      <datatype name="INTEGER" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+    </parameter>
+  </parameters>
+  <security>
+    <owner user="admin" domain="composite"/>
+    <privilege group="all" domain="composite" privileges="READ EXECUTE"/>
+  </security>
+  <dependency target="/lib/debug/Print" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="1">
+      <element name="textToPrint" direction="IN">
+        <datatype referenceDefinitionSet="/lib/util/System" referenceType="MessageValue" type="STRING" maxLength="64000"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/lib/resource/ResourceDefs" type="DEFINITION_SET">
+    <datatype name="Tree" type="TREE" refId="1"></datatype>
+  </dependency>
+  <dependency target="/shared/ASAssets/BestPractices_v81/_ProjectMaintenance/defaultValues" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="1"></datatype>
+  </dependency>
+  <dependency target="/shared/ASAssets/Utilities/TypeDefinitions" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="1"></datatype>
+  </dependency>
+  <dependency target="/shared/ASAssets/Utilities/repository/updateResourceAnnotations" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="1">
+      <element name="resourcePath" direction="IN">
+        <datatype referenceDefinitionSet="/lib/resource/ResourceDefs" referenceType="ResourcePath" type="STRING" maxLength="4096"/>
+      </element>
+      <element name="resourceType" direction="IN">
+        <datatype referenceDefinitionSet="/lib/resource/ResourceDefs" referenceType="ResourceType" type="STRING" maxLength="40"/>
+      </element>
+      <element name="annotation" direction="IN">
+        <datatype type="STRING" maxLength="2147483647"/>
+      </element>
+      <element name="columnAnnotations" direction="IN">
+        <datatype type="ARRAY" maxLength="0">
+          <itemDatatype>
+            <datatype name="ColumnAnnotationRow" referenceDefinitionSet="/shared/ASAssets/Utilities/TypeDefinitions" referenceType="ColumnAnnotationRow" type="TREE" refId="2">
+              <element name="columnName">
+                <datatype name="ResourceName" referenceDefinitionSet="/lib/resource/ResourceDefs" referenceType="ResourceName" type="STRING" maxLength="255"/>
+              </element>
+              <element name="columnType">
+                <datatype name="ResourceType" referenceDefinitionSet="/lib/resource/ResourceDefs" referenceType="ResourceType" type="STRING" maxLength="40"/>
+              </element>
+              <element name="annotation">
+                <datatype name="LONGVARCHAR" type="STRING" maxLength="2147483647"/>
+              </element>
+            </datatype>
+          </itemDatatype>
+        </datatype>
+      </element>
+      <element name="success" direction="OUT">
+        <datatype type="INTEGER" minValue="0" maxValue="1"/>
+      </element>
+      <element name="updateResponse" direction="OUT">
+        <datatype name="XML" referenceType="XML" type="XML" contentConstraint="SEQUENCE" schemaConstraint="ANY" componentType="TYPE" componentName="XML">
+          <schemaDatatype>
+            <datatype name="XML" type="TREE" refId="3"></datatype>
+          </schemaDatatype>
+        </datatype>
+      </element>
+      <element name="faultResponse" direction="OUT">
+        <datatype name="XML" referenceType="XML" type="XML" contentConstraint="SEQUENCE" schemaConstraint="ANY" componentType="TYPE" componentName="XML">
+          <schemaDatatype>
+            <reference refId="3"/>
+          </schemaDatatype>
+        </datatype>
+      </element>
+    </datatype>
+  </dependency>
+  <attribute name="Script" type="STRING">/*
+	updateAnnotations
+
+	This script is used to update resource annotations.  
+	The main objective is to update the resources and columns at the level directly below the published datasource layer in CIS.  
+	This is the layer in which table columns may be updated.  This is the layer in which Business Directory will read in the column metadata. 
+
+	RULES:
+		1) If the annotation in the spreadsheet is blank with no spaces, it is considered a null indicating take no action.
+			The update of the annotation for that resource is not performed.
+		2) If the annotation in the spreadsheet contains 1 or more blanks, it is considered a modification and the update
+			of the annotation will be performed and will blank out any existing annotation.
+		3) If the annotation in the spreadsheet contains non-space characters, it is considered a modification and the update
+			of the annotation will be performed modifying the existing annotation.
+		4) If the annotation in the spreadsheet contains multiple lines then all lines will be taken as is and and the 
+			resource annotation will retain those lines.
+		5) If the PhysicalType = &apos;TABLE&apos; then the table annotation will be modified otherwise it is assumed to be a COLUMN
+			annotation.
+
+	INPUT:
+		performUpdate	- 0=do not perform update, 1=perform update
+		inSqlStatement	- The SQL Statement allows the user of this procedure to source their own datasource whether it be
+			an excel spreadsheet or a relational table.  The key however is that the four coluns shown below must be present.
+			Required format is shown below.  The table is provided by the user but the columns must match exactly as shown.
+			Default sqlStatement if inSqlStatement is left null:
+				select PhysicalName, PhysicalType, ResourcePath, ResourceAnnotation from /shared/ASAssets/BestPractices_v81/ManageAnnotations/Formatting/ResourceAnnotations
+	OUTPUT:
+		rowsProcessed	- The number of rows processed by the update of annotations. 
+	EXCEPTION:	
+		may be thrown by CIS
+	DEPENDENCIES
+		requires the latest resource modified on 09/24/2016
+				/shared/ASAssets/Utilities/repository/updateResourceAnnotations
+
+	Modified Date:	Modified By:		CIS Version:	Reason:
+	11/14/2016		Mike Tinius			7.0.4			Created new.
+	05/24/2017		Mike Tinius			7.0.5			Modified to include in Data Abstraction Best Practices.
+
+	(c) 2017 TIBCO Software Inc.  All rights reserved.
+	
+	Except as specified below, this software is licensed pursuant to the Eclipse Public License v. 1.0.
+	The details can be found in the file LICENSE.
+	
+	The following proprietary files are included as a convenience, and may not be used except pursuant
+	to valid license to Composite Information Server or TIBCO® Data Virtualization Server:
+	csadmin-XXXX.jar, csarchive-XXXX.jar, csbase-XXXX.jar, csclient-XXXX.jar, cscommon-XXXX.jar,
+	csext-XXXX.jar, csjdbc-XXXX.jar, csserverutil-XXXX.jar, csserver-XXXX.jar, cswebapi-XXXX.jar,
+	and customproc-XXXX.jar (where -XXXX is an optional version number).  Any included third party files
+	are licensed under the terms contained in their own accompanying LICENSE files, generally named .LICENSE.txt.
+	
+	This software is licensed AS-IS. Support for this software is not covered by standard maintenance agreements with TIBCO.
+	If you would like to obtain assistance with this software, such assistance may be obtained through a separate paid consulting
+	agreement with TIBCO.
+
+*/
+PROCEDURE updateAnnotations(
+	IN	performUpdate			INTEGER,		-- 0=do not perform update, 1=perform update
+	-- The table is provided by the user but the columns must match exactly as shown.
+	-- This strategy allows the user to store there annotations in their own datasource [excel or database] in order to manage their annotations.
+	--	Default Select if inSqlStatement is left null. 
+	--  select PhysicalName, PhysicalType, ResourcePath, ResourceAnnotation from /shared/ASAssets/BestPractices_v81/ManageAnnotations/Formatting/ResourceAnnotations
+	IN  inSqlStatement			LONGVARCHAR,	
+	OUT rowsProcessed			INTEGER 
+)
+BEGIN
+	DECLARE parentPath			/lib/resource/ResourceDefs.ResourcePath;
+	DECLARE prevParentPath		/lib/resource/ResourceDefs.ResourcePath DEFAULT &apos;&apos;;
+    DECLARE resourcePath     	/lib/resource/ResourceDefs.ResourcePath;
+    DECLARE resourceType     	/lib/resource/ResourceDefs.ResourceType;
+    DECLARE annotation    	    LONGVARCHAR;
+	DECLARE columnAnnotations 	VECTOR(/shared/ASAssets/Utilities/TypeDefinitions.ColumnAnnotationRow);
+	DECLARE colNum				INTEGER;
+	DECLARE success				BIT;
+	DECLARE updateResponse		XML;
+	DECLARE faultResponse		XML;
+	DECLARE TYPE annotationType	ROW (
+		PhysicalName			VARCHAR,
+		PhysicalType			VARCHAR,
+		ResourcePath			/lib/resource/ResourceDefs.ResourcePath,
+		ResourceAnnotation		LONGVARCHAR
+	);
+	DECLARE annotationCursor	CURSOR annotationType;
+	DECLARE bestPracticesRootPath VARCHAR(1024) DEFAULT /shared/ASAssets/BestPractices_v81/&quot;_ProjectMaintenance&quot;/defaultValues.bestPracticesRootPath;
+	DECLARE formattingPath		VARCHAR(1024) DEFAULT bestPracticesRootPath||&apos;/ManageAnnotations/Formatting/ResourceAnnotations&apos;;
+	DECLARE defaultSqlStatement	LONGVARCHAR DEFAULT &apos;select PhysicalName, PhysicalType, ResourcePath, ResourceAnnotation from &apos;||formattingPath;
+	DECLARE sqlStatement		LONGVARCHAR;
+	DECLARE ex					EXCEPTION;
+
+	if (inSqlStatement IS NOT NULL) then
+		set sqlStatement = inSqlStatement||CHR(10)||&apos; union select &apos;&apos;END&apos;&apos;, &apos;&apos;END&apos;&apos;, &apos;&apos;/shared/END&apos;&apos;, null from /services/databases/system/DUAL&apos;;
+	else
+		set sqlStatement = defaultSqlStatement||CHR(10)||&apos; union select &apos;&apos;END&apos;&apos;, &apos;&apos;END&apos;&apos;, &apos;&apos;/shared/END&apos;&apos;, null from /services/databases/system/DUAL&apos;;
+	end if;
+	call print(&apos;sqlStatement=[&apos;||sqlStatement||&apos;]&apos;);
+	set rowsProcessed = 0;
+
+	open annotationCursor for sqlStatement;
+	for r as annotationCursor do
+		set rowsProcessed = rowsProcessed + 1;
+		set parentPath = r.ResourcePath;
+		call print(&apos;prevParentPath=[&apos;||prevParentPath||&apos;]  parentPath=[&apos;||parentPath||&apos;]&apos;);
+
+		-- When the table resource changes perform the update resource annotations.
+		if (length(prevParentPath) &gt; 0 and prevParentPath &lt;&gt; parentPath) then
+			if (performUpdate &gt; 0) then
+				call /shared/ASAssets/Utilities/repository/updateResourceAnnotations(resourcePath, resourceType, annotation, columnAnnotations, success, updateResponse, faultResponse);
+				if (faultResponse is not null) then
+					raise ex value CAST(faultResponse AS LONGVARCHAR);
+				end if;
+				call print(&apos;Update performed for PhysicalType=&apos;||resourceType||&apos;  ResourcePath=&apos;||resourcePath);
+			else
+				call print(&apos;NO update performed for PhysicalType=&apos;||resourceType||&apos;  ResourcePath=&apos;||resourcePath);
+			end if;
+		end if;
+
+		-- prepare the table and column annotations.
+		if (r.PhysicalType = &apos;TABLE&apos;) then
+			call print(&apos;TABLE=&apos;||r.PhysicalName||&apos;  PhysicalType=&apos;||r.PhysicalType||&apos;  ResourcePath=&apos;||r.ResourcePath);
+			set resourcePath = r.ResourcePath;
+			set resourceType = r.PhysicalType;
+			set annotation = r.ResourceAnnotation;
+		elseif (r.PhysicalType = &apos;PROCEDURE&apos;) then
+			call print(&apos;PROCEDURE=&apos;||r.PhysicalName||&apos;  PhysicalType=&apos;||r.PhysicalType||&apos;  ResourcePath=&apos;||r.ResourcePath);
+			set resourcePath = r.ResourcePath;
+			set resourceType = r.PhysicalType;
+			set annotation = r.ResourceAnnotation;
+		else
+			if (r.ResourceAnnotation is not null and length(r.ResourceAnnotation) &gt; 0) then
+				call print(&apos;COLUMN=&apos;||r.PhysicalName||&apos;  INCLUDE: PhysicalType=&apos;||r.PhysicalType||&apos;  ResourcePath=&apos;||r.ResourcePath||&apos;  Annotation=[&apos;||r.ResourceAnnotation||&apos;]&apos;);
+				if (columnAnnotations is null) then
+					set columnAnnotations = VECTOR[(null)];
+					set colNum = 1;
+				else
+					set columnAnnotations = EXTEND(columnAnnotations,1);
+					set colNum = colNum + 1;
+				end if;
+				set columnAnnotations[colNum].columnName = r.PhysicalName;
+				set columnAnnotations[colNum].annotation = r.ResourceAnnotation;
+			else
+				call print(&apos;COLUMN:    NOT INCLUDE: PhysicalType=&apos;||r.PhysicalType||&apos;  ResourcePath=&apos;||r.ResourcePath||&apos;  Annotation=[null]&apos;);
+			end if;
+		end if;
+		set prevParentPath = parentPath;
+	end for;
+/*
+	This section provides documentation on the invocation of the ASAssets Utilities updateResourceAnnotations():
+
+ /shared/ASAssets/Utilities/repository/updateResourceAnnotations()
+    IN resourcePath      /lib/resource/ResourceDefs.ResourcePath,
+    IN resourceType      /lib/resource/ResourceDefs.ResourceType,
+    IN annotation        LONGVARCHAR,
+    IN columnAnnotations VECTOR(/shared/ASAssets/Utilities/TypeDefinitions.ColumnAnnotationRow), 
+		    DECLARE PUBLIC TYPE ColumnAnnotationRow ROW (
+		        columnName              ResourceDefs.ResourceName,
+		        columnType              ResourceDefs.ResourceType,
+		        annotation              LONGVARCHAR
+		    );
+			Example: In the example below the columnType is set to null.
+				set columnAnnotations = VECTOR [
+					(&apos;ProductID&apos;,			null,	&apos;Product identifier&apos;), 	-- this will overwrite the existing annotation if exists.
+					(&apos;ProductName&apos;,			null,	&apos;Product name&apos;),		-- this will overwrite the existing annotation if exists.
+					(&apos;ProductDescription&apos;,	null,	&apos;&apos;)	 -- By putting an empty character it will destroy any existing annotation.
+					-- By leaving out columns it will preserve any existing column annotations.
+				];
+	OUT success          BIT,
+	OUT updateResponse 	 XML,
+	OUT faultResponse    XML
+*/
+END</attribute>
+  <attribute name="creationDate" type="LONG">1479156504672</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
+  <attribute name="impactLevel" type="INTEGER">0</attribute>
+  <attribute name="impactMessage" type="NULL"/>
+  <attribute name="lastModifiedDate" type="LONG">1548447998956</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="model" type="NULL"/>
+  <attribute name="native_only" type="STRING">false</attribute>
+  <attribute name="references" type="NULL"/>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1479156504672</attribute>
+</metadata>

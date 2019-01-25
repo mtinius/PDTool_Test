@@ -1,0 +1,425 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:8cb1adda-d866-4c10-83d8-a087f3b9074d -->
+<metadata name="generateLink" path="/shared/ASAssets/BestPractices_v81/Procedures/generateLink" type="PROCEDURE" subtype="SQL_SCRIPT_PROCEDURE" changeToken="0">
+  <annotation>
+	(c) 2017 TIBCO Software Inc.  All rights reserved.
+	
+	Except as specified below, this software is licensed pursuant to the Eclipse Public License v. 1.0.
+	The details can be found in the file LICENSE.
+	
+	The following proprietary files are included as a convenience, and may not be used except pursuant
+	to valid license to Composite Information Server or TIBCO® Data Virtualization Server:
+	csadmin-XXXX.jar, csarchive-XXXX.jar, csbase-XXXX.jar, csclient-XXXX.jar, cscommon-XXXX.jar,
+	csext-XXXX.jar, csjdbc-XXXX.jar, csserverutil-XXXX.jar, csserver-XXXX.jar, cswebapi-XXXX.jar,
+	and customproc-XXXX.jar (where -XXXX is an optional version number).  Any included third party files
+	are licensed under the terms contained in their own accompanying LICENSE files, generally named .LICENSE.txt.
+	
+	This software is licensed AS-IS. Support for this software is not covered by standard maintenance agreements with TIBCO.
+	If you would like to obtain assistance with this software, such assistance may be obtained through a separate paid consulting
+	agreement with TIBCO.
+
+</annotation>
+  <parameters>
+    <parameter name="resourcePath" direction="IN" nullable="true">
+      <datatype name="VARCHAR" referenceDefinitionSet="/shared/ASAssets/Utilities/TypeDefinitions" referenceType="pathType" type="STRING" maxLength="1000"/>
+    </parameter>
+    <parameter name="resourceType" direction="IN" nullable="true">
+      <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+    </parameter>
+    <parameter name="publishToFolder" direction="IN" nullable="true">
+      <datatype name="VARCHAR" referenceDefinitionSet="/shared/ASAssets/Utilities/TypeDefinitions" referenceType="pathType" type="STRING" maxLength="1000"/>
+    </parameter>
+    <parameter name="resourceName" direction="IN" nullable="true">
+      <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+    </parameter>
+    <parameter name="overwrite" direction="IN" nullable="true">
+      <datatype name="INTEGER" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+    </parameter>
+    <parameter name="copyAnnotation" direction="IN" nullable="true">
+      <datatype name="INTEGER" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+    </parameter>
+    <parameter name="copyPrivilegeMode" direction="IN" nullable="true">
+      <datatype name="INTEGER" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+    </parameter>
+    <parameter name="success" direction="OUT" nullable="true">
+      <datatype name="INTEGER" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+    </parameter>
+  </parameters>
+  <security>
+    <owner user="admin" domain="composite"/>
+    <privilege group="all" domain="composite" privileges="READ EXECUTE"/>
+  </security>
+  <dependency target="/lib/resource/ResourceExists" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="1">
+      <element name="path" direction="IN">
+        <datatype referenceDefinitionSet="/lib/resource/ResourceDefs" referenceType="ResourcePath" type="STRING" maxLength="4096"/>
+      </element>
+      <element name="type" direction="IN">
+        <datatype referenceDefinitionSet="/lib/resource/ResourceDefs" referenceType="ResourceType" type="STRING" maxLength="40"/>
+      </element>
+      <element name="version" direction="IN">
+        <datatype referenceDefinitionSet="/lib/resource/ResourceDefs" referenceType="ResourceVersion" type="STRING" maxLength="255"/>
+      </element>
+      <element name="exists" direction="OUT">
+        <datatype type="BOOLEAN"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/ASAssets/Utilities/TypeDefinitions" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="1"></datatype>
+  </dependency>
+  <dependency target="/shared/ASAssets/Utilities/repository/copyResourcesPrivileges" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="1">
+      <element name="updatePrivilegesRecursively" direction="IN">
+        <datatype type="INTEGER" minValue="0" maxValue="1"/>
+      </element>
+      <element name="copyPrivilegeMode" direction="IN">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="copyPrivilegeEntry" direction="IN">
+        <datatype type="ARRAY" maxLength="0">
+          <itemDatatype>
+            <datatype name="copyPrivilegeEntryType" type="TREE" refId="2">
+              <element name="srcResource">
+                <datatype name="srcResource" type="ARRAY" maxLength="0">
+                  <itemDatatype>
+                    <datatype name="resourceType" type="TREE" refId="3">
+                      <element name="path">
+                        <datatype name="VARCHAR" referenceDefinitionSet="/shared/ASAssets/Utilities/TypeDefinitions" referenceType="pathType" type="STRING" maxLength="1000"/>
+                      </element>
+                      <element name="type">
+                        <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+                      </element>
+                    </datatype>
+                  </itemDatatype>
+                </datatype>
+              </element>
+              <element name="dstResource">
+                <datatype name="dstResource" type="ARRAY" maxLength="0">
+                  <itemDatatype>
+                    <reference refId="3"/>
+                  </itemDatatype>
+                </datatype>
+              </element>
+            </datatype>
+          </itemDatatype>
+        </datatype>
+      </element>
+      <element name="success" direction="OUT">
+        <datatype type="INTEGER" minValue="0" maxValue="1"/>
+      </element>
+      <element name="faultResponse" direction="OUT">
+        <datatype name="XML" referenceType="XML" type="XML" contentConstraint="SEQUENCE" schemaConstraint="ANY" componentType="TYPE" componentName="XML">
+          <schemaDatatype>
+            <datatype name="XML" type="TREE" refId="4"></datatype>
+          </schemaDatatype>
+        </datatype>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/ASAssets/Utilities/repository/definitions/RepositoryDefinitions" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="1"></datatype>
+  </dependency>
+  <dependency target="/shared/ASAssets/Utilities/repository/destroyResource" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="1">
+      <element name="resourcePath" direction="IN">
+        <datatype referenceDefinitionSet="/shared/ASAssets/Utilities/TypeDefinitions" referenceType="pathType" type="STRING" maxLength="1000"/>
+      </element>
+      <element name="resourceName" direction="IN">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="resourceType" direction="IN">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="success" direction="OUT">
+        <datatype type="INTEGER" minValue="0" maxValue="1"/>
+      </element>
+      <element name="createResponse" direction="OUT">
+        <datatype name="XML" referenceType="XML" type="XML" contentConstraint="SEQUENCE" schemaConstraint="ANY" componentType="TYPE" componentName="XML">
+          <schemaDatatype>
+            <datatype name="XML" type="TREE" refId="2"></datatype>
+          </schemaDatatype>
+        </datatype>
+      </element>
+      <element name="faultResponse" direction="OUT">
+        <datatype name="XML" referenceType="XML" type="XML" contentConstraint="SEQUENCE" schemaConstraint="ANY" componentType="TYPE" componentName="XML">
+          <schemaDatatype>
+            <reference refId="2"/>
+          </schemaDatatype>
+        </datatype>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/ASAssets/Utilities/repository/lowerLevelProcedures/getBasicResourceXML" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="1">
+      <element name="fullResourcePath" direction="IN">
+        <datatype referenceDefinitionSet="/shared/ASAssets/Utilities/TypeDefinitions" referenceType="pathType" type="STRING" maxLength="1000"/>
+      </element>
+      <element name="resourceType" direction="IN">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="resourceResponse" direction="OUT">
+        <datatype name="XML" referenceType="XML" type="XML" contentConstraint="SEQUENCE" schemaConstraint="ANY" componentType="TYPE" componentName="XML">
+          <schemaDatatype>
+            <datatype name="XML" type="TREE" refId="2"></datatype>
+          </schemaDatatype>
+        </datatype>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/ASAssets/Utilities/repository/publishResource" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="1">
+      <element name="resourcePath" direction="IN">
+        <datatype referenceDefinitionSet="/lib/resource/ResourceDefs" referenceType="ResourcePath" type="STRING" maxLength="4096"/>
+      </element>
+      <element name="resourceType" direction="IN">
+        <datatype referenceDefinitionSet="/lib/resource/ResourceDefs" referenceType="ResourceType" type="STRING" maxLength="40"/>
+      </element>
+      <element name="publishFolder" direction="IN">
+        <datatype referenceDefinitionSet="/lib/resource/ResourceDefs" referenceType="ResourcePath" type="STRING" maxLength="4096"/>
+      </element>
+      <element name="publishName" direction="IN">
+        <datatype referenceDefinitionSet="/lib/resource/ResourceDefs" referenceType="ResourceName" type="STRING" maxLength="255"/>
+      </element>
+      <element name="annotation" direction="IN">
+        <datatype type="STRING" maxLength="2147483647"/>
+      </element>
+      <element name="success" direction="OUT">
+        <datatype type="INTEGER" minValue="0" maxValue="1"/>
+      </element>
+      <element name="publishResponse" direction="OUT">
+        <datatype name="XML" referenceType="XML" type="XML" contentConstraint="SEQUENCE" schemaConstraint="ANY" componentType="TYPE" componentName="XML">
+          <schemaDatatype>
+            <datatype name="XML" type="TREE" refId="2"></datatype>
+          </schemaDatatype>
+        </datatype>
+      </element>
+      <element name="faultResponse" direction="OUT">
+        <datatype name="XML" referenceType="XML" type="XML" contentConstraint="SEQUENCE" schemaConstraint="ANY" componentType="TYPE" componentName="XML">
+          <schemaDatatype>
+            <reference refId="2"/>
+          </schemaDatatype>
+        </datatype>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/ASAssets/Utilities/repository/returnFolderNameAndFolderPath" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="1">
+      <element name="fullResourcePath" direction="IN">
+        <datatype referenceDefinitionSet="/shared/ASAssets/Utilities/TypeDefinitions" referenceType="pathType" type="STRING" maxLength="1000"/>
+      </element>
+      <element name="mode" direction="IN">
+        <datatype type="STRING" minLength="1" maxLength="1"/>
+      </element>
+      <element name="folderName" direction="OUT">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="folderPath" direction="OUT">
+        <datatype referenceDefinitionSet="/shared/ASAssets/Utilities/TypeDefinitions" referenceType="pathType" type="STRING" maxLength="1000"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/ASAssets/Utilities/string/isEmpty" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="1">
+      <element name="request" direction="IN">
+        <datatype type="STRING" maxLength="2147483647"/>
+      </element>
+      <element name="response" direction="OUT">
+        <datatype type="INTEGER" minValue="0" maxValue="1"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/ASAssets/Utilities/xml/getValueFromXML" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="1">
+      <element name="debug" direction="IN">
+        <datatype type="STRING" minLength="1" maxLength="1"/>
+      </element>
+      <element name="namespaces" direction="IN">
+        <datatype type="STRING" maxLength="2147483647"/>
+      </element>
+      <element name="inXpath" direction="IN">
+        <datatype type="STRING" maxLength="2147483647"/>
+      </element>
+      <element name="inXml" direction="IN">
+        <datatype name="XML" referenceType="XML" type="XML" contentConstraint="SEQUENCE" schemaConstraint="ANY" componentType="TYPE" componentName="XML">
+          <schemaDatatype>
+            <datatype name="XML" type="TREE" refId="2"></datatype>
+          </schemaDatatype>
+        </datatype>
+      </element>
+      <element name="outValue" direction="OUT">
+        <datatype type="STRING" maxLength="2147483647"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/system/customfunctions/isEmpty" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="1"></datatype>
+  </dependency>
+  <attribute name="Script" type="STRING">/* generateLink:
+	-- Composite Best Practices --
+	Generate a LINK into the published Composite Database (/services/databases).
+ 
+	Input:
+		resourcePath - the full path to the resource
+		resourceType - the type of resource
+		publishToFolder		/shared/Utilities/TypeDefinitions.pathType,
+			-- This is the full path to the published Composite Database or database schema.
+			-- e.g. Database: 	/services/datbases/MYDB
+			--		 Schema:	/services/databases/MYDB/MYCAT/MYSCHEMA or /services/databases/MYDB/MYSCHEMA
+			--	    Catalog:	Operation not allowed
+			-- The Database or schema resource must exist prior to execution.
+			-- This parameter is required no matter which option below is used.
+		resourceName - a generic term for any resource name
+		overwrite 
+			-- allows user to decide whether they want to overwrite an existing view or not.
+			-- 0=false=do not overwrite the composite published database resource.  If the resource exists, raise an exception.
+			-- 1=true=do overwrite the composite published database resource if it exists.
+		copyAnnotation 
+			-- allows user to decide whether they want to copy annotations or not form both resource and columns.
+			-- 0=false=do not copy the annotation from the target resource
+			-- 1=true=do copy the annotation from the target resource
+		copyPrivilegeMode
+			-- flag indicating the mode in which to copy privileges.  Privileges are only copied from the parent when creating new resources including folders.
+			-- null (default) - do not set any privileges at all
+			-- 0 - set mode to &quot;OVERWRITE_APPEND&quot; - merges and does not update privileges for users or groups not mentioned.
+			-- 1 - set the mode to &quot;SET_EXACTLY&quot; - makes privileges look exactly like those provided in the call.
+	Output:
+
+	Exceptions:  ex
+
+	Modified Date:	Modified By:		CSW Version:	Reason:
+	05/01/2013		Mike Tinius			5.2.0			Created new
+	03/01/2018		Mike Tinius			7.0.5			Replaced /shared/ASAssets/Utilities/repository/resourceExists with /lib/resource/ResourceExists
+
+	(c) 2017 TIBCO Software Inc.  All rights reserved.
+	
+	Except as specified below, this software is licensed pursuant to the Eclipse Public License v. 1.0.
+	The details can be found in the file LICENSE.
+	
+	The following proprietary files are included as a convenience, and may not be used except pursuant
+	to valid license to Composite Information Server or TIBCO® Data Virtualization Server:
+	csadmin-XXXX.jar, csarchive-XXXX.jar, csbase-XXXX.jar, csclient-XXXX.jar, cscommon-XXXX.jar,
+	csext-XXXX.jar, csjdbc-XXXX.jar, csserverutil-XXXX.jar, csserver-XXXX.jar, cswebapi-XXXX.jar,
+	and customproc-XXXX.jar (where -XXXX is an optional version number).  Any included third party files
+	are licensed under the terms contained in their own accompanying LICENSE files, generally named .LICENSE.txt.
+	
+	This software is licensed AS-IS. Support for this software is not covered by standard maintenance agreements with TIBCO.
+	If you would like to obtain assistance with this software, such assistance may be obtained through a separate paid consulting
+	agreement with TIBCO.
+
+*/
+PROCEDURE generateLink(
+	IN resourcePath			/shared/ASAssets/Utilities/TypeDefinitions.pathType,
+	IN resourceType			VARCHAR, 
+	IN publishToFolder		/shared/ASAssets/Utilities/TypeDefinitions.pathType,
+	IN resourceName			VARCHAR, 
+	IN overwrite			INTEGER, 
+	IN copyAnnotation		INTEGER,
+	IN copyPrivilegeMode	INTEGER,
+	OUT success				INTEGER
+)
+BEGIN
+	DECLARE moduleName		VARCHAR DEFAULT &apos;generateLink&apos;;
+	DECLARE resourceName_	VARCHAR DEFAULT resourceName;
+	DECLARE resourceType_	VARCHAR;
+	DECLARE resourceExists	BOOLEAN;
+	DECLARE namespaces		VARCHAR(1024) DEFAULT &apos;xmlns:resource=&quot;http://www.compositesw.com/services/system/admin/resource&quot; xmlns:common=&quot;http://www.compositesw.com/services/system/util/common&quot;&apos;;
+	DECLARE xpath			VARCHAR(1024);
+	DECLARE xmlOut			XML;
+	DECLARE tempPath		/shared/ASAssets/Utilities/TypeDefinitions.pathType;
+	DECLARE annotation		LONGVARCHAR;
+	DECLARE Empty			INTEGER DEFAULT 1;
+	DECLARE ex				EXCEPTION;
+	DECLARE createResponse 	XML;
+	DECLARE faultResponse	XML;
+	DECLARE updatePrivilegesRecursively	BIT DEFAULT 0;
+		-- flag indicating whether to update the children of the given resources or not.
+		-- 0 (false) or null - only update the given resource and not the children.
+		-- 1 (true) - update children recursively
+	DECLARE copyPrivilegeEntry		/shared/ASAssets/Utilities/repository/definitions/RepositoryDefinitions.copyPrivilegeEntryVector;
+		-- copyPrivilegeEntry - a vector array of source and destination resources
+		--	srcResources - a vector of &quot;path&quot; and &quot;type&quot; which allows a max of 1 entry
+		--	dstResources - a vector of &quot;path&quot; and &quot;type&quot; which allows an unbounded number of destination resources to be set.
+
+	-- Ignore resource types that are folders/containers.
+	if (resourceType != &apos;CONTAINER&apos;) then
+		-- If the resource name was not provided then get the name from the resource path.
+		if (isEmpty(resourceName_) = Empty) then
+			call /shared/ASAssets/Utilities/repository/returnFolderNameAndFolderPath(resourcePath, &apos;E&apos;, resourceName_, tempPath);
+		end if;
+
+		CALL /lib/resource/ResourceExists(publishToFolder||&apos;/&apos;||resourceName_, &apos;LINK&apos;, null, resourceExists);
+		IF (resourceExists) THEN
+			-- 0=&quot;FAIL_IF_EXISTS&quot;=do not overwrite the resource.  If the resource exists, raise an exception.
+			IF (overwrite = 0) THEN
+				raise ex value  moduleName||&apos;: Operation not permitted.  Overwrite=0 (false) and the resource exists: &apos;||publishToFolder||&apos;/&apos;||resourceName_;
+			END IF;
+			-- 1=&quot;SKIP_IF_EXISTS&quot;=skip the resource if it exists and continue processing
+			IF (overwrite = 1) THEN
+				-- DO NOTHING, JUST KEEP PROCESSING
+				-- NOTE:  If the resource is skipped, it never even makes it into this procedure.
+			END IF;
+			-- 2=&quot;OVERWRITE_IF_EXISTS&quot;=do overwrite the resource if it exists.
+			-- Remove the LINK resource if overwrite is true and the resource path exists.
+			if (overwrite = 2) then
+				call /shared/ASAssets/Utilities/repository/destroyResource(publishToFolder,resourceName_,&apos;LINK&apos;,success,createResponse,faultResponse);
+				if (faultResponse is not null) then
+					raise ex value  moduleName||&apos;: &apos;||CAST(faultResponse AS LONGVARCHAR);
+				end if;
+			end if;
+		end if;
+
+		-- Determine if the annotation should be copied from the source resource to the target resource
+		-- If the annotation is not to be copied then set it to emtpy string
+		if (copyAnnotation = 0) then
+			set annotation = &apos;&apos;;
+		else
+			-- Retrieve the resource XML and get the annotation
+			call /shared/ASAssets/Utilities/repository/lowerLevelProcedures/getBasicResourceXML(resourcePath, resourceType, xmlOut);
+			-- Extract the annotation from the source resource
+			set namespaces = &apos;xmlns:resource=&quot;http://www.compositesw.com/services/system/admin/resource&quot; xmlns:common=&quot;http://www.compositesw.com/services/system/util/common&quot;&apos;;
+			set xpath = &apos;/resource:getResourceResponse/resource:resources/resource:resource/resource:annotation&apos;;
+			call /shared/ASAssets/Utilities/&quot;xml&quot;/getValueFromXML(&apos;N&apos;, namespaces, xpath, CAST(xmlOut as LONGVARCHAR), annotation);
+		end if;
+
+		-- Create the published resource link
+		call /shared/ASAssets/Utilities/repository/publishResource(resourcePath, resourceType, publishToFolder, resourceName_, annotation, success, createResponse, faultResponse);
+		if (faultResponse is not null) then
+			raise ex value moduleName||&apos;: &apos;||CAST(faultResponse AS LONGVARCHAR);
+		end if;
+
+		-- Update the resource privileges
+		if (updatePrivilegesRecursively is not null and copyPrivilegeMode is not null and copyPrivilegeMode = 1) then
+			-- Retrieve the resource XML and get the annotation
+			call /shared/ASAssets/Utilities/repository/lowerLevelProcedures/getBasicResourceXML(publishToFolder, null, xmlOut);
+
+			-- Extract the annotation
+			set namespaces = &apos;xmlns:resource=&quot;http://www.compositesw.com/services/system/admin/resource&quot; xmlns:common=&quot;http://www.compositesw.com/services/system/util/common&quot;&apos;;
+			set xpath = &apos;/resource:getResourceResponse/resource:resources/resource:resource/resource:type&apos;;
+			call /shared/ASAssets/Utilities/&quot;xml&quot;/getValueFromXML(&apos;N&apos;, namespaces, xpath, CAST(xmlOut as LONGVARCHAR), resourceType_);
+
+			-- Create the copyPrivilege Vector where the source is the parent folder of the link and the destination is the link resource itself.		
+			set copyPrivilegeEntry = VECTOR[(
+				VECTOR[(publishToFolder, resourceType_)],
+				VECTOR[(publishToFolder||&apos;/&apos;||resourceName_,&apos;LINK&apos;)]
+			)];
+
+			-- Invoke the copyResourcesPrivileges procedure
+			call /shared/ASAssets/Utilities/repository/copyResourcesPrivileges(updatePrivilegesRecursively, copyPrivilegeMode, copyPrivilegeEntry, success, faultResponse);
+			if (faultResponse is not null) then
+				raise ex value moduleName||&apos;: &apos;||CAST(faultResponse AS LONGVARCHAR);
+			end if;
+		end if;
+	end if;
+END</attribute>
+  <attribute name="creationDate" type="LONG">0</attribute>
+  <attribute name="creatorUserDomain" type="STRING"/>
+  <attribute name="creatorUserName" type="STRING"/>
+  <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1519936681630</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="model" type="NULL"/>
+  <attribute name="native_only" type="STRING">false</attribute>
+  <attribute name="references" type="NULL"/>
+</metadata>

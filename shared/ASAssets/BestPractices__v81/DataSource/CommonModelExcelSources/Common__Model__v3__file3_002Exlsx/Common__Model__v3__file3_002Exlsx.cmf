@@ -1,0 +1,25 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:8cb1adda-d866-4c10-83d8-a087f3b9074d -->
+<metadata name="Common_Model_v3_file3.xlsx" path="/shared/ASAssets/BestPractices_v81/DataSource/CommonModelExcelSources/Common_Model_v3_file3.xlsx" type="CONTAINER" subtype="DIRECTORY" changeToken="0">
+  <security>
+    <owner user="admin" domain="composite"/>
+    <privilege group="all" domain="composite" privileges="READ EXECUTE SELECT"/>
+  </security>
+  <attribute name="autoAddChildren" type="BOOLEAN">true</attribute>
+  <attribute name="blankAsNull" type="BOOLEAN">false</attribute>
+  <attribute name="blankColumnType" type="STRING">Varchar</attribute>
+  <attribute name="charset" type="STRING">iso-8859-1</attribute>
+  <attribute name="creationDate" type="LONG">1382817630913</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="dataRange" type="STRING">A1</attribute>
+  <attribute name="dataWysiwyg" type="BOOLEAN">true</attribute>
+  <attribute name="firstRowCategory" type="BOOLEAN">true</attribute>
+  <attribute name="hasHeaders" type="BOOLEAN">true</attribute>
+  <attribute name="ignoreInvalidateDataFetch" type="BOOLEAN">true</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1390419400240</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="path" type="STRING">C:\MyFiles\BestPractices\BestPractices_v80\Common_Model_v3_file3.xlsx</attribute>
+  <attribute name="userDeletedSet" type="SET"></attribute>
+</metadata>

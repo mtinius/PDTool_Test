@@ -1,0 +1,291 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:8cb1adda-d866-4c10-83d8-a087f3b9074d -->
+<metadata name="updateDatasourcePaths" path="/shared/ASAssets/BestPractices_v81/_Installation/updateDatasourcePaths" type="PROCEDURE" subtype="SQL_SCRIPT_PROCEDURE" changeToken="0">
+  <annotation>
+	(c) 2017 TIBCO Software Inc.  All rights reserved.
+	
+	Except as specified below, this software is licensed pursuant to the Eclipse Public License v. 1.0.
+	The details can be found in the file LICENSE.
+	
+	The following proprietary files are included as a convenience, and may not be used except pursuant
+	to valid license to Composite Information Server or TIBCO® Data Virtualization Server:
+	csadmin-XXXX.jar, csarchive-XXXX.jar, csbase-XXXX.jar, csclient-XXXX.jar, cscommon-XXXX.jar,
+	csext-XXXX.jar, csjdbc-XXXX.jar, csserverutil-XXXX.jar, csserver-XXXX.jar, cswebapi-XXXX.jar,
+	and customproc-XXXX.jar (where -XXXX is an optional version number).  Any included third party files
+	are licensed under the terms contained in their own accompanying LICENSE files, generally named .LICENSE.txt.
+	
+	This software is licensed AS-IS. Support for this software is not covered by standard maintenance agreements with TIBCO.
+	If you would like to obtain assistance with this software, such assistance may be obtained through a separate paid consulting
+	agreement with TIBCO.
+
+</annotation>
+  <parameters>
+    <parameter name="inNewRootPath" direction="IN" nullable="true">
+      <datatype name="LONGVARCHAR" type="STRING" maxLength="2147483647"/>
+    </parameter>
+    <parameter name="result" direction="OUT" nullable="true">
+      <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+    </parameter>
+  </parameters>
+  <security>
+    <owner user="admin" domain="composite"/>
+    <privilege group="all" domain="composite" privileges="READ EXECUTE"/>
+  </security>
+  <dependency target="/shared/ASAssets/BestPractices_v81/_ProjectMaintenance/defaultValues" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="1"></datatype>
+  </dependency>
+  <dependency target="/shared/ASAssets/Utilities/file/FileProcessingCJP/existsDir" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="1">
+      <element name="dirPath" direction="IN">
+        <datatype type="STRING" maxLength="2147483647"/>
+      </element>
+      <element name="success" direction="OUT">
+        <datatype type="BOOLEAN"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/ASAssets/Utilities/log/logDebugMessage" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="1">
+      <element name="moduleName" direction="IN">
+        <datatype referenceDefinitionSet="/shared/ASAssets/Utilities/TypeDefinitions" referenceType="moduleNameType" type="STRING" maxLength="4096"/>
+      </element>
+      <element name="debug" direction="IN">
+        <datatype type="STRING" maxLength="1"/>
+      </element>
+      <element name="messageText" direction="IN">
+        <datatype type="STRING" maxLength="2147483647"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/ASAssets/Utilities/repository/definitions/RepositoryDefinitions" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="1"></datatype>
+  </dependency>
+  <dependency target="/shared/ASAssets/Utilities/repository/reintrospectDataSource" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="1">
+      <element name="debug" direction="IN">
+        <datatype type="STRING" minLength="1" maxLength="1"/>
+      </element>
+      <element name="fullResourcePath" direction="IN">
+        <datatype referenceDefinitionSet="/lib/resource/ResourceDefs" referenceType="ResourcePath" type="STRING" maxLength="4096"/>
+      </element>
+      <element name="isBlocking" direction="IN">
+        <datatype type="INTEGER" minValue="0" maxValue="1"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/ASAssets/Utilities/repository/updateResourceDataSource" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="1">
+      <element name="fullResourcePath" direction="IN">
+        <datatype referenceDefinitionSet="/shared/ASAssets/Utilities/TypeDefinitions" referenceType="pathType" type="STRING" maxLength="1000"/>
+      </element>
+      <element name="resourceType" direction="IN">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="subtype" direction="IN">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="dataSourceType" direction="IN">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="dataSourceAttrVector" direction="IN">
+        <datatype type="ARRAY" maxLength="0">
+          <itemDatatype>
+            <datatype name="AttributeType" type="TREE" refId="2">
+              <element name="attrName">
+                <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+              </element>
+              <element name="attrType">
+                <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+              </element>
+              <element name="attrValue">
+                <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+              </element>
+            </datatype>
+          </itemDatatype>
+        </datatype>
+      </element>
+      <element name="success" direction="OUT">
+        <datatype type="INTEGER" minValue="0" maxValue="1"/>
+      </element>
+      <element name="createResponse" direction="OUT">
+        <datatype name="XML" referenceType="XML" type="XML" contentConstraint="SEQUENCE" schemaConstraint="ANY" componentType="TYPE" componentName="XML">
+          <schemaDatatype>
+            <datatype name="XML" type="TREE" refId="3"></datatype>
+          </schemaDatatype>
+        </datatype>
+      </element>
+      <element name="faultResponse" direction="OUT">
+        <datatype name="XML" referenceType="XML" type="XML" contentConstraint="SEQUENCE" schemaConstraint="ANY" componentType="TYPE" componentName="XML">
+          <schemaDatatype>
+            <reference refId="3"/>
+          </schemaDatatype>
+        </datatype>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/ASAssets/Utilities/string/emptyStr" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="1">
+      <element name="inputString" direction="IN">
+        <datatype type="STRING" maxLength="2147483647"/>
+      </element>
+      <element name="outputString" direction="OUT">
+        <datatype type="STRING" maxLength="2147483647"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/system/customfunctions/emptyStr" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="1"></datatype>
+  </dependency>
+  <attribute name="Script" type="STRING">/* updateDatasourcePaths:
+	The purpose of this procedure is to update all of the file-based data source paths to point to the correct file system root path.  
+	Data sources include:
+		DV Resource Path																						Default Root Path location
+		-----------------------------------------------------------------------------------------------------	-----------------------------------------------------
+		/shared/PSAssets/BestPractices_v80/DataSource/CommonModelCSVSources										C:/MyFiles/BestPractices/BestPractices_v80
+		/shared/PSAssets/BestPractices_v80/DataSource/CommonModelExcelSources									C:/MyFiles/BestPractices/BestPractices_v80
+		/shared/PSAssets/BestPractices_v80/DataAbstractionSample/Physical/Metadata/Excel/Common_Model_v3_file2	C:/MyFiles/BestPracticesexamples
+		/shared/PSAssets/BestPractices_v80/DataAbstractionSample/Physical/Metadata/File/Common_Model_v2			C:/MyFiles/BestPracticesexamples
+		/shared/PSAssets/BestPractices_v80/DataAbstractionSample/Physical/Metadata/File/testfile				C:/MyFiles/BestPracticesexamples
+		/shared/PSAssets/BestPractices_v80/DataAbstractionSample/Physical/Metadata/File/testfile3				C:/MyFiles/BestPracticesexamples
+		/shared/PSAssets/BestPractices_v80/DataAbstractionSample/Physical/Metadata/XML/ds_XML					C:/MyFiles/BestPracticesexamples
+		/shared/ASAssets/BestPractices_v81/ManageAnnotations/Metadata/ManageAnnotations_EXCEL					C:/MyFiles/BestPractices/ManageAnnotations
+		/shared/ASAssets/BestPractices_v81/PrivilegeScripts/Metadata/Privileges_DS_EXCEL						C:/MyFiles/BestPractices/Privileges
+
+	Input:
+		rootPath		LONGVARCHAR, 	- The root path in the file system which points to C:\CompositeSoftware
+	Output:
+		success			VARCHAR			- &apos;SUCCESS&apos;
+
+	Exceptions:  throws an exception if the file system folders do not exist or there is a problem updating the data source
+
+	Modified Date:	Modified By:		CSW Version:	Reason:
+	12/05/2013		Mike Tinius			6.2.0			Created new
+	05/24/2017		Mike Tinius			7.0.5			Added Manage Annotations and Privilege Scripts
+
+	(c) 2017 TIBCO Software Inc. All rights reserved.
+	
+	Except as specified below, this software is licensed pursuant to the Eclipse Public License v. 1.0.
+	The details can be found in the file LICENSE.
+	
+	The following proprietary files are included as a convenience, and may not be used except pursuant
+	to valid license to Composite Information Server or TIBCO® Data Virtualization Server:
+	csadmin-XXXX.jar, csarchive-XXXX.jar, csbase-XXXX.jar, csclient-XXXX.jar, cscommon-XXXX.jar,
+	csext-XXXX.jar, csjdbc-XXXX.jar, csserverutil-XXXX.jar, csserver-XXXX.jar, cswebapi-XXXX.jar,
+	and customproc-XXXX.jar (where -XXXX is an optional version number).  Any included third party files
+	are licensed under the terms contained in their own accompanying LICENSE files, generally named .LICENSE.txt.
+	
+	This software is licensed AS-IS. Support for this software is not covered by standard maintenance agreements with TIBCO.
+	If you would like to obtain assistance with this software, such assistance may be obtained through a separate paid consulting
+	agreement with TIBCO.
+
+*/
+PROCEDURE updateDatasourcePaths(
+	IN inNewRootPath		LONGVARCHAR, 	-- The root path in the file system where the Best Practices scripts live (C:/MyFiles)
+	OUT result				VARCHAR
+)
+BEGIN
+	DECLARE moduleName				VARCHAR DEFAULT &apos;updateDatasourcePaths&apos;;
+	DEClARE debug					CHAR(1) DEFAULT &apos;Y&apos;;
+	DECLARE newRootPath				LONGVARCHAR DEFAULT REPLACE(inNewRootPath, &apos;\&apos;,&apos;/&apos;);
+	DECLARE resourcePath			LONGVARCHAR;
+	DECLARE defaultFSRootPath		LONGVARCHAR DEFAULT /shared/ASAssets/BestPractices_v81/&quot;_ProjectMaintenance&quot;/defaultValues.defaultFSRootPath;
+	DECLARE bestPracticesRootPath	VARCHAR(1024) DEFAULT /shared/ASAssets/BestPractices_v81/&quot;_ProjectMaintenance&quot;/defaultValues.bestPracticesRootPath;
+	DECLARE TYPE dsType				ROW (
+		resourcePath		VARCHAR(1024),
+		resourceType		VARCHAR,
+		subtype				VARCHAR,
+		dataSourceType		VARCHAR,
+		dataSourceAttrVector /shared/ASAssets/Utilities/repository/definitions/RepositoryDefinitions.AttributeVectorType
+	);
+	DECLARE fileSystemPath			LONGVARCHAR;
+	DECLARE dsVector				VECTOR (dsType);
+	DECLARE i,j						INTEGER DEFAULT 1;
+	DECLARE success					BIT;
+	DECLARE successBool				BOOLEAN;
+	DECLARE createResponse 			XML;
+	DECLARE faultResponse			XML;
+	DECLARE ex						EXCEPTION;
+
+	set result = &apos;SUCCESS&apos;;
+	IF (newRootPath is null or LENGTH(newRootPath) = 0) THEN
+		raise ex value &apos;The &quot;newRootPath&quot; provided is null or empty.  Please provide a new path.&apos;;
+	END IF;
+
+	call /shared/ASAssets/Utilities/file/FileProcessingCJP/existsDir(newRootPath, successBool);
+	IF (NOT successBool) THEN
+		raise ex value &apos;The &quot;newRootPath&quot; provided does not exist.  Please provide a new path. path=&apos;||newRootPath;
+	END IF;
+
+	-- Setup the data source vector
+	set defaultFSRootPath = REPLACE(defaultFSRootPath, &apos;\&apos;, &apos;/&apos;);
+	SET dsVector = VECTOR[
+		(bestPracticesRootPath||&apos;/DataSource/CommonModelCSVSources&apos;,									&apos;DATA_SOURCE&apos;, &apos;FILE_DATA_SOURCE&apos;, &apos;File-Delimited&apos;, 
+			VECTOR[(&apos;root&apos;, &apos;STRING&apos;, defaultFSRootPath||&apos;/BestPractices/BestPractices_v80&apos;)] ),
+
+		(bestPracticesRootPath||&apos;/DataSource/CommonModelExcelSources&apos;,									&apos;DATA_SOURCE&apos;, &apos;FILE_DATA_SOURCE&apos;, &apos;Microsoft Excel (non-ODBC)&apos;, 
+			VECTOR[(&apos;root&apos;, &apos;STRING&apos;, defaultFSRootPath||&apos;/BestPractices/BestPractices_v80&apos;)] ),
+
+		(bestPracticesRootPath||&apos;/ManageAnnotations/Metadata/ManageAnnotations_EXCEL&apos;,					&apos;DATA_SOURCE&apos;, &apos;FILE_DATA_SOURCE&apos;, &apos;Microsoft Excel (non-ODBC)&apos;, 
+			VECTOR[(&apos;root&apos;, &apos;STRING&apos;, defaultFSRootPath||&apos;/BestPractices/Annotations&apos;)] ),
+
+		(bestPracticesRootPath||&apos;/PrivilegeScripts/Metadata/Privileges_DS_EXCEL&apos;,						&apos;DATA_SOURCE&apos;, &apos;FILE_DATA_SOURCE&apos;, &apos;Microsoft Excel (non-ODBC)&apos;, 
+			VECTOR[(&apos;root&apos;, &apos;STRING&apos;, defaultFSRootPath||&apos;/BestPractices/Privileges&apos;)] )
+	];
+
+	BEGIN INDEPENDENT TRANSACTION
+
+	WHILE (i &lt;= CARDINALITY(dsVector)) DO
+		set j = 1;
+		WHILE (j &lt;= CARDINALITY(dsVector[i].dataSourceAttrVector)) DO
+			IF (dsVector[i].dataSourceAttrVector[j].attrName = &apos;root&apos;) THEN
+				SET fileSystemPath = dsVector[i].dataSourceAttrVector[j].attrValue;
+				SET fileSystemPath = REPLACE(fileSystemPath, defaultFSRootPath, newRootPath);
+				-- If forward slashes are detected in the root path then change all backslashes to forward slashes
+				IF (POSITION(&apos;/&apos; IN newRootPath) &gt; 0) THEN
+					SET fileSystemPath = REPLACE(fileSystemPath, &apos;\&apos;, &apos;/&apos;);
+				END IF; 
+				CALL /shared/ASAssets/Utilities/file/FileProcessingCJP/existsDir(fileSystemPath, successBool);
+				IF (NOT successBool) THEN
+					raise ex value &apos;The target directory does not exist.  Insure that the Best Practices spreadsheets have been installed. path=&apos;||fileSystemPath;
+				END IF;
+				set dsVector[i].dataSourceAttrVector[j].attrValue = fileSystemPath;
+			END IF;
+			SET j = j + 1;
+		END WHILE;
+		CALL /shared/ASAssets/Utilities/log/logDebugMessage(moduleName, debug,&apos;Updating DataSource=&apos;||emptyStr(dsVector[i].resourcePath)||&apos;  with a root path=&apos;||fileSystemPath);
+
+		CALL /shared/ASAssets/Utilities/repository/updateResourceDataSource(
+				dsVector[i].resourcePath,
+				dsVector[i].resourceType,
+				dsVector[i].subtype,
+				dsVector[i].dataSourceType,
+				dsVector[i].dataSourceAttrVector,
+				success, createResponse, faultResponse);
+		IF (faultResponse IS NOT NULL) THEN
+			raise ex value CAST(faultResponse AS LONGVARCHAR);
+		END IF;
+		SET i = i + 1;
+	END WHILE;
+
+	-- Re-introspect data sources
+	set resourcePath = bestPracticesRootPath||&apos;/DataSource/CommonModelExcelSources&apos;;
+	call /shared/ASAssets/Utilities/repository/reintrospectDataSource(debug, resourcePath, 1);
+
+	EXCEPTION
+		ELSE
+			raise ex value CAST(CURRENT_EXCEPTION.TRACE AS LONGVARCHAR);
+	END;
+END</attribute>
+  <attribute name="creationDate" type="LONG">1386252493486</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
+  <attribute name="impactLevel" type="INTEGER">0</attribute>
+  <attribute name="impactMessage" type="NULL"/>
+  <attribute name="lastModifiedDate" type="LONG">1548250082990</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="model" type="NULL"/>
+  <attribute name="native_only" type="STRING">false</attribute>
+  <attribute name="references" type="NULL"/>
+</metadata>
