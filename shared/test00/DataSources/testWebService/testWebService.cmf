@@ -21,7 +21,7 @@
   <attribute name="environmentPassThrough" type="STRING"/>
   <attribute name="isPassThrough" type="STRING">Disabled</attribute>
   <attribute name="keystore" type="MAP"></attribute>
-  <attribute name="lastModifiedDate" type="LONG">1548530034485</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1548530578381</attribute>
   <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
   <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
   <attribute name="login" type="STRING">admin</attribute>
