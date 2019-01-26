@@ -1,5 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<metadata name="shippingmethods" path="/shared/test00/DataSources/ds_orders/tutorial/shippingmethods" type="TABLE" subtype="DATABASE_TABLE" changeToken="0" tableType="NONE">
+<metadata name="shippingmethods" path="/shared/test00/DataSources/ds_orders/tutorial/shippingmethods" type="TABLE" subtype="DATABASE_TABLE" changeToken="0" tableType="TABLE">
   <columns>
     <column name="shippingmethodid" nullable="false">
       <datatype name="int4" extendedName="int4" subType="DATASOURCE_TYPE" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
@@ -17,6 +17,7 @@
   <indexes>
     <index name="shippingmethods_pkey" type="PRIMARY_KEY" unique="true">
       <indexColumn name="shippingmethodid" sortOrder="ASCENDING"/>
+      <attribute name="indexSchema" type="STRING">tutorial</attribute>
     </index>
   </indexes>
   <foreignKeys></foreignKeys>
@@ -28,5 +29,6 @@
   <attribute name="creationDate" type="LONG">0</attribute>
   <attribute name="creatorUserDomain" type="STRING"/>
   <attribute name="creatorUserName" type="STRING"/>
+  <attribute name="i:0:indexSchema" type="STRING">tutorial</attribute>
   <attribute name="selectionState" type="INTEGER">2</attribute>
 </metadata>

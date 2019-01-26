@@ -11,7 +11,7 @@
   <attribute name="creationDate" type="LONG">1391738797850</attribute>
   <attribute name="creatorUserDomain" type="STRING">composite</attribute>
   <attribute name="creatorUserName" type="STRING">admin</attribute>
-  <attribute name="namespace" type="STRING">http://mtinius-WS.cisco.com/services/webservices/TEST00/testWebService</attribute>
+  <attribute name="namespace" type="STRING">http://MTINIUS-MBPVM.na.tibco.com/services/webservices/TEST00/testWebService</attribute>
   <attribute name="selectionState" type="INTEGER">2</attribute>
   <attribute name="userDeletedSet" type="SET"></attribute>
 </metadata>

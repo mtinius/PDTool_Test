@@ -100,9 +100,9 @@
   <attribute name="topicName" type="STRING"/>
   <attribute name="txnIsolationLevel" type="STRING">Read Committed</attribute>
   <attribute name="type" type="STRING">PostgreSQL</attribute>
-  <attribute name="url" type="STRING">jdbc:postgresql://localhost:9408/orders</attribute>
+  <attribute name="url" type="STRING">jdbc:postgresql://localhost:9508/orders</attribute>
   <attribute name="urlDatabaseName" type="STRING">orders</attribute>
   <attribute name="urlIP" type="STRING">localhost</attribute>
   <attribute name="urlPatternStr" type="STRING">jdbc:postgresql://&lt;HOST&gt;:&lt;PORT&gt;/&lt;DATABASE_NAME&gt;</attribute>
-  <attribute name="urlPort" type="INTEGER">9408</attribute>
+  <attribute name="urlPort" type="INTEGER">9508</attribute>
 </metadata>
