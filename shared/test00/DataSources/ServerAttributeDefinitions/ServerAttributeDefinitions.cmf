@@ -17,7 +17,7 @@
   <attribute name="creatorUserName" type="STRING"/>
   <attribute name="driverName" type="STRING">File-XML</attribute>
   <attribute name="filters" type="STRING">*.xml</attribute>
-  <attribute name="lastModifiedDate" type="LONG">1548528336326</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1548528938635</attribute>
   <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
   <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
   <attribute name="local" type="BOOLEAN">true</attribute>
