@@ -1,5 +1,4 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:8822fbda-c44a-4ce3-b613-bbeafc74b6c2 -->
 <metadata name="InventoryTransactions" path="/shared/test00/CisResources/InventoryTransactions" type="DEFINITION_SET" subtype="XML_SCHEMA_DEFINITION_SET" changeToken="0">
   <definitions>
     <definition name="{http://www.compositesw.com/services/webservices/system/admin/resource}InventoryTransactions" type="ELEMENT">

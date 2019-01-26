@@ -1,6 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:8822fbda-c44a-4ce3-b613-bbeafc74b6c2 -->
-<metadata name="shippingmethods" path="/shared/test00/DataSourcesCopy/ds_orders/tutorial/shippingmethods" type="TABLE" subtype="DATABASE_TABLE" changeToken="0" tableType="TABLE">
+<metadata name="shippingmethods" path="/shared/test00/DataSourcesCopy/ds_orders/tutorial/shippingmethods" type="TABLE" subtype="DATABASE_TABLE" changeToken="0" tableType="NONE">
   <annotation/>
   <columns>
     <column name="shippingmethodid" nullable="false">
@@ -19,7 +18,6 @@
   <indexes>
     <index name="shippingmethods_pkey" type="PRIMARY_KEY" unique="true">
       <indexColumn name="shippingmethodid" sortOrder="ASCENDING"/>
-      <attribute name="indexSchema" type="STRING">tutorial</attribute>
     </index>
   </indexes>
   <foreignKeys></foreignKeys>
@@ -29,7 +27,6 @@
   <attribute name="creationDate" type="LONG">0</attribute>
   <attribute name="creatorUserDomain" type="STRING"/>
   <attribute name="creatorUserName" type="STRING"/>
-  <attribute name="i:0:indexSchema" type="STRING">tutorial</attribute>
   <attribute name="lastModifiedDate" type="LONG">1513893969241</attribute>
   <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
   <attribute name="lastModifiedUserName" type="STRING">admin</attribute>

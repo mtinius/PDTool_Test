@@ -1,5 +1,4 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:8822fbda-c44a-4ce3-b613-bbeafc74b6c2 -->
 <metadata name="Orders" path="/shared/test00/Rebind/RebindFolder/Views/Orders" type="TABLE" subtype="SQL_TABLE" changeToken="0" tableType="VIEW">
   <columns>
     <column name="orderid" nullable="true">

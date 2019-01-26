@@ -1,5 +1,4 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:8822fbda-c44a-4ce3-b613-bbeafc74b6c2 -->
 <metadata name="getCustomerById" path="/shared/test00/TestSecurity/Common/getCustomerById" type="PROCEDURE" subtype="SQL_SCRIPT_PROCEDURE" changeToken="0">
   <parameters>
     <parameter name="custId" direction="IN" nullable="true">

@@ -1,5 +1,4 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:8822fbda-c44a-4ce3-b613-bbeafc74b6c2 -->
 <metadata name="ds_orders" path="/shared/test00/DataSourcesCopy/ds_orders" type="DATA_SOURCE" subtype="RELATIONAL" changeToken="0">
   <annotation/>
   <security>
@@ -12,7 +11,33 @@
     <datatype name="Tree" type="TREE" refId="1"></datatype>
   </dependency>
   <dependency target="/shared/test00/DataSourcesCopy/ds_orders/tutorial/cache_tracking" type="TABLE">
-    <datatype name="Tree" type="TREE" refId="1"></datatype>
+    <datatype name="" type="TABLE" refId="1">
+      <element name="clusterid">
+        <datatype name="" type="STRING" maxLength="40"/>
+      </element>
+      <element name="serverid" nullable="false">
+        <datatype name="" type="STRING" maxLength="80"/>
+      </element>
+      <element name="resourceid" nullable="false">
+        <datatype name="" type="STRING" maxLength="255"/>
+      </element>
+      <element name="catalog">
+        <datatype name="" type="STRING" maxLength="255"/>
+      </element>
+      <element name="schema">
+        <datatype name="" type="STRING" maxLength="255"/>
+      </element>
+      <element name="table" nullable="false">
+        <datatype name="" type="STRING" maxLength="255"/>
+      </element>
+      <element name="createtime">
+        <datatype name="TIMESTAMP" type="DATETIME"/>
+      </element>
+      <primaryKey>
+        <column>1</column>
+        <column>2</column>
+      </primaryKey>
+    </datatype>
   </dependency>
   <attribute name="DBLinkList" type="MAP"></attribute>
   <attribute name="LowerBoundForDataShip" type="LONG">50000</attribute>
@@ -25,7 +50,6 @@
   <attribute name="cacheTrackingTable" type="STRING">/shared/test00/DataSourcesCopy/ds_orders/tutorial/cache_tracking</attribute>
   <attribute name="collationSensitive" type="BOOLEAN">false</attribute>
   <attribute name="commitOnFetchDone" type="BOOLEAN">true</attribute>
-  <attribute name="concurrentRequestLimit" type="INTEGER">0</attribute>
   <attribute name="connCheckOutProcedure" type="STRING"/>
   <attribute name="connPoolMaxSize" type="INTEGER">100</attribute>
   <attribute name="connPoolMinSize" type="INTEGER">0</attribute>
@@ -58,10 +82,10 @@
   <attribute name="minTargetToSourceRatioForSJ" type="STRING"/>
   <attribute name="name" type="STRING">ds_orders</attribute>
   <attribute name="nativeDataLoadingEnabled" type="BOOLEAN">true</attribute>
+  <attribute name="password" type="STRING">A49A5A0FAFF13F4A</attribute>
   <attribute name="patternSeparator" type="STRING">,</attribute>
   <attribute name="persistPassword" type="BOOLEAN">true</attribute>
   <attribute name="postgresqlEnableBulkLoad" type="BOOLEAN">true</attribute>
-  <attribute name="reintrospection_recommended" type="BOOLEAN">true</attribute>
   <attribute name="searchCaseSensitively" type="BOOLEAN">false</attribute>
   <attribute name="searchEscape" type="STRING">\</attribute>
   <attribute name="singleCharWildcard" type="STRING">_</attribute>
@@ -76,9 +100,9 @@
   <attribute name="topicName" type="STRING"/>
   <attribute name="txnIsolationLevel" type="STRING">Read Committed</attribute>
   <attribute name="type" type="STRING">PostgreSQL</attribute>
-  <attribute name="url" type="STRING">jdbc:postgresql://localhost:9808/orders</attribute>
+  <attribute name="url" type="STRING">jdbc:postgresql://localhost:9408/orders</attribute>
   <attribute name="urlDatabaseName" type="STRING">orders</attribute>
   <attribute name="urlIP" type="STRING">localhost</attribute>
   <attribute name="urlPatternStr" type="STRING">jdbc:postgresql://&lt;HOST&gt;:&lt;PORT&gt;/&lt;DATABASE_NAME&gt;</attribute>
-  <attribute name="urlPort" type="INTEGER">9808</attribute>
+  <attribute name="urlPort" type="INTEGER">9408</attribute>
 </metadata>

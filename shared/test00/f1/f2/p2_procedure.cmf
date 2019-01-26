@@ -1,5 +1,4 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:8822fbda-c44a-4ce3-b613-bbeafc74b6c2 -->
 <metadata name="p2" path="/shared/test00/f1/f2/p2" type="PROCEDURE" subtype="SQL_SCRIPT_PROCEDURE" changeToken="0">
   <parameters>
     <parameter name="customerId" direction="IN" nullable="true">

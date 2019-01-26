@@ -1,5 +1,4 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:8822fbda-c44a-4ce3-b613-bbeafc74b6c2 -->
 <metadata name="xqueryProc" path="/shared/test00/CisResources/xqueryProc" type="PROCEDURE" subtype="XQUERY_TRANSFORM_PROCEDURE" changeToken="0">
   <parameters>
     <parameter name="InventoryTransactions" direction="OUT" nullable="true">
@@ -67,7 +66,38 @@
     <privilege user="user2" domain="composite" privileges="READ EXECUTE"/>
   </security>
   <dependency target="/shared/examples/ds_inventory/tutorial/inventorytransactions" type="TABLE">
-    <datatype name="Tree" type="TREE" refId="1"></datatype>
+    <datatype name="inventorytransactions" type="TABLE" refId="1">
+      <element name="transactionid">
+        <datatype name="int4" extendedName="int4" subType="DATASOURCE_TYPE" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="transactiondate">
+        <datatype name="date" extendedName="date" subType="DATASOURCE_TYPE" type="DATE"/>
+      </element>
+      <element name="productid">
+        <datatype name="int4" extendedName="int4" subType="DATASOURCE_TYPE" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="purchaseorderid">
+        <datatype name="int4" extendedName="int4" subType="DATASOURCE_TYPE" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="transactiondescription">
+        <datatype name="varchar" extendedName="varchar(255)" subType="DATASOURCE_TYPE" type="STRING" maxLength="255"/>
+      </element>
+      <element name="unitprice">
+        <datatype name="numeric" extendedName="numeric(19,0)" subType="DATASOURCE_TYPE" type="DECIMAL" maxDigits="19" maxFractionalDigits="0"/>
+      </element>
+      <element name="unitsordered">
+        <datatype name="int4" extendedName="int4" subType="DATASOURCE_TYPE" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="unitsreceived">
+        <datatype name="int4" extendedName="int4" subType="DATASOURCE_TYPE" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="unitssold">
+        <datatype name="int4" extendedName="int4" subType="DATASOURCE_TYPE" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="unitsshrinkage">
+        <datatype name="int4" extendedName="int4" subType="DATASOURCE_TYPE" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+    </datatype>
   </dependency>
   <dependency target="/shared/test00/CisResources/InventoryTransactions" type="DEFINITION_SET">
     <datatype name="Tree" type="TREE" refId="1"></datatype>

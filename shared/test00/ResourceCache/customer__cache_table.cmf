@@ -1,5 +1,4 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:8822fbda-c44a-4ce3-b613-bbeafc74b6c2 -->
 <metadata name="customer_cache" path="/shared/test00/ResourceCache/customer_cache" type="TABLE" subtype="SQL_TABLE" changeToken="0" tableType="VIEW">
   <columns>
     <column name="customerid" nullable="true">
@@ -83,16 +82,10 @@
     <privilege user="user1" domain="composite" privileges="READ SELECT"/>
     <privilege user="user2" domain="composite" privileges="READ SELECT"/>
   </security>
-  <dependency target="/lib/sources/defaultCacheDataSource" type="DATA_SOURCE">
+  <dependency target="/lib/sources/cacheDataSource" type="DATA_SOURCE">
     <datatype name="Tree" type="TREE" refId="1"></datatype>
   </dependency>
-  <dependency target="/lib/sources/defaultCacheDataSource/ciscache/view121399_0" type="TABLE">
-    <datatype name="Tree" type="TREE" refId="1"></datatype>
-  </dependency>
-  <dependency target="/lib/sources/defaultCacheDataSource/ciscache/view121399_1" type="TABLE">
-    <datatype name="Tree" type="TREE" refId="1"></datatype>
-  </dependency>
-  <dependency target="/lib/sources/defaultCacheDataSource/ciscache/view121399_2" type="TABLE">
+  <dependency target="/lib/sources/cacheDataSource/view200176" type="TABLE">
     <datatype name="Tree" type="TREE" refId="1"></datatype>
   </dependency>
   <dependency target="/shared/examples/ds_orders/tutorial/customers" type="TABLE">
@@ -139,38 +132,25 @@
     *
 FROM      
     /shared/examples/ds_orders/tutorial/customers customers</attribute>
-  <attribute name="cacheBucketMode" type="STRING">AUTO_GEN</attribute>
-  <attribute name="cacheBucketPrefix" type="STRING">view121399_</attribute>
-  <attribute name="cacheBucketSchema" type="STRING">ciscache</attribute>
   <attribute name="cacheClearRule" type="STRING">MANUAL</attribute>
   <attribute name="cacheConfigured" type="BOOLEAN">true</attribute>
   <attribute name="cacheDeltaLoader" type="NULL"/>
-  <attribute name="cacheDropCreateIdx" type="BOOLEAN">true</attribute>
-  <attribute name="cacheEnabled" type="BOOLEAN">false</attribute>
+  <attribute name="cacheEnabled" type="BOOLEAN">true</attribute>
+  <attribute name="cacheExpiration" type="LONG">2000000</attribute>
   <attribute name="cacheIncremental" type="BOOLEAN">false</attribute>
-  <attribute name="cacheLastTracking" type="STRING">/lib/sources/defaultCacheDataSource/ciscache/cstracking</attribute>
-  <attribute name="cacheNumBuckets" type="INTEGER">3</attribute>
+  <attribute name="cacheLastTracking" type="STRING">/lib/sources/cacheDataSource/cstracking</attribute>
   <attribute name="cachePostRefreshCallback" type="NULL"/>
   <attribute name="cachePreRefreshCallback" type="NULL"/>
   <attribute name="cachePullBasedIncremental" type="BOOLEAN">false</attribute>
-  <attribute name="cacheRefreshMode" type="STRING">MANUAL</attribute>
   <attribute name="cacheSnapshotLoader" type="NULL"/>
-  <attribute name="cacheStorageSource" type="STRING">/lib/sources/defaultCacheDataSource</attribute>
+  <attribute name="cacheStorageSource" type="STRING">/lib/sources/cacheDataSource</attribute>
   <attribute name="cacheStorageTargets" type="MAP">
     <item>
       <key type="STRING">result</key>
-      <value type="STRING">/lib/sources/defaultCacheDataSource/ciscache/view121399_0</value>
-    </item>
-    <item>
-      <key type="STRING">result1</key>
-      <value type="STRING">/lib/sources/defaultCacheDataSource/ciscache/view121399_1</value>
-    </item>
-    <item>
-      <key type="STRING">result2</key>
-      <value type="STRING">/lib/sources/defaultCacheDataSource/ciscache/view121399_2</value>
+      <value type="STRING">/lib/sources/cacheDataSource/view200176</value>
     </item>
   </attribute>
-  <attribute name="cacheStorageType" type="STRING">DATA_SOURCE_OTPS</attribute>
+  <attribute name="cacheStorageType" type="STRING">AUTOMATIC</attribute>
   <attribute name="creationDate" type="LONG">1418933421195</attribute>
   <attribute name="creatorUserDomain" type="STRING">composite</attribute>
   <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
@@ -178,7 +158,7 @@ FROM
   <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
   <attribute name="impactLevel" type="INTEGER">0</attribute>
   <attribute name="impactMessage" type="NULL"/>
-  <attribute name="lastModifiedDate" type="LONG">1546877209830</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1441459482307</attribute>
   <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
   <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
   <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
@@ -295,56 +275,68 @@ dv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/
     </dependency>
     <attribute name="actionProperties" type="MAP">
       <item>
-        <key type="STRING">PATH</key>
-        <value type="STRING">/lib/resource/RefreshResourceCache</value>
-      </item>
-      <item>
         <key type="STRING">PARAMETERS</key>
         <value type="STRING">&apos;/shared/test00/ResourceCache/customer_cache&apos;,&apos;TABLE&apos;</value>
+      </item>
+      <item>
+        <key type="STRING">PATH</key>
+        <value type="STRING">/lib/resource/RefreshResourceCache</value>
       </item>
     </attribute>
     <attribute name="actionType" type="STRING">PROCEDURE</attribute>
     <attribute name="conditionSchedule" type="MAP">
       <item>
-        <key type="STRING">mode</key>
-        <value type="STRING">CALENDAR</value>
+        <key type="STRING">startTime</key>
+        <value type="LONG">1307634647000</value>
       </item>
       <item>
-        <key type="STRING">period</key>
-        <value type="INTEGER">2</value>
+        <key type="STRING">recurringDay</key>
+        <value type="INTEGER">-1</value>
+      </item>
+      <item>
+        <key type="STRING">isCluster</key>
+        <value type="BOOLEAN">false</value>
       </item>
       <item>
         <key type="STRING">count</key>
         <value type="INTEGER">1</value>
       </item>
       <item>
-        <key type="STRING">startTime</key>
-        <value type="LONG">1546865101000</value>
+        <key type="STRING">interval</key>
+        <value type="INTEGER">2000000</value>
       </item>
       <item>
-        <key type="STRING">interval</key>
-        <value type="INTEGER">0</value>
+        <key type="STRING">fromTimeInADay</key>
+        <value type="LONG">-1</value>
+      </item>
+      <item>
+        <key type="STRING">period</key>
+        <value type="INTEGER">2</value>
       </item>
       <item>
         <key type="STRING">endTime</key>
         <value type="LONG">0</value>
       </item>
       <item>
-        <key type="STRING">isCluster</key>
-        <value type="BOOLEAN">false</value>
+        <key type="STRING">endTimeInADay</key>
+        <value type="LONG">-1</value>
+      </item>
+      <item>
+        <key type="STRING">mode</key>
+        <value type="STRING">INTERVAL</value>
       </item>
     </attribute>
     <attribute name="conditionType" type="STRING">TIMER</attribute>
-    <attribute name="creationDate" type="LONG">1546877209424</attribute>
+    <attribute name="creationDate" type="LONG">1418933470691</attribute>
     <attribute name="creatorUserDomain" type="STRING">composite</attribute>
     <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
     <attribute name="creatorUserName" type="STRING">admin</attribute>
-    <attribute name="enabled" type="BOOLEAN">false</attribute>
+    <attribute name="enabled" type="BOOLEAN">true</attribute>
     <attribute name="isChildTrigger" type="BOOLEAN">true</attribute>
-    <attribute name="lastModifiedDate" type="LONG">1546877209424</attribute>
+    <attribute name="lastModifiedDate" type="LONG">1441459482307</attribute>
     <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
     <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
     <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
-    <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1546877209424</attribute>
+    <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1418933470691</attribute>
   </trigger>
 </metadata>

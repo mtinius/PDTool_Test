@@ -1,5 +1,4 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:8822fbda-c44a-4ce3-b613-bbeafc74b6c2 -->
 <metadata name="trigger2" path="/shared/test00/ResourceTrigger/trigger2" type="TRIGGER" subtype="NONE" changeToken="0">
   <annotation>trigger 2 annotation</annotation>
   <security>
@@ -114,7 +113,7 @@
   <attribute name="creatorUserDomain" type="STRING"/>
   <attribute name="creatorUserName" type="STRING"/>
   <attribute name="enabled" type="BOOLEAN">false</attribute>
-  <attribute name="lastModifiedDate" type="LONG">1544840500552</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1513637444654</attribute>
   <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
   <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
   <attribute name="maxEventsQueued" type="INTEGER">2</attribute>
