@@ -1,5 +1,4 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:0c4925b0-1894-4af7-b792-cbd64b9ac46d -->
 <metadata name="testPort" path="/services/webservices/TEST00/testWebService/testService/testPort" type="CONTAINER" subtype="PORT" changeToken="0" virtual="true">
   <security>
     <owner user="admin" domain="composite"/>
@@ -16,7 +15,7 @@
   <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
   <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
   <attribute name="requireAllAuthMethods" type="BOOLEAN">false</attribute>
-  <attribute name="soapAddressLocation" type="STRING">http://MTINIUS-MBPVM.home:9800/services/TEST00/testWebService/testService/testPort.ws</attribute>
+  <attribute name="soapAddressLocation" type="STRING">http://MTINIUS-MBPVM.na.tibco.com:9500/services/TEST00/testWebService/testService/testPort.ws</attribute>
   <attribute name="soapBindingStyle" type="STRING">document</attribute>
   <attribute name="soapBindingTransport" type="STRING">http://schemas.xmlsoap.org/soap/http</attribute>
 </metadata>
