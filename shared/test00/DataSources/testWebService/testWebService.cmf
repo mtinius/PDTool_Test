@@ -1,5 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:e7a92522-ed49-4e2d-9b27-35b107483e7d -->
+<!-- salt:44b6fdea-bd29-44d9-8fc2-5d83075955f2 -->
 <metadata name="testWebService" path="/shared/test00/DataSources/testWebService" type="DATA_SOURCE" subtype="WSDL" changeToken="0">
   <annotation/>
   <security>
@@ -27,7 +27,7 @@
   <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
   <attribute name="login" type="STRING">admin</attribute>
   <attribute name="name" type="STRING">testWebService</attribute>
-  <attribute name="password" type="PASSWORD_STRING">ENC(TUSe6avL1AmZQHmdLPgDrg==$AQrlBkmv9ggte/bOP1mrtA==)</attribute>
+  <attribute name="password" type="PASSWORD_STRING">ENC(0N8j8ws0Ka6d1TGp9R2alw==$RT4HUTVn7eGtq5Yn0luD+g==)</attribute>
   <attribute name="persistPassword" type="BOOLEAN">true</attribute>
   <attribute name="propertyPassThrough" type="STRING"/>
   <attribute name="retrieveToken" type="STRING">true</attribute>
