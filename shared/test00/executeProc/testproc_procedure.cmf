@@ -1,4 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:e7a92522-ed49-4e2d-9b27-35b107483e7d -->
 <metadata name="testproc" path="/shared/test00/executeProc/testproc" type="PROCEDURE" subtype="SQL_SCRIPT_PROCEDURE" changeToken="0">
   <parameters>
     <parameter name="arg1Varchar" direction="IN" nullable="true">
@@ -23,7 +24,7 @@
       <datatype name="TIMESTAMP" type="DATETIME"/>
     </parameter>
     <parameter name="arg8XML" direction="IN" nullable="true">
-      <datatype name="XML" referenceType="XML" type="XML" contentConstraint="SEQUENCE" schemaConstraint="ANY" componentType="TYPE" componentName="XML">
+      <datatype name="XML" type="XML" contentConstraint="SEQUENCE" schemaConstraint="ANY" componentType="TYPE" componentName="XML">
         <schemaDatatype>
           <datatype name="XML" type="TREE" refId="1"></datatype>
         </schemaDatatype>

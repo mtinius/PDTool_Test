@@ -1,4 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:e7a92522-ed49-4e2d-9b27-35b107483e7d -->
 <metadata name="testWebService" path="/shared/test00/DataSources/testWebService" type="DATA_SOURCE" subtype="WSDL" changeToken="0">
   <annotation/>
   <security>
@@ -21,18 +22,18 @@
   <attribute name="environmentPassThrough" type="STRING"/>
   <attribute name="isPassThrough" type="STRING">Disabled</attribute>
   <attribute name="keystore" type="MAP"></attribute>
-  <attribute name="lastModifiedDate" type="LONG">1548530578381</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1548596970518</attribute>
   <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
   <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
   <attribute name="login" type="STRING">admin</attribute>
   <attribute name="name" type="STRING">testWebService</attribute>
-  <attribute name="password" type="STRING">7F6324FFD300BE8F</attribute>
+  <attribute name="password" type="PASSWORD_STRING">ENC(TUSe6avL1AmZQHmdLPgDrg==$AQrlBkmv9ggte/bOP1mrtA==)</attribute>
   <attribute name="persistPassword" type="BOOLEAN">true</attribute>
   <attribute name="propertyPassThrough" type="STRING"/>
   <attribute name="retrieveToken" type="STRING">true</attribute>
   <attribute name="selectionState" type="INTEGER">1</attribute>
   <attribute name="spn" type="STRING"/>
   <attribute name="type" type="STRING">Wsdl</attribute>
-  <attribute name="url" type="STRING">http://localhost:9500/services/TEST00/testWebService?wsdl</attribute>
+  <attribute name="url" type="STRING">http://localhost:9800/services/TEST00/testWebService?wsdl</attribute>
   <attribute name="userDeletedSet" type="SET"></attribute>
 </metadata>

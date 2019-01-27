@@ -1,4 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:e7a92522-ed49-4e2d-9b27-35b107483e7d -->
 <metadata name="Definitions" path="/shared/test00/DataSources/testWebService/Definitions" type="DEFINITION_SET" subtype="WSDL_DEFINITION_SET" changeToken="0">
   <definitions>
     <definition name="{http://MTINIUS-MBPVM.na.tibco.com/services/webservices/TEST00/testWebService/testService}customers" type="ELEMENT">
@@ -101,17 +102,17 @@
   <attribute name="sourceText" type="STRING">&lt;wsdl:definitions xmlns:wsdl=&quot;http://schemas.xmlsoap.org/wsdl/&quot; xmlns:ns2=&quot;http://MTINIUS-MBPVM.na.tibco.com/services/webservices/TEST00/testWebService/testService&quot; xmlns:ns1=&quot;http://MTINIUS-MBPVM.na.tibco.com/services/webservices/TEST00/testWebService&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/wsdl/soap/&quot; targetNamespace=&quot;http://MTINIUS-MBPVM.na.tibco.com/services/webservices/TEST00/testWebService&quot;&gt;
   &lt;wsdl:types&gt;
     &lt;xs:schema xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; elementFormDefault=&quot;qualified&quot; targetNamespace=&quot;http://MTINIUS-MBPVM.na.tibco.com/services/webservices/TEST00/testWebService/testService&quot;&gt;
-      &lt;xs:element name=&quot;getCustomerById&quot;&gt;
-        &lt;xs:complexType&gt;
-          &lt;xs:sequence&gt;
-            &lt;xs:element name=&quot;custId&quot; nillable=&quot;true&quot; type=&quot;xs:int&quot;/&gt;
-          &lt;/xs:sequence&gt;
-        &lt;/xs:complexType&gt;
-      &lt;/xs:element&gt;
       &lt;xs:element name=&quot;customersResponse&quot;&gt;
         &lt;xs:complexType&gt;
           &lt;xs:sequence&gt;
             &lt;xs:element name=&quot;customers&quot; nillable=&quot;true&quot; type=&quot;ns2:testService_customers_customers&quot;/&gt;
+          &lt;/xs:sequence&gt;
+        &lt;/xs:complexType&gt;
+      &lt;/xs:element&gt;
+      &lt;xs:element name=&quot;getCustomerById&quot;&gt;
+        &lt;xs:complexType&gt;
+          &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;custId&quot; nillable=&quot;true&quot; type=&quot;xs:int&quot;/&gt;
           &lt;/xs:sequence&gt;
         &lt;/xs:complexType&gt;
       &lt;/xs:element&gt;
@@ -142,6 +143,7 @@
           &lt;xs:element maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; name=&quot;row&quot; nillable=&quot;true&quot; type=&quot;ns2:customersRow&quot;/&gt;
         &lt;/xs:sequence&gt;
       &lt;/xs:complexType&gt;
+      &lt;xs:element name=&quot;customers&quot; type=&quot;xs:string&quot;/&gt;
       &lt;xs:element name=&quot;getCustomerByIdResponse&quot;&gt;
         &lt;xs:complexType&gt;
           &lt;xs:sequence&gt;
@@ -149,7 +151,6 @@
           &lt;/xs:sequence&gt;
         &lt;/xs:complexType&gt;
       &lt;/xs:element&gt;
-      &lt;xs:element name=&quot;customers&quot; type=&quot;xs:string&quot;/&gt;
       &lt;xs:complexType name=&quot;customersRow&quot;&gt;
         &lt;xs:sequence&gt;
           &lt;xs:element name=&quot;customerid&quot; nillable=&quot;true&quot; type=&quot;xs:int&quot;/&gt;
@@ -213,7 +214,7 @@
   &lt;/wsdl:binding&gt;
   &lt;wsdl:service name=&quot;testService&quot;&gt;
     &lt;wsdl:port name=&quot;testPort&quot; binding=&quot;ns1:testPortBinding&quot;&gt;
-      &lt;soap:address location=&quot;http://MTINIUS-MBPVM.na.tibco.com:9500/services/TEST00/testWebService/testService/testPort.ws&quot;/&gt;
+      &lt;soap:address location=&quot;http://MTINIUS-MBPVM.home:9800/services/TEST00/testWebService/testService/testPort.ws&quot;/&gt;
     &lt;/wsdl:port&gt;
   &lt;/wsdl:service&gt;
 &lt;/wsdl:definitions&gt;
@@ -221,7 +222,7 @@
   <attribute name="sources" type="LIST">
     <list type="OBJECT">rO0ABXNyADVjb20uY29tcG9zaXRlc3cuY29tbW9uLnJlcG9zaXRvcnkuRGVmaW5pdGlvblNldFNv
 dXJjZVYpv6Zr2hqJAgACTAAIbG9jYXRpb250ABJMamF2YS9sYW5nL1N0cmluZztMAApzb3VyY2VU
-ZXh0cQB+AAF4cHQADnRlc3RXZWJTZXJ2aWNldBaGPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGlu
+ZXh0cQB+AAF4cHQADnRlc3RXZWJTZXJ2aWNldBZ+PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGlu
 Zz0iVVRGLTgiPz4NCjx3c2RsOmRlZmluaXRpb25zIHRhcmdldE5hbWVzcGFjZT0iaHR0cDovL01U
 SU5JVVMtTUJQVk0ubmEudGliY28uY29tL3NlcnZpY2VzL3dlYnNlcnZpY2VzL1RFU1QwMC90ZXN0
 V2ViU2VydmljZSIgeG1sbnM6d3NkbD0iaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3NkbC8i
@@ -235,12 +236,12 @@ TS5uYS50aWJjby5jb20vc2VydmljZXMvd2Vic2VydmljZXMvVEVTVDAwL3Rlc3RXZWJTZXJ2aWNl
 L3Rlc3RTZXJ2aWNlIiB4bWxuczpuczI9Imh0dHA6Ly9NVElOSVVTLU1CUFZNLm5hLnRpYmNvLmNv
 bS9zZXJ2aWNlcy93ZWJzZXJ2aWNlcy9URVNUMDAvdGVzdFdlYlNlcnZpY2UvdGVzdFNlcnZpY2Ui
 IHhtbG5zOnhzPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYSI+PHhzOmVsZW1lbnQg
-bmFtZT0iZ2V0Q3VzdG9tZXJCeUlkIj48eHM6Y29tcGxleFR5cGU+PHhzOnNlcXVlbmNlPjx4czpl
-bGVtZW50IG5hbWU9ImN1c3RJZCIgbmlsbGFibGU9InRydWUiIHR5cGU9InhzOmludCIvPjwveHM6
-c2VxdWVuY2U+PC94czpjb21wbGV4VHlwZT48L3hzOmVsZW1lbnQ+PHhzOmVsZW1lbnQgbmFtZT0i
-Y3VzdG9tZXJzUmVzcG9uc2UiPjx4czpjb21wbGV4VHlwZT48eHM6c2VxdWVuY2U+PHhzOmVsZW1l
-bnQgbmFtZT0iY3VzdG9tZXJzIiBuaWxsYWJsZT0idHJ1ZSIgdHlwZT0ibnMyOnRlc3RTZXJ2aWNl
-X2N1c3RvbWVyc19jdXN0b21lcnMiLz48L3hzOnNlcXVlbmNlPjwveHM6Y29tcGxleFR5cGU+PC94
+bmFtZT0iY3VzdG9tZXJzUmVzcG9uc2UiPjx4czpjb21wbGV4VHlwZT48eHM6c2VxdWVuY2U+PHhz
+OmVsZW1lbnQgbmFtZT0iY3VzdG9tZXJzIiBuaWxsYWJsZT0idHJ1ZSIgdHlwZT0ibnMyOnRlc3RT
+ZXJ2aWNlX2N1c3RvbWVyc19jdXN0b21lcnMiLz48L3hzOnNlcXVlbmNlPjwveHM6Y29tcGxleFR5
+cGU+PC94czplbGVtZW50Pjx4czplbGVtZW50IG5hbWU9ImdldEN1c3RvbWVyQnlJZCI+PHhzOmNv
+bXBsZXhUeXBlPjx4czpzZXF1ZW5jZT48eHM6ZWxlbWVudCBuYW1lPSJjdXN0SWQiIG5pbGxhYmxl
+PSJ0cnVlIiB0eXBlPSJ4czppbnQiLz48L3hzOnNlcXVlbmNlPjwveHM6Y29tcGxleFR5cGU+PC94
 czplbGVtZW50Pjx4czpjb21wbGV4VHlwZSBuYW1lPSJ0ZXN0U2VydmljZV9nZXRDdXN0b21lckJ5
 SWRfcmVzdWx0Ij48eHM6c2VxdWVuY2U+PHhzOmVsZW1lbnQgbWF4T2NjdXJzPSJ1bmJvdW5kZWQi
 IG1pbk9jY3Vycz0iMCIgbmFtZT0icm93IiBuaWxsYWJsZT0idHJ1ZSI+PHhzOmNvbXBsZXhUeXBl
@@ -263,11 +264,11 @@ ZT48L3hzOmNvbXBsZXhUeXBlPjx4czpjb21wbGV4VHlwZSBuYW1lPSJ0ZXN0U2VydmljZV9jdXN0
 b21lcnNfY3VzdG9tZXJzIj48eHM6c2VxdWVuY2U+PHhzOmVsZW1lbnQgbWF4T2NjdXJzPSJ1bmJv
 dW5kZWQiIG1pbk9jY3Vycz0iMCIgbmFtZT0icm93IiBuaWxsYWJsZT0idHJ1ZSIgdHlwZT0ibnMy
 OmN1c3RvbWVyc1JvdyIvPjwveHM6c2VxdWVuY2U+PC94czpjb21wbGV4VHlwZT48eHM6ZWxlbWVu
-dCBuYW1lPSJnZXRDdXN0b21lckJ5SWRSZXNwb25zZSI+PHhzOmNvbXBsZXhUeXBlPjx4czpzZXF1
-ZW5jZT48eHM6ZWxlbWVudCBuYW1lPSJyZXN1bHQiIG5pbGxhYmxlPSJ0cnVlIiB0eXBlPSJuczI6
-dGVzdFNlcnZpY2VfZ2V0Q3VzdG9tZXJCeUlkX3Jlc3VsdCIvPjwveHM6c2VxdWVuY2U+PC94czpj
-b21wbGV4VHlwZT48L3hzOmVsZW1lbnQ+PHhzOmVsZW1lbnQgbmFtZT0iY3VzdG9tZXJzIiB0eXBl
-PSJ4czpzdHJpbmciLz48eHM6Y29tcGxleFR5cGUgbmFtZT0iY3VzdG9tZXJzUm93Ij48eHM6c2Vx
+dCBuYW1lPSJjdXN0b21lcnMiIHR5cGU9InhzOnN0cmluZyIvPjx4czplbGVtZW50IG5hbWU9Imdl
+dEN1c3RvbWVyQnlJZFJlc3BvbnNlIj48eHM6Y29tcGxleFR5cGU+PHhzOnNlcXVlbmNlPjx4czpl
+bGVtZW50IG5hbWU9InJlc3VsdCIgbmlsbGFibGU9InRydWUiIHR5cGU9Im5zMjp0ZXN0U2Vydmlj
+ZV9nZXRDdXN0b21lckJ5SWRfcmVzdWx0Ii8+PC94czpzZXF1ZW5jZT48L3hzOmNvbXBsZXhUeXBl
+PjwveHM6ZWxlbWVudD48eHM6Y29tcGxleFR5cGUgbmFtZT0iY3VzdG9tZXJzUm93Ij48eHM6c2Vx
 dWVuY2U+PHhzOmVsZW1lbnQgbmFtZT0iY3VzdG9tZXJpZCIgbmlsbGFibGU9InRydWUiIHR5cGU9
 InhzOmludCIvPjx4czplbGVtZW50IG5hbWU9ImNvbXBhbnluYW1lIiBuaWxsYWJsZT0idHJ1ZSIg
 dHlwZT0ieHM6c3RyaW5nIi8+PHhzOmVsZW1lbnQgbmFtZT0iY29udGFjdGZpcnN0bmFtZSIgbmls
@@ -320,8 +321,8 @@ ICAgPHNvYXA6Ym9keSB1c2U9ImxpdGVyYWwiLz4NCiAgICAgIDwvd3NkbDpvdXRwdXQ+DQogICAg
 PC93c2RsOm9wZXJhdGlvbj4NCiAgPC93c2RsOmJpbmRpbmc+DQogIDx3c2RsOnNlcnZpY2UgbmFt
 ZT0idGVzdFNlcnZpY2UiPg0KICAgIDx3c2RsOnBvcnQgbmFtZT0idGVzdFBvcnQiIGJpbmRpbmc9
 Im5zMTp0ZXN0UG9ydEJpbmRpbmciPg0KICAgICAgPHNvYXA6YWRkcmVzcyBsb2NhdGlvbj0iaHR0
-cDovL01USU5JVVMtTUJQVk0ubmEudGliY28uY29tOjk1MDAvc2VydmljZXMvVEVTVDAwL3Rlc3RX
-ZWJTZXJ2aWNlL3Rlc3RTZXJ2aWNlL3Rlc3RQb3J0LndzIi8+DQogICAgPC93c2RsOnBvcnQ+DQog
-IDwvd3NkbDpzZXJ2aWNlPg0KPC93c2RsOmRlZmluaXRpb25zPg0K</list>
+cDovL01USU5JVVMtTUJQVk0uaG9tZTo5ODAwL3NlcnZpY2VzL1RFU1QwMC90ZXN0V2ViU2Vydmlj
+ZS90ZXN0U2VydmljZS90ZXN0UG9ydC53cyIvPg0KICAgIDwvd3NkbDpwb3J0Pg0KICA8L3dzZGw6
+c2VydmljZT4NCjwvd3NkbDpkZWZpbml0aW9ucz4NCg==</list>
   </attribute>
 </metadata>
