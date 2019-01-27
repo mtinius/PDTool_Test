@@ -1,5 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:58c2073f-a483-4fad-b506-bae279e155ae -->
+<!-- salt:8497f2cd-f8d1-43d7-b42e-448da6046354 -->
 <metadata name="Definitions" path="/shared/test00/DataSources/testWebService/Definitions" type="DEFINITION_SET" subtype="WSDL_DEFINITION_SET" changeToken="0">
   <definitions>
     <definition name="{http://MTINIUS-MBPVM.na.tibco.com/services/webservices/TEST00/testWebService/testService}customers" type="ELEMENT">
@@ -99,10 +99,9 @@
   <attribute name="creatorUserName" type="STRING">admin</attribute>
   <attribute name="explicitly.designed" type="BOOLEAN">true</attribute>
   <attribute name="selectionState" type="INTEGER">2</attribute>
-  <attribute name="sourceText" type="STRING">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;wsdl:definitions targetNamespace=&quot;http://MTINIUS-MBPVM.na.tibco.com/services/webservices/TEST00/testWebService&quot; xmlns:ns1=&quot;http://MTINIUS-MBPVM.na.tibco.com/services/webservices/TEST00/testWebService&quot; xmlns:ns2=&quot;http://MTINIUS-MBPVM.na.tibco.com/services/webservices/TEST00/testWebService/testService&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/wsdl/soap/&quot; xmlns:wsdl=&quot;http://schemas.xmlsoap.org/wsdl/&quot;&gt;
+  <attribute name="sourceText" type="STRING">&lt;wsdl:definitions xmlns:wsdl=&quot;http://schemas.xmlsoap.org/wsdl/&quot; xmlns:ns2=&quot;http://MTINIUS-MBPVM.na.tibco.com/services/webservices/TEST00/testWebService/testService&quot; xmlns:ns1=&quot;http://MTINIUS-MBPVM.na.tibco.com/services/webservices/TEST00/testWebService&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/wsdl/soap/&quot; targetNamespace=&quot;http://MTINIUS-MBPVM.na.tibco.com/services/webservices/TEST00/testWebService&quot;&gt;
   &lt;wsdl:types&gt;
-    &lt;xs:schema elementFormDefault=&quot;qualified&quot; targetNamespace=&quot;http://MTINIUS-MBPVM.na.tibco.com/services/webservices/TEST00/testWebService/testService&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+    &lt;xs:schema xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; elementFormDefault=&quot;qualified&quot; targetNamespace=&quot;http://MTINIUS-MBPVM.na.tibco.com/services/webservices/TEST00/testWebService/testService&quot;&gt;
       &lt;xs:element name=&quot;customersResponse&quot;&gt;
         &lt;xs:complexType&gt;
           &lt;xs:sequence&gt;
@@ -171,16 +170,16 @@
     &lt;/xs:schema&gt;
   &lt;/wsdl:types&gt;
   &lt;wsdl:message name=&quot;testServicePortgetCustomerByIdSoapIn&quot;&gt;
-    &lt;wsdl:part element=&quot;ns2:getCustomerById&quot; name=&quot;inputParameters&quot;/&gt;
+    &lt;wsdl:part name=&quot;inputParameters&quot; element=&quot;ns2:getCustomerById&quot;/&gt;
   &lt;/wsdl:message&gt;
   &lt;wsdl:message name=&quot;testServicePortcustomersSoapIn&quot;&gt;
-    &lt;wsdl:part element=&quot;ns2:customers&quot; name=&quot;inputParameters&quot;/&gt;
+    &lt;wsdl:part name=&quot;inputParameters&quot; element=&quot;ns2:customers&quot;/&gt;
   &lt;/wsdl:message&gt;
   &lt;wsdl:message name=&quot;testServicePortgetCustomerByIdSoapOut&quot;&gt;
-    &lt;wsdl:part element=&quot;ns2:getCustomerByIdResponse&quot; name=&quot;outputParameters&quot;/&gt;
+    &lt;wsdl:part name=&quot;outputParameters&quot; element=&quot;ns2:getCustomerByIdResponse&quot;/&gt;
   &lt;/wsdl:message&gt;
   &lt;wsdl:message name=&quot;testServicePortcustomersSoapOut&quot;&gt;
-    &lt;wsdl:part element=&quot;ns2:customersResponse&quot; name=&quot;outputParameters&quot;/&gt;
+    &lt;wsdl:part name=&quot;outputParameters&quot; element=&quot;ns2:customersResponse&quot;/&gt;
   &lt;/wsdl:message&gt;
   &lt;wsdl:portType name=&quot;testServicePortType&quot;&gt;
     &lt;wsdl:operation name=&quot;customers&quot;&gt;
@@ -214,11 +213,12 @@
     &lt;/wsdl:operation&gt;
   &lt;/wsdl:binding&gt;
   &lt;wsdl:service name=&quot;testService&quot;&gt;
-    &lt;wsdl:port binding=&quot;ns1:testPortBinding&quot; name=&quot;testPort&quot;&gt;
+    &lt;wsdl:port name=&quot;testPort&quot; binding=&quot;ns1:testPortBinding&quot;&gt;
       &lt;soap:address location=&quot;http://MTINIUS-MBPVM.home:9800/services/TEST00/testWebService/testService/testPort.ws&quot;/&gt;
     &lt;/wsdl:port&gt;
   &lt;/wsdl:service&gt;
-&lt;/wsdl:definitions&gt;</attribute>
+&lt;/wsdl:definitions&gt;
+</attribute>
   <attribute name="sources" type="LIST">
     <list type="OBJECT">rO0ABXNyADVjb20uY29tcG9zaXRlc3cuY29tbW9uLnJlcG9zaXRvcnkuRGVmaW5pdGlvblNldFNv
 dXJjZVYpv6Zr2hqJAgACTAAIbG9jYXRpb250ABJMamF2YS9sYW5nL1N0cmluZztMAApzb3VyY2VU

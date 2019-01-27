@@ -1,5 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:58c2073f-a483-4fad-b506-bae279e155ae -->
+<!-- salt:8497f2cd-f8d1-43d7-b42e-448da6046354 -->
 <metadata name="trigger5.11" path="/shared/test00/ResourceTrigger/trigger5.11" type="TRIGGER" subtype="NONE" changeToken="0">
   <security>
     <owner user="admin" domain="composite"/>
