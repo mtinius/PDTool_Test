@@ -1,5 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:ccd7dca9-caf0-480f-b89e-14b6c1bfbe44 -->
+<!-- salt:7d3a1c52-c3b6-4f6e-9cfe-4a2aecddaf5a -->
 <metadata name="customers" path="/services/webservices/TEST00/testWebService/testService/operations/customers" type="LINK" subtype="NONE" changeToken="0" virtual="true">
   <security>
     <owner user="admin" domain="composite"/>
