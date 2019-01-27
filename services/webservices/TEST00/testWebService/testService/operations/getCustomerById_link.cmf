@@ -1,5 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:f803b687-5881-4ea1-be98-8fe9cd7dfca8 -->
+<!-- salt:780a4180-cdca-47aa-9f35-e5fc4f59c539 -->
 <metadata name="getCustomerById" path="/services/webservices/TEST00/testWebService/testService/operations/getCustomerById" type="LINK" subtype="NONE" changeToken="0" virtual="true">
   <security>
     <owner user="admin" domain="composite"/>
