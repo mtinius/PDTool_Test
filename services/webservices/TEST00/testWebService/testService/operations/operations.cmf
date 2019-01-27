@@ -1,5 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:780a4180-cdca-47aa-9f35-e5fc4f59c539 -->
+<!-- salt:156f97ad-7216-4b7b-8ecf-ae7d390ad2f1 -->
 <metadata name="operations" path="/services/webservices/TEST00/testWebService/testService/operations" type="CONTAINER" subtype="-304" changeToken="0" virtual="true">
   <security>
     <owner user="admin" domain="composite"/>
