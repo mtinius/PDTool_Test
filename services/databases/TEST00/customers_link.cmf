@@ -1,5 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:f2421899-00eb-4209-aa1b-00f9e2709f38 -->
+<!-- salt:9c62d03e-cd38-4575-8219-716ce43e38f6 -->
 <metadata name="customers" path="/services/databases/TEST00/customers" type="LINK" subtype="NONE" changeToken="0" virtual="true">
   <security>
     <owner user="admin" domain="composite"/>
