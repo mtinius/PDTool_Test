@@ -1,5 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:f4a1eda9-e55c-4cb2-b883-1323a2a1875d -->
+<!-- salt:58c2073f-a483-4fad-b506-bae279e155ae -->
 <metadata name="getServerAttributeDefinitionModule.xml" path="/shared/test00/DataSourcesCopy/ServerAttributeDefinitions/getServerAttributeDefinitionModule.xml" type="TREE" subtype="XMLFILE" changeToken="0">
   <dataType>
     <datatype name="ServerAttributeModule" namespace="http://www.tibco.com/ps/deploytool/modules" referenceDefinitionSet="/shared/test00/DataSourcesCopy/ServerAttributeDefinitions/getServerAttributeDefinitionModuleDefinitions" referenceType="{http://www.tibco.com/ps/deploytool/modules}ServerAttributeModule" subType="ELEMENT_DECL" type="XML" contentConstraint="SEQUENCE" schemaConstraint="ANY" componentType="ELEMENT" componentName="{http://www.tibco.com/ps/deploytool/modules}ServerAttributeModule">
