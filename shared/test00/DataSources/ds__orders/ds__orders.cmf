@@ -1,5 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:b035cc94-c111-40af-9248-9717af085ea1 -->
+<!-- salt:6a91706c-3d70-4667-94a8-5ee04eb96661 -->
 <metadata name="ds_orders" path="/shared/test00/DataSources/ds_orders" type="DATA_SOURCE" subtype="RELATIONAL" changeToken="0">
   <annotation/>
   <security>
@@ -20,7 +20,7 @@
   <attribute name="OAuthConfig" type="NULL"/>
   <attribute name="UpperBoundForDataShip" type="LONG">5000000</attribute>
   <attribute name="anyCharWildcard" type="STRING">%</attribute>
-  <attribute name="autoAddChildren" type="STRING">true</attribute>
+  <attribute name="autoAddChildren" type="BOOLEAN">true</attribute>
   <attribute name="cacheStatusAndTrackingDS" type="STRING"/>
   <attribute name="cacheStatusTable" type="STRING">/shared/test00/DataSources/ds_orders/tutorial/cache_status</attribute>
   <attribute name="cacheTrackingTable" type="STRING">/shared/test00/DataSources/ds_orders/tutorial/cache_tracking</attribute>
@@ -59,7 +59,6 @@
   <attribute name="minTargetToSourceRatioForSJ" type="STRING"/>
   <attribute name="name" type="STRING">ds_orders</attribute>
   <attribute name="nativeDataLoadingEnabled" type="BOOLEAN">true</attribute>
-  <attribute name="password" type="PASSWORD_STRING">ENC(6yORnVcoUjXmxtwAyUq5Og==$sD4Sv7ZD/IWfIE0/j7xPgg==)</attribute>
   <attribute name="patternSeparator" type="STRING">,</attribute>
   <attribute name="persistPassword" type="BOOLEAN">true</attribute>
   <attribute name="postgresqlEnableBulkLoad" type="BOOLEAN">true</attribute>
