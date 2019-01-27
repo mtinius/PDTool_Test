@@ -1,5 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:05b2dada-79c3-415c-bcc2-6763c6b2ad31 -->
+<!-- salt:f2421899-00eb-4209-aa1b-00f9e2709f38 -->
 <metadata name="SCH1" path="/services/databases/TEST00/CAT1/SCH1" type="CONTAINER" subtype="SCHEMA" changeToken="0" virtual="true">
   <security>
     <owner user="admin" domain="composite"/>
