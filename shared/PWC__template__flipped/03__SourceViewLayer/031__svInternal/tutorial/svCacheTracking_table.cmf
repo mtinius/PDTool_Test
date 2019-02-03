@@ -1,0 +1,134 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:336ac54c-258d-4894-b77d-357e90edcab4 -->
+<metadata name="svCacheTracking" path="/shared/PWC_template_flipped/03_SourceViewLayer/031_svInternal/tutorial/svCacheTracking" type="TABLE" subtype="SQL_TABLE" changeToken="0" tableType="VIEW">
+  <annotation/>
+  <columns>
+    <column name="clusterid" nullable="true">
+      <datatype type="STRING" maxLength="40"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+    <column name="serverid" nullable="true">
+      <datatype type="STRING" maxLength="80"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+    <column name="resourceid" nullable="true">
+      <datatype type="STRING" maxLength="255"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+    <column name="catalog" nullable="true">
+      <datatype type="STRING" maxLength="255"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+    <column name="schema" nullable="true">
+      <datatype type="STRING" maxLength="255"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+    <column name="table" nullable="true">
+      <datatype type="STRING" maxLength="255"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+    <column name="createtime" nullable="true">
+      <datatype type="DATETIME"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+    <column name="systemSourceCode" nullable="true">
+      <datatype type="STRING" maxLength="25"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+    <column name="fetchTimeStamp" nullable="true">
+      <datatype type="DATETIME"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+    <column name="extractTimeStamp" nullable="true">
+      <datatype type="DATETIME"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+  </columns>
+  <indexes></indexes>
+  <foreignKeys></foreignKeys>
+  <security>
+    <owner user="admin" domain="composite"/>
+    <privilege group="cdoDataSourceOwner" domain="tibco1.com" privileges="READ"/>
+  </security>
+  <dependency target="/shared/PWC_template_flipped/04_DataSource/DS_ORDERS/tutorial/cache_tracking" type="TABLE">
+    <datatype type="TABLE" refId="1">
+      <element name="clusterid">
+        <datatype type="STRING" maxLength="40"/>
+      </element>
+      <element name="serverid" nullable="false">
+        <datatype type="STRING" maxLength="80"/>
+      </element>
+      <element name="resourceid" nullable="false">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="catalog">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="schema">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="table" nullable="false">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="createtime">
+        <datatype type="DATETIME"/>
+      </element>
+    </datatype>
+  </dependency>
+  <attribute name="SQL" type="STRING">SELECT 
+	CAST(cache_tracking.clusterid AS VARCHAR(40)) AS clusterid,
+	CAST(cache_tracking.serverid AS VARCHAR(80)) AS serverid,
+	CAST(cache_tracking.resourceid AS VARCHAR(255)) AS resourceid,
+	CAST(cache_tracking.&quot;catalog&quot; AS VARCHAR(255)) AS &quot;catalog&quot;,
+	CAST(cache_tracking.&quot;schema&quot; AS VARCHAR(255)) AS &quot;schema&quot;,
+	CAST(cache_tracking.&quot;table&quot; AS VARCHAR(255)) AS &quot;table&quot;,
+	CAST(cache_tracking.createtime AS TIMESTAMP) AS createtime,
+	CAST(&apos;ds_orders&apos; AS VARCHAR(25)) systemSourceCode,
+	CAST(CURRENT_TIMESTAMP AS TIMESTAMP) fetchTimeStamp,
+	CAST(CURRENT_TIMESTAMP AS TIMESTAMP) extractTimeStamp 
+FROM
+	/shared/PWC_template_flipped/&quot;04_DataSource&quot;/DS_ORDERS/tutorial/cache_tracking cache_tracking</attribute>
+  <attribute name="creationDate" type="LONG">1548449508493</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
+  <attribute name="impactLevel" type="INTEGER">0</attribute>
+  <attribute name="impactMessage" type="NULL"/>
+  <attribute name="lastModifiedDate" type="LONG">1548449508493</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="model" type="NULL"/>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1548449508493</attribute>
+</metadata>

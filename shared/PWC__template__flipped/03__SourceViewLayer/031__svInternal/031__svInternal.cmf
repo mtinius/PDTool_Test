@@ -1,0 +1,17 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:336ac54c-258d-4894-b77d-357e90edcab4 -->
+<metadata name="031_svInternal" path="/shared/PWC_template_flipped/03_SourceViewLayer/031_svInternal" type="CONTAINER" subtype="FOLDER" changeToken="0">
+  <security>
+    <owner user="admin" domain="composite"/>
+    <privilege group="cdoDataSourceOwner" domain="tibco1.com" privileges="READ"/>
+  </security>
+  <attribute name="creationDate" type="LONG">1548251785284</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1548251785284</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1548251785284</attribute>
+</metadata>
