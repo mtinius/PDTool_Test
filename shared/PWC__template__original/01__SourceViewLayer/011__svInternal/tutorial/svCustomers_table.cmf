@@ -1,0 +1,192 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:06259ee4-c34c-46a7-aec1-502703868408 -->
+<metadata name="svCustomers" path="/shared/PWC_template_original/01_SourceViewLayer/011_svInternal/tutorial/svCustomers" type="TABLE" subtype="SQL_TABLE" changeToken="0" tableType="VIEW">
+  <annotation/>
+  <columns>
+    <column name="customerid" nullable="true">
+      <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+    <column name="companyname" nullable="true">
+      <datatype type="STRING" maxLength="50"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+    <column name="contactfirstname" nullable="true">
+      <datatype type="STRING" maxLength="30"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+    <column name="contactlastname" nullable="true">
+      <datatype type="STRING" maxLength="50"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+    <column name="billingaddress" nullable="true">
+      <datatype type="STRING" maxLength="255"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+    <column name="city" nullable="true">
+      <datatype type="STRING" maxLength="50"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+    <column name="stateorprovince" nullable="true">
+      <datatype type="STRING" maxLength="20"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+    <column name="postalcode" nullable="true">
+      <datatype type="STRING" maxLength="20"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+    <column name="countryregion" nullable="true">
+      <datatype type="STRING" maxLength="50"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+    <column name="contacttitle" nullable="true">
+      <datatype type="STRING" maxLength="50"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+    <column name="phonenumber" nullable="true">
+      <datatype type="STRING" maxLength="30"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+    <column name="faxnumber" nullable="true">
+      <datatype type="STRING" maxLength="30"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+    <column name="systemSourceCode" nullable="true">
+      <datatype type="STRING" maxLength="25"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+    <column name="fetchTimeStamp" nullable="true">
+      <datatype type="DATETIME"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+    <column name="extractTimeStamp" nullable="true">
+      <datatype type="DATETIME"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+  </columns>
+  <indexes>
+    <index name="customers_pkey" type="PRIMARY_KEY" unique="true">
+      <indexColumn name="customerid" sortOrder="ASCENDING"/>
+    </index>
+  </indexes>
+  <foreignKeys></foreignKeys>
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <dependency target="/shared/PWC_template_original/00_DataSource/DS_ORDERS/tutorial/customers" type="TABLE">
+    <datatype type="TABLE" refId="1">
+      <element name="customerid" nullable="false">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="companyname">
+        <datatype type="STRING" maxLength="50"/>
+      </element>
+      <element name="contactfirstname">
+        <datatype type="STRING" maxLength="30"/>
+      </element>
+      <element name="contactlastname">
+        <datatype type="STRING" maxLength="50"/>
+      </element>
+      <element name="billingaddress">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="city">
+        <datatype type="STRING" maxLength="50"/>
+      </element>
+      <element name="stateorprovince">
+        <datatype type="STRING" maxLength="20"/>
+      </element>
+      <element name="postalcode">
+        <datatype type="STRING" maxLength="20"/>
+      </element>
+      <element name="countryregion">
+        <datatype type="STRING" maxLength="50"/>
+      </element>
+      <element name="contacttitle">
+        <datatype type="STRING" maxLength="50"/>
+      </element>
+      <element name="phonenumber">
+        <datatype type="STRING" maxLength="30"/>
+      </element>
+      <element name="faxnumber">
+        <datatype type="STRING" maxLength="30"/>
+      </element>
+    </datatype>
+  </dependency>
+  <attribute name="SQL" type="STRING">SELECT 
+	CAST(customers.customerid AS INTEGER) AS customerid,
+	CAST(customers.companyname AS VARCHAR(50)) AS companyname,
+	CAST(customers.contactfirstname AS VARCHAR(30)) AS contactfirstname,
+	CAST(customers.contactlastname AS VARCHAR(50)) AS contactlastname,
+	CAST(customers.billingaddress AS VARCHAR(255)) AS billingaddress,
+	CAST(customers.city AS VARCHAR(50)) AS city,
+	CAST(customers.stateorprovince AS VARCHAR(20)) AS stateorprovince,
+	CAST(customers.postalcode AS VARCHAR(20)) AS postalcode,
+	CAST(customers.countryregion AS VARCHAR(50)) AS countryregion,
+	CAST(customers.contacttitle AS VARCHAR(50)) AS contacttitle,
+	CAST(customers.phonenumber AS VARCHAR(30)) AS phonenumber,
+	CAST(customers.faxnumber AS VARCHAR(30)) AS faxnumber,
+	CAST(&apos;ds_orders&apos; AS VARCHAR(25)) systemSourceCode,
+	CAST(CURRENT_TIMESTAMP AS TIMESTAMP) fetchTimeStamp,
+	CAST(CURRENT_TIMESTAMP AS TIMESTAMP) extractTimeStamp 
+FROM
+	/shared/PWC_template_original/&quot;00_DataSource&quot;/DS_ORDERS/tutorial/customers customers</attribute>
+  <attribute name="creationDate" type="LONG">1548441656358</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
+  <attribute name="impactLevel" type="INTEGER">0</attribute>
+  <attribute name="impactMessage" type="NULL"/>
+  <attribute name="lastModifiedDate" type="LONG">1548449536212</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="model" type="NULL"/>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1548441656358</attribute>
+</metadata>

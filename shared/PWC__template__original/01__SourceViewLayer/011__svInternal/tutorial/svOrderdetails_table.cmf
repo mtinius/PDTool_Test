@@ -1,0 +1,137 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:06259ee4-c34c-46a7-aec1-502703868408 -->
+<metadata name="svOrderdetails" path="/shared/PWC_template_original/01_SourceViewLayer/011_svInternal/tutorial/svOrderdetails" type="TABLE" subtype="SQL_TABLE" changeToken="0" tableType="VIEW">
+  <annotation/>
+  <columns>
+    <column name="orderdetailid" nullable="true">
+      <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+    <column name="orderid" nullable="true">
+      <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+    <column name="productid" nullable="true">
+      <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+    <column name="quantity" nullable="true">
+      <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+    <column name="unitprice" nullable="true">
+      <datatype type="DECIMAL" maxDigits="12" minFractionalDigits="2" maxFractionalDigits="2"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+    <column name="status" nullable="true">
+      <datatype type="STRING" maxLength="50"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+    <column name="discount" nullable="true">
+      <datatype type="DECIMAL" maxDigits="12" minFractionalDigits="2" maxFractionalDigits="2"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+    <column name="systemSourceCode" nullable="true">
+      <datatype type="STRING" maxLength="25"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+    <column name="fetchTimeStamp" nullable="true">
+      <datatype type="DATETIME"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+    <column name="extractTimeStamp" nullable="true">
+      <datatype type="DATETIME"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+  </columns>
+  <indexes>
+    <index name="orderdetails_pkey" type="PRIMARY_KEY" unique="true">
+      <indexColumn name="orderdetailid" sortOrder="ASCENDING"/>
+    </index>
+  </indexes>
+  <foreignKeys></foreignKeys>
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <dependency target="/shared/PWC_template_original/00_DataSource/DS_ORDERS/tutorial/orderdetails" type="TABLE">
+    <datatype type="TABLE" refId="1">
+      <element name="orderdetailid" nullable="false">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="orderid">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="productid">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="quantity">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="unitprice">
+        <datatype type="DECIMAL" maxDigits="12" minFractionalDigits="2" maxFractionalDigits="2"/>
+      </element>
+      <element name="status">
+        <datatype type="STRING" maxLength="50"/>
+      </element>
+      <element name="discount">
+        <datatype type="DECIMAL" maxDigits="12" minFractionalDigits="2" maxFractionalDigits="2"/>
+      </element>
+    </datatype>
+  </dependency>
+  <attribute name="SQL" type="STRING">SELECT 
+	CAST(orderdetails.orderdetailid AS INTEGER) AS orderdetailid,
+	CAST(orderdetails.orderid AS INTEGER) AS orderid,
+	CAST(orderdetails.productid AS INTEGER) AS productid,
+	CAST(orderdetails.quantity AS INTEGER) AS quantity,
+	CAST(orderdetails.unitprice AS NUMERIC(12,2)) AS unitprice,
+	CAST(orderdetails.status AS VARCHAR(50)) AS status,
+	CAST(orderdetails.discount AS NUMERIC(12,2)) AS discount,
+	CAST(&apos;ds_orders&apos; AS VARCHAR(25)) systemSourceCode,
+	CAST(CURRENT_TIMESTAMP AS TIMESTAMP) fetchTimeStamp,
+	CAST(CURRENT_TIMESTAMP AS TIMESTAMP) extractTimeStamp 
+FROM
+	/shared/PWC_template_original/&quot;00_DataSource&quot;/DS_ORDERS/tutorial/orderdetails orderdetails</attribute>
+  <attribute name="creationDate" type="LONG">1548441659904</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
+  <attribute name="impactLevel" type="INTEGER">0</attribute>
+  <attribute name="impactMessage" type="NULL"/>
+  <attribute name="lastModifiedDate" type="LONG">1548449540041</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="model" type="NULL"/>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1548441659904</attribute>
+</metadata>

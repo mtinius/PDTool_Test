@@ -1,0 +1,82 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:06259ee4-c34c-46a7-aec1-502703868408 -->
+<metadata name="svShippingmethods" path="/shared/PWC_template_original/01_SourceViewLayer/011_svInternal/tutorial/svShippingmethods" type="TABLE" subtype="SQL_TABLE" changeToken="0" tableType="VIEW">
+  <annotation/>
+  <columns>
+    <column name="shippingmethodid" nullable="true">
+      <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+    <column name="shippingmethod" nullable="true">
+      <datatype type="STRING" maxLength="20"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+    <column name="systemSourceCode" nullable="true">
+      <datatype type="STRING" maxLength="25"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+    <column name="fetchTimeStamp" nullable="true">
+      <datatype type="DATETIME"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+    <column name="extractTimeStamp" nullable="true">
+      <datatype type="DATETIME"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+      <annotation/>
+    </column>
+  </columns>
+  <indexes>
+    <index name="shippingmethods_pkey" type="PRIMARY_KEY" unique="true">
+      <indexColumn name="shippingmethodid" sortOrder="ASCENDING"/>
+    </index>
+  </indexes>
+  <foreignKeys></foreignKeys>
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <dependency target="/shared/PWC_template_original/00_DataSource/DS_ORDERS/tutorial/shippingmethods" type="TABLE">
+    <datatype type="TABLE" refId="1">
+      <element name="shippingmethodid" nullable="false">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="shippingmethod">
+        <datatype type="STRING" maxLength="20"/>
+      </element>
+    </datatype>
+  </dependency>
+  <attribute name="SQL" type="STRING">SELECT 
+	CAST(shippingmethods.shippingmethodid AS INTEGER) AS shippingmethodid,
+	CAST(shippingmethods.shippingmethod AS VARCHAR(20)) AS shippingmethod,
+	CAST(&apos;ds_orders&apos; AS VARCHAR(25)) systemSourceCode,
+	CAST(CURRENT_TIMESTAMP AS TIMESTAMP) fetchTimeStamp,
+	CAST(CURRENT_TIMESTAMP AS TIMESTAMP) extractTimeStamp 
+FROM
+	/shared/PWC_template_original/&quot;00_DataSource&quot;/DS_ORDERS/tutorial/shippingmethods shippingmethods</attribute>
+  <attribute name="creationDate" type="LONG">1548441667357</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
+  <attribute name="impactLevel" type="INTEGER">0</attribute>
+  <attribute name="impactMessage" type="NULL"/>
+  <attribute name="lastModifiedDate" type="LONG">1548449547805</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="model" type="NULL"/>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1548441667357</attribute>
+</metadata>

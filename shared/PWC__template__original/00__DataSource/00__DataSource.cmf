@@ -1,0 +1,16 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:06259ee4-c34c-46a7-aec1-502703868408 -->
+<metadata name="00_DataSource" path="/shared/PWC_template_original/00_DataSource" type="CONTAINER" subtype="FOLDER" changeToken="0">
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <attribute name="creationDate" type="LONG">1547652919502</attribute>
+  <attribute name="creatorUserDomain" type="STRING">idam</attribute>
+  <attribute name="creatorUserId" type="INTEGER">2710100</attribute>
+  <attribute name="creatorUserName" type="STRING">kpuri008</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1548247952786</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">2710100</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1547652919502</attribute>
+</metadata>
