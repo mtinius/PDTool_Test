@@ -1,5 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:e12bf9ac-3da6-4850-b6fd-c4fcfa91ef09 -->
+<!-- salt:361eb07e-03fb-4c6f-b30e-0c17dcbfbd55 -->
 <metadata name="my_view_1" path="/shared/test00/CisResources/my_view_1" type="TABLE" subtype="SQL_TABLE" changeToken="0" tableType="VIEW">
   <columns>
     <column name="orderdetailid" nullable="true">
