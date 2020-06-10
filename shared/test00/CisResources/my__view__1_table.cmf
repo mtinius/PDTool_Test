@@ -1,5 +1,4 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:586c1d91-751a-4f57-acc1-23848f88f057 -->
 <metadata name="my_view_1" path="/shared/test00/CisResources/my_view_1" type="TABLE" subtype="SQL_TABLE" changeToken="0" tableType="VIEW">
   <columns>
     <column name="orderdetailid" nullable="true">
@@ -51,10 +50,9 @@
     <owner user="admin" domain="composite"/>
     <privilege user="user1" domain="composite" privileges="READ SELECT"/>
     <privilege user="user2" domain="composite" privileges="READ SELECT"/>
-    <privilege group="group1" domain="composite" privileges="READ WRITE SELECT"/>
   </security>
   <dependency target="/shared/test00/DataSources/ds_orders/tutorial/orderdetails" type="TABLE">
-    <datatype type="TABLE" refId="1">
+    <datatype type="TABLE" refId="256">
       <element name="orderdetailid" nullable="false">
         <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
       </element>
@@ -78,8 +76,7 @@
       </element>
     </datatype>
   </dependency>
-  <attribute name="SQL" type="STRING">SELECT 
-    *
+  <attribute name="SQL" type="STRING">SELECT *
 FROM      
     /shared/test00/DataSources/ds_orders/tutorial/orderdetails 
 where orderid &gt; 0</attribute>
@@ -87,7 +84,7 @@ where orderid &gt; 0</attribute>
   <attribute name="creatorUserDomain" type="STRING"/>
   <attribute name="creatorUserName" type="STRING"/>
   <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
-  <attribute name="lastModifiedDate" type="LONG">1591799990249</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1591800764313</attribute>
   <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
   <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
   <attribute name="model" type="NULL"/>
