@@ -1,12 +1,11 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:c95294bd-a0f6-467a-a54d-c302503f2af5 -->
+<!-- salt:824121b4-26cb-48cc-b723-fd9520c1787a -->
 <metadata name="testPort" path="/shared/test00/DataSources/testWebService/testService/testPort" type="CONTAINER" subtype="PORT" changeToken="0">
   <security>
     <owner user="admin" domain="composite"/>
-    <privilege group="group1" domain="composite" privileges="READ"/>
-    <privilege group="group2" domain="composite" privileges="READ"/>
     <privilege user="user1" domain="composite" privileges="READ EXECUTE SELECT"/>
     <privilege user="user2" domain="composite" privileges="READ EXECUTE SELECT"/>
+    <privilege group="group1" domain="composite" privileges="READ"/>
   </security>
   <attribute name="autoAddChildren" type="BOOLEAN">true</attribute>
   <attribute name="bindingProfileType" type="STRING">http://schemas.xmlsoap.org/soap/http</attribute>
