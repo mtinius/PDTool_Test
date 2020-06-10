@@ -1,11 +1,9 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:c95294bd-a0f6-467a-a54d-c302503f2af5 -->
+<!-- salt:97b3d56b-4f34-4b77-8f45-6082c59fa742 -->
 <metadata name="ds_orders" path="/shared/test00/DataSources/ds_orders" type="DATA_SOURCE" subtype="RELATIONAL" changeToken="0">
   <annotation/>
   <security>
     <owner user="admin" domain="composite"/>
-    <privilege group="group1" domain="composite" privileges="NONE"/>
-    <privilege group="group2" domain="composite" privileges="NONE"/>
     <privilege user="user1" domain="composite" privileges="READ EXECUTE SELECT"/>
     <privilege user="user2" domain="composite" privileges="READ EXECUTE SELECT"/>
   </security>
@@ -49,7 +47,7 @@
   <attribute name="execTimeout" type="INTEGER">0</attribute>
   <attribute name="healthmonitortable" type="STRING">cis_hm_table</attribute>
   <attribute name="isPassThrough" type="STRING">Disabled</attribute>
-  <attribute name="lastModifiedDate" type="LONG">1548598107259</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1591749747690</attribute>
   <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
   <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
   <attribute name="login" type="STRING">tutorial</attribute>
@@ -59,6 +57,7 @@
   <attribute name="minTargetToSourceRatioForSJ" type="STRING"/>
   <attribute name="name" type="STRING">ds_orders</attribute>
   <attribute name="nativeDataLoadingEnabled" type="BOOLEAN">true</attribute>
+  <attribute name="password" type="PASSWORD_STRING">ENC(WcQgFEG9lXxkb9X+1H0Ltw==$jzMk9iwQRIwnCTiI9WrcyA==)</attribute>
   <attribute name="patternSeparator" type="STRING">,</attribute>
   <attribute name="persistPassword" type="BOOLEAN">true</attribute>
   <attribute name="postgresqlEnableBulkLoad" type="BOOLEAN">true</attribute>
