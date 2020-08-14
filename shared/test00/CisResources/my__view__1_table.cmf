@@ -1,5 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:02064985-931e-4be0-9443-2e07801c3800 -->
+<!-- salt:a19a9ef8-e9b4-45bb-baa1-2d6fb801b221 -->
 <metadata name="my_view_1" path="/shared/test00/CisResources/my_view_1" type="TABLE" subtype="SQL_TABLE" changeToken="0" tableType="VIEW">
   <columns>
     <column name="orderdetailid" nullable="true">
@@ -81,12 +81,12 @@
 	*
 FROM      
     /shared/test00/DataSources/ds_orders/tutorial/orderdetails 
-where orderid &gt; 1</attribute>
+where orderid &gt; 2</attribute>
   <attribute name="creationDate" type="LONG">0</attribute>
   <attribute name="creatorUserDomain" type="STRING"/>
   <attribute name="creatorUserName" type="STRING"/>
   <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
-  <attribute name="lastModifiedDate" type="LONG">1597364877024</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1597366369107</attribute>
   <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
   <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
   <attribute name="model" type="NULL"/>
