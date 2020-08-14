@@ -1,5 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:c95294bd-a0f6-467a-a54d-c302503f2af5 -->
+<!-- salt:48a26414-e0c0-4af2-8063-353073aa6c19 -->
 <metadata name="myProcXML" path="/shared/test00/CisResources/myProcXML" type="PROCEDURE" subtype="SQL_SCRIPT_PROCEDURE" changeToken="0">
   <parameters>
     <parameter name="request" direction="IN" nullable="true">
@@ -119,9 +119,9 @@
   </parameters>
   <security>
     <owner user="admin" domain="composite"/>
-    <privilege group="group1" domain="composite" privileges="READ WRITE EXECUTE"/>
     <privilege user="user1" domain="composite" privileges="READ EXECUTE"/>
     <privilege user="user2" domain="composite" privileges="READ EXECUTE"/>
+    <privilege group="group1" domain="composite" privileges="READ WRITE EXECUTE"/>
   </security>
   <dependency target="/shared/test00/CisResources/InventoryTransactions" type="DEFINITION_SET">
     <datatype name="Tree" type="TREE" refId="1"></datatype>
@@ -156,13 +156,16 @@ PROCEDURE myProcXML(
 	out response /shared/test00/CisResources/InventoryTransactions.&quot;{http://www.compositesw.com/services/webservices/system/admin/resource}InventoryTransactions&quot;
 )
 BEGIN
-  -- Add your code here
+	-- Set the response equal to the request
 	set response = request;
 END</attribute>
   <attribute name="creationDate" type="LONG">0</attribute>
   <attribute name="creatorUserDomain" type="STRING"/>
   <attribute name="creatorUserName" type="STRING"/>
   <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1597367599239</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
   <attribute name="model" type="NULL"/>
   <attribute name="native_only" type="STRING">false</attribute>
   <attribute name="references" type="NULL"/>
