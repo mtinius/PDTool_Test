@@ -1,4 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:542272e9-8ae9-4a63-8857-0321ce91b492 -->
 <metadata name="my_view_1" path="/shared/test00/CisResources/my_view_1" type="TABLE" subtype="SQL_TABLE" changeToken="0" tableType="VIEW">
   <columns>
     <column name="orderdetailid" nullable="true">
@@ -52,7 +53,7 @@
     <privilege user="user2" domain="composite" privileges="READ SELECT"/>
   </security>
   <dependency target="/shared/test00/DataSources/ds_orders/tutorial/orderdetails" type="TABLE">
-    <datatype type="TABLE" refId="256">
+    <datatype type="TABLE" refId="1">
       <element name="orderdetailid" nullable="false">
         <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
       </element>
@@ -80,12 +81,12 @@
 	*
 FROM      
     /shared/test00/DataSources/ds_orders/tutorial/orderdetails 
-where orderid &gt; 0</attribute>
+where orderid &gt; 1</attribute>
   <attribute name="creationDate" type="LONG">0</attribute>
   <attribute name="creatorUserDomain" type="STRING"/>
   <attribute name="creatorUserName" type="STRING"/>
   <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
-  <attribute name="lastModifiedDate" type="LONG">1591803669798</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1597364877024</attribute>
   <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
   <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
   <attribute name="model" type="NULL"/>
