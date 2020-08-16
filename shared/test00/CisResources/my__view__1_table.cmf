@@ -1,6 +1,6 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:161f70af-3fb6-4f2e-922f-39c0e7395680 -->
-<metadata name="my_view_2" path="/shared/test00/CisResources/my_view_2" type="TABLE" subtype="SQL_TABLE" changeToken="0" tableType="VIEW">
+<!-- salt:003040e4-dec3-409d-9d1e-ddc36183ee97 -->
+<metadata name="my_view_1" path="/shared/test00/CisResources/my_view_1" type="TABLE" subtype="SQL_TABLE" changeToken="0" tableType="VIEW">
   <columns>
     <column name="orderdetailid" nullable="true">
       <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
@@ -86,7 +86,7 @@ where orderid &gt; 5</attribute>
   <attribute name="creatorUserDomain" type="STRING"/>
   <attribute name="creatorUserName" type="STRING"/>
   <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
-  <attribute name="lastModifiedDate" type="LONG">1597582623008</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1597582818011</attribute>
   <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
   <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
   <attribute name="model" type="NULL"/>
