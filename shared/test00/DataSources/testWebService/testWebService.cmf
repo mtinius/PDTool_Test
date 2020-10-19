@@ -1,5 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:da8485aa-a5ec-496a-86a9-ed0b915579d1 -->
+<!-- salt:b4125f85-0179-409e-8180-ef666fbaaaaf -->
 <metadata name="testWebService" path="/shared/test00/DataSources/testWebService" type="DATA_SOURCE" subtype="WSDL" changeToken="0">
   <security>
     <owner user="admin" domain="composite"/>
@@ -7,7 +7,7 @@
   <attribute name="OAuthConfig" type="NULL"/>
   <attribute name="accessToken" type="STRING"/>
   <attribute name="authentication" type="STRING">BASIC</attribute>
-  <attribute name="autoAddChildren" type="STRING">true</attribute>
+  <attribute name="autoAddChildren" type="BOOLEAN">true</attribute>
   <attribute name="cacheStatusAndTrackingDS" type="STRING"/>
   <attribute name="creationDate" type="LONG">0</attribute>
   <attribute name="creatorUserDomain" type="STRING"/>
@@ -17,18 +17,18 @@
   <attribute name="environmentPassThrough" type="STRING"/>
   <attribute name="isPassThrough" type="STRING">Disabled</attribute>
   <attribute name="keystore" type="MAP"></attribute>
-  <attribute name="lastModifiedDate" type="LONG">1603125633653</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1603070111492</attribute>
   <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
   <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
   <attribute name="login" type="STRING">admin</attribute>
   <attribute name="name" type="STRING">testWebService</attribute>
-  <attribute name="password" type="PASSWORD_STRING">ENC(USTnPKD+tt0euCD/XYuBeA==$APKALhjCl+1k6Mft+WcIzw==)</attribute>
+  <attribute name="password" type="PASSWORD_STRING">ENC(iLupFhxinHeYHB4TdDtK9Q==$uV4Q1nB80h9neC8teBUD5Q==)</attribute>
   <attribute name="persistPassword" type="BOOLEAN">true</attribute>
   <attribute name="propertyPassThrough" type="STRING"/>
   <attribute name="retrieveToken" type="STRING">true</attribute>
   <attribute name="selectionState" type="INTEGER">1</attribute>
   <attribute name="spn" type="STRING"/>
   <attribute name="type" type="STRING">Wsdl</attribute>
-  <attribute name="url" type="STRING">http://localhost:9810/services/TEST00/testWebService?wsdl</attribute>
+  <attribute name="url" type="STRING">http://localhost:9400/services/TEST00/testWebService?wsdl</attribute>
   <attribute name="userDeletedSet" type="SET"></attribute>
 </metadata>

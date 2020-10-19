@@ -1,11 +1,11 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:da8485aa-a5ec-496a-86a9-ed0b915579d1 -->
+<!-- salt:b4125f85-0179-409e-8180-ef666fbaaaaf -->
 <metadata name="ServerAttributeDefinitions" path="/shared/test00/DataSources/ServerAttributeDefinitions" type="DATA_SOURCE" subtype="XML_FILE" changeToken="0">
   <security>
     <owner user="admin" domain="composite"/>
   </security>
   <attribute name="OAuthConfig" type="NULL"/>
-  <attribute name="autoAddChildren" type="STRING">false</attribute>
+  <attribute name="autoAddChildren" type="BOOLEAN">false</attribute>
   <attribute name="cacheStatusAndTrackingDS" type="STRING"/>
   <attribute name="charset" type="STRING">&lt;auto detect&gt;</attribute>
   <attribute name="creationDate" type="LONG">0</attribute>
@@ -13,14 +13,14 @@
   <attribute name="creatorUserName" type="STRING"/>
   <attribute name="driverName" type="STRING">File-XML</attribute>
   <attribute name="filters" type="STRING">*.xml</attribute>
-  <attribute name="lastModifiedDate" type="LONG">1603125630844</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1544840661082</attribute>
   <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
   <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
   <attribute name="local" type="BOOLEAN">true</attribute>
   <attribute name="name" type="STRING">ServerAttributeDefinitions</attribute>
   <attribute name="noNamespaceSchemaLocation" type="STRING"/>
   <attribute name="password" type="NULL"/>
-  <attribute name="root" type="STRING">C:\MyFiles\PDTool\PDTool8.3.0_20201014\PDTool/resources/modules/generated</attribute>
+  <attribute name="root" type="STRING">C:\MyFiles\PDTool\PDTool7.0.0_GIT_20181001\PDTool/resources/modules/generated</attribute>
   <attribute name="schemaLocation" type="STRING"/>
   <attribute name="selectionState" type="INTEGER">1</attribute>
   <attribute name="type" type="STRING">XmlFile</attribute>

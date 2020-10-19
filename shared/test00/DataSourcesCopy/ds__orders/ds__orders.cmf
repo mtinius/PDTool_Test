@@ -1,5 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:da8485aa-a5ec-496a-86a9-ed0b915579d1 -->
+<!-- salt:b4125f85-0179-409e-8180-ef666fbaaaaf -->
 <metadata name="ds_orders" path="/shared/test00/DataSourcesCopy/ds_orders" type="DATA_SOURCE" subtype="RELATIONAL" changeToken="0">
   <security>
     <owner user="admin" domain="composite"/>
@@ -54,7 +54,7 @@
   <attribute name="minTargetToSourceRatioForSJ" type="STRING"/>
   <attribute name="name" type="STRING">ds_orders</attribute>
   <attribute name="nativeDataLoadingEnabled" type="BOOLEAN">true</attribute>
-  <attribute name="password" type="PASSWORD_STRING">ENC(FZwaWvn5S5GV5aCk4htjsg==$lujC6dkS7XGAP6ZQdqKiUQ==)</attribute>
+  <attribute name="password" type="PASSWORD_STRING">ENC(Eu7kB1AulcvTjWAfg0TztA==$jjc9xMxY7TPkRm1IJppDxA==)</attribute>
   <attribute name="patternSeparator" type="STRING">,</attribute>
   <attribute name="persistPassword" type="BOOLEAN">true</attribute>
   <attribute name="postgresqlEnableBulkLoad" type="BOOLEAN">true</attribute>
@@ -72,9 +72,9 @@
   <attribute name="topicName" type="STRING"/>
   <attribute name="txnIsolationLevel" type="STRING">Read Committed</attribute>
   <attribute name="type" type="STRING">PostgreSQL</attribute>
-  <attribute name="url" type="STRING">jdbc:postgresql://localhost:9818/orders</attribute>
+  <attribute name="url" type="STRING">jdbc:postgresql://localhost:9808/orders</attribute>
   <attribute name="urlDatabaseName" type="STRING">orders</attribute>
   <attribute name="urlIP" type="STRING">localhost</attribute>
   <attribute name="urlPatternStr" type="STRING">jdbc:postgresql://&lt;HOST&gt;:&lt;PORT&gt;/&lt;DATABASE_NAME&gt;</attribute>
-  <attribute name="urlPort" type="INTEGER">9818</attribute>
+  <attribute name="urlPort" type="INTEGER">9808</attribute>
 </metadata>
