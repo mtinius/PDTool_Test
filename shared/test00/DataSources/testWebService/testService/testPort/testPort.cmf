@@ -1,0 +1,20 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:da8485aa-a5ec-496a-86a9-ed0b915579d1 -->
+<metadata name="testPort" path="/shared/test00/DataSources/testWebService/testService/testPort" type="CONTAINER" subtype="PORT" changeToken="0">
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <attribute name="autoAddChildren" type="BOOLEAN">true</attribute>
+  <attribute name="bindingProfileType" type="STRING">http://schemas.xmlsoap.org/soap/http</attribute>
+  <attribute name="bindingProperty" type="MAP"></attribute>
+  <attribute name="creationDate" type="LONG">0</attribute>
+  <attribute name="creatorUserDomain" type="STRING"/>
+  <attribute name="creatorUserName" type="STRING"/>
+  <attribute name="portBindingProfile" type="STRING">SOAP HTTP</attribute>
+  <attribute name="selectionState" type="INTEGER">2</attribute>
+  <attribute name="soapAddressLocation" type="STRING">http://MTINIUS-X1E2.na.tibco.com:9400/services/TEST00/testWebService/testService/testPort.ws</attribute>
+  <attribute name="soapBindingStyle" type="STRING">document</attribute>
+  <attribute name="soapBindingTransport" type="STRING">http://schemas.xmlsoap.org/soap/http</attribute>
+  <attribute name="timeout" type="LONG">0</attribute>
+  <attribute name="userDeletedSet" type="SET"></attribute>
+</metadata>

@@ -1,0 +1,45 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:da8485aa-a5ec-496a-86a9-ed0b915579d1 -->
+<metadata name="getServerAttributeDefinitionModuleDefinitions" path="/shared/test00/DataSourcesCopy/ServerAttributeDefinitions/getServerAttributeDefinitionModuleDefinitions" type="DEFINITION_SET" subtype="XML_SCHEMA_DEFINITION_SET" changeToken="0">
+  <definitions>
+    <definition name="serverAttributeDef" type="ELEMENT">
+      <attribute name="creationDate" type="LONG">0</attribute>
+      <attribute name="creatorUserDomain" type="STRING"/>
+      <attribute name="creatorUserId" type="INTEGER">0</attribute>
+      <attribute name="creatorUserName" type="STRING"/>
+      <attribute name="lastModifiedDate" type="LONG">0</attribute>
+      <attribute name="lastModifiedUserDomain" type="STRING"/>
+      <attribute name="lastModifiedUserId" type="INTEGER">0</attribute>
+      <attribute name="lastModifiedUserName" type="STRING"/>
+      <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">0</attribute>
+    </definition>
+    <definition name="{http://www.tibco.com/ps/deploytool/modules}ServerAttributeModule" type="ELEMENT">
+      <attribute name="creationDate" type="LONG">0</attribute>
+      <attribute name="creatorUserDomain" type="STRING"/>
+      <attribute name="creatorUserId" type="INTEGER">0</attribute>
+      <attribute name="creatorUserName" type="STRING"/>
+      <attribute name="lastModifiedDate" type="LONG">0</attribute>
+      <attribute name="lastModifiedUserDomain" type="STRING"/>
+      <attribute name="lastModifiedUserId" type="INTEGER">0</attribute>
+      <attribute name="lastModifiedUserName" type="STRING"/>
+      <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">0</attribute>
+    </definition>
+  </definitions>
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <attribute name="XMLFilePath" type="OBJECT">rO0ABXNyACZjb20uY29tcG9zaXRlc3cuY29tbW9uLnJlcG9zaXRvcnkuUGF0aEAIAgnmFDg4AgACWgAIYWJzb2x1dGVMAAVwYXJ0c3QAEExqYXZhL3V0aWwvTGlzdDt4cAFzcgATamF2YS51dGlsLkFycmF5TGlzdHiB0h2Zx2GdAwABSQAEc2l6ZXhwAAAABXcEAAAABXQABnNoYXJlZHQABnRlc3QwMHQAD0RhdGFTb3VyY2VzQ29weXQAGlNlcnZlckF0dHJpYnV0ZURlZmluaXRpb25zdAAmZ2V0U2VydmVyQXR0cmlidXRlRGVmaW5pdGlvbk1vZHVsZS54bWx4</attribute>
+  <attribute name="creationDate" type="LONG">1544841145069</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1544841145069</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1544841145069</attribute>
+  <attribute name="sources" type="LIST">
+    <list type="OBJECT">rO0ABXNyADVjb20uY29tcG9zaXRlc3cuY29tbW9uLnJlcG9zaXRvcnkuRGVmaW5pdGlvblNldFNvdXJjZVYpv6Zr2hqJAgACTAAIbG9jYXRpb250ABJMamF2YS9sYW5nL1N0cmluZztMAApzb3VyY2VUZXh0cQB+AAF4cHQAC3NjaGVtYV9iYXNldAc0PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48eHM6c2NoZW1hIHhtbG5zOnhzPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYSIgYXR0cmlidXRlRm9ybURlZmF1bHQ9InVucXVhbGlmaWVkIiBlbGVtZW50Rm9ybURlZmF1bHQ9InF1YWxpZmllZCIgdGFyZ2V0TmFtZXNwYWNlPSJodHRwOi8vd3d3LnRpYmNvLmNvbS9wcy9kZXBsb3l0b29sL21vZHVsZXMiPg0KICA8eHM6aW1wb3J0IHNjaGVtYUxvY2F0aW9uPSJzY2hlbWFfMSIvPg0KICA8eHM6ZWxlbWVudCBuYW1lPSJTZXJ2ZXJBdHRyaWJ1dGVNb2R1bGUiPg0KICAgIDx4czphbm5vdGF0aW9uPg0KICAgICAgPHhzOmRvY3VtZW50YXRpb24+IyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIw0KIyAoYykgMjAxNyBUSUJDTyBTb2Z0d2FyZSBJbmMuIEFsbCByaWdodHMgcmVzZXJ2ZWQuDQojIA0KIyBFeGNlcHQgYXMgc3BlY2lmaWVkIGJlbG93LCB0aGlzIHNvZnR3YXJlIGlzIGxpY2Vuc2VkIHB1cnN1YW50IHRvIHRoZSBFY2xpcHNlIFB1YmxpYyBMaWNlbnNlIHYuIDEuMC4NCiMgVGhlIGRldGFpbHMgY2FuIGJlIGZvdW5kIGluIHRoZSBmaWxlIExJQ0VOU0UuDQojIA0KIyBUaGUgZm9sbG93aW5nIHByb3ByaWV0YXJ5IGZpbGVzIGFyZSBpbmNsdWRlZCBhcyBhIGNvbnZlbmllbmNlLCBhbmQgbWF5IG5vdCBiZSB1c2VkIGV4Y2VwdCBwdXJzdWFudA0KIyB0byB2YWxpZCBsaWNlbnNlIHRvIENvbXBvc2l0ZSBJbmZvcm1hdGlvbiBTZXJ2ZXIgb3IgVElCQ08oUikgRGF0YSBWaXJ0dWFsaXphdGlvbiBTZXJ2ZXI6DQojIGNzYWRtaW4tWFhYWC5qYXIsIGNzYXJjaGl2ZS1YWFhYLmphciwgY3NiYXNlLVhYWFguamFyLCBjc2NsaWVudC1YWFhYLmphciwgY3Njb21tb24tWFhYWC5qYXIsDQojIGNzZXh0LVhYWFguamFyLCBjc2pkYmMtWFhYWC5qYXIsIGNzc2VydmVydXRpbC1YWFhYLmphciwgY3NzZXJ2ZXItWFhYWC5qYXIsIGNzd2ViYXBpLVhYWFguamFyLA0KIyBhbmQgY3VzdG9tcHJvYy1YWFhYLmphciAod2hlcmUgLVhYWFggaXMgYW4gb3B0aW9uYWwgdmVyc2lvbiBudW1iZXIpLiAgQW55IGluY2x1ZGVkIHRoaXJkIHBhcnR5IGZpbGVzDQojIGFyZSBsaWNlbnNlZCB1bmRlciB0aGUgdGVybXMgY29udGFpbmVkIGluIHRoZWlyIG93biBhY2NvbXBhbnlpbmcgTElDRU5TRSBmaWxlcywgZ2VuZXJhbGx5IG5hbWVkIC5MSUNFTlNFLnR4dC4NCiMgDQojIFRoaXMgc29mdHdhcmUgaXMgbGljZW5zZWQgQVMtSVMuIFN1cHBvcnQgZm9yIHRoaXMgc29mdHdhcmUgaXMgbm90IGNvdmVyZWQgYnkgc3RhbmRhcmQgbWFpbnRlbmFuY2UgYWdyZWVtZW50cyB3aXRoIFRJQkNPLg0KIyBJZiB5b3Ugd291bGQgbGlrZSB0byBvYnRhaW4gYXNzaXN0YW5jZSB3aXRoIHRoaXMgc29mdHdhcmUsIHN1Y2ggYXNzaXN0YW5jZSBtYXkgYmUgb2J0YWluZWQgdGhyb3VnaCBhIHNlcGFyYXRlIHBhaWQgY29uc3VsdGluZw0KIyBhZ3JlZW1lbnQgd2l0aCBUSUJDTy4NCiMNCiMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyM8L3hzOmRvY3VtZW50YXRpb24+DQogICAgPC94czphbm5vdGF0aW9uPg0KICAgIDx4czpjb21wbGV4VHlwZT4NCiAgICAgIDx4czpzZXF1ZW5jZT4NCiAgICAgICAgPHhzOmVsZW1lbnQgbWF4T2NjdXJzPSJ1bmJvdW5kZWQiIG1pbk9jY3Vycz0iMCIgcmVmPSJzZXJ2ZXJBdHRyaWJ1dGVEZWYiLz4NCiAgICAgIDwveHM6c2VxdWVuY2U+DQogICAgPC94czpjb21wbGV4VHlwZT4NCiAgPC94czplbGVtZW50Pg0KPC94czpzY2hlbWE+DQo=</list>
+    <list type="OBJECT">rO0ABXNyADVjb20uY29tcG9zaXRlc3cuY29tbW9uLnJlcG9zaXRvcnkuRGVmaW5pdGlvblNldFNvdXJjZVYpv6Zr2hqJAgACTAAIbG9jYXRpb250ABJMamF2YS9sYW5nL1N0cmluZztMAApzb3VyY2VUZXh0cQB+AAF4cHQACHNjaGVtYV8xdAQSPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48eHM6c2NoZW1hIHhtbG5zOnhzPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYSIgYXR0cmlidXRlRm9ybURlZmF1bHQ9InVucXVhbGlmaWVkIiBlbGVtZW50Rm9ybURlZmF1bHQ9InF1YWxpZmllZCI+DQogIDx4czplbGVtZW50IG5hbWU9InNlcnZlckF0dHJpYnV0ZURlZiI+DQogICAgPHhzOmNvbXBsZXhUeXBlPg0KICAgICAgPHhzOnNlcXVlbmNlPg0KICAgICAgICA8eHM6ZWxlbWVudCBuYW1lPSJpZCIgdHlwZT0ieHM6c3RyaW5nIi8+DQogICAgICAgIDx4czplbGVtZW50IG5hbWU9Im5hbWUiIHR5cGU9InhzOnN0cmluZyIvPg0KICAgICAgICA8eHM6ZWxlbWVudCBuYW1lPSJ0eXBlIiB0eXBlPSJ4czpzdHJpbmciLz4NCiAgICAgICAgPHhzOmVsZW1lbnQgbWluT2NjdXJzPSIwIiBuYW1lPSJhbm5vdGF0aW9uIiB0eXBlPSJ4czpzdHJpbmciLz4NCiAgICAgICAgPHhzOmVsZW1lbnQgbWluT2NjdXJzPSIwIiBuYW1lPSJkZWZhdWx0VmFsdWUiIHR5cGU9InhzOnN0cmluZyIvPg0KICAgICAgICA8eHM6ZWxlbWVudCBtaW5PY2N1cnM9IjAiIG5hbWU9ImRpc3BsYXlOYW1lIiB0eXBlPSJ4czpzdHJpbmciLz4NCiAgICAgICAgPHhzOmVsZW1lbnQgbWluT2NjdXJzPSIwIiBuYW1lPSJtYXhWYWx1ZSIgdHlwZT0ieHM6aW50Ii8+DQogICAgICAgIDx4czplbGVtZW50IG1pbk9jY3Vycz0iMCIgbmFtZT0ibWluVmFsdWUiIHR5cGU9InhzOnNob3J0Ii8+DQogICAgICAgIDx4czplbGVtZW50IG1pbk9jY3Vycz0iMCIgbmFtZT0idW5pdE5hbWUiIHR5cGU9InhzOnN0cmluZyIvPg0KICAgICAgICA8eHM6ZWxlbWVudCBtaW5PY2N1cnM9IjAiIG5hbWU9InBhdHRlcm4iIHR5cGU9InhzOnN0cmluZyIvPg0KICAgICAgICA8eHM6ZWxlbWVudCBtaW5PY2N1cnM9IjAiIG5hbWU9InVwZGF0ZVJ1bGUiIHR5cGU9InhzOnN0cmluZyIvPg0KICAgICAgPC94czpzZXF1ZW5jZT4NCiAgICA8L3hzOmNvbXBsZXhUeXBlPg0KICA8L3hzOmVsZW1lbnQ+DQo8L3hzOnNjaGVtYT4NCg==</list>
+  </attribute>
+</metadata>
