@@ -1,0 +1,63 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:fbb5c3e8-9a1d-46a3-9031-5203e6e61a40 -->
+<metadata name="getCustomerById" path="/services/webservices/TEST00/testWebService_bare/getCustomerById" type="LINK" subtype="NONE" changeToken="0" virtual="true">
+  <security>
+    <owner user="admin" domain="composite"/>
+    <privilege group="all" domain="composite" privileges="READ"/>
+  </security>
+  <dependency target="/shared/test00/TestSecurity/getCustomerById" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="258">
+      <element name="custId" direction="IN">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="result" direction="OUT">
+        <datatype type="TABLE" refId="256">
+          <element name="CustomerID">
+            <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+          </element>
+          <element name="CompanyName">
+            <datatype type="STRING" maxLength="50"/>
+          </element>
+          <element name="ContactFirstName">
+            <datatype type="STRING" maxLength="30"/>
+          </element>
+          <element name="ContactLastName">
+            <datatype type="STRING" maxLength="50"/>
+          </element>
+          <element name="BillingAddress">
+            <datatype type="STRING" maxLength="255"/>
+          </element>
+          <element name="City">
+            <datatype type="STRING" maxLength="50"/>
+          </element>
+          <element name="StateOrProvince">
+            <datatype type="STRING" maxLength="20"/>
+          </element>
+          <element name="PostalCode">
+            <datatype type="STRING" maxLength="20"/>
+          </element>
+          <element name="CountryRegion">
+            <datatype type="STRING" maxLength="50"/>
+          </element>
+          <element name="ContactTitle">
+            <datatype type="STRING" maxLength="50"/>
+          </element>
+          <element name="PhoneNumber">
+            <datatype type="STRING" maxLength="30"/>
+          </element>
+          <element name="FaxNumber">
+            <datatype type="STRING" maxLength="30"/>
+          </element>
+        </datatype>
+      </element>
+    </datatype>
+  </dependency>
+  <attribute name="creationDate" type="LONG">1391924115095</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1419008350849</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="targetPath" type="STRING">/shared/test00/TestSecurity/getCustomerById</attribute>
+  <attribute name="targetType" type="SHORT">3</attribute>
+</metadata>
