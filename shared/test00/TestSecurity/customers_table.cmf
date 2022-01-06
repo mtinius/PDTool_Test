@@ -1,7 +1,7 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:da8485aa-a5ec-496a-86a9-ed0b915579d1 -->
+<!-- salt:5934f204-5785-4496-974a-fde99b120b89 -->
 <metadata name="customers" path="/shared/test00/TestSecurity/customers" type="TABLE" subtype="SQL_TABLE" changeToken="0" tableType="VIEW">
-  <annotation>&lt;![CDATA[this is the customer view]]&gt;</annotation>
+  <annotation><![CDATA[&lt;![CDATA[this is the customer view]]&gt;]]></annotation>
   <columns>
     <column name="customerid" nullable="true">
       <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>

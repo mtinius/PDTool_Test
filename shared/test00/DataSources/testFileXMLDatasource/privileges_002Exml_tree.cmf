@@ -1,40 +1,7 @@
 <?xml version="1.1" encoding="UTF-8"?>
 <!-- salt:5934f204-5785-4496-974a-fde99b120b89 -->
-<metadata name="basicXSLT" path="/shared/test00/Rebind/RebindFolder/XSLTProcedures/basicXSLT" type="PROCEDURE" subtype="BASIC_TRANSFORM_PROCEDURE" changeToken="0">
-  <parameters>
-    <parameter name="outputs" direction="OUT" nullable="false">
-      <datatype name="outputs" type="TABLE" refId="256">
-        <element name="ID">
-          <datatype name="INTEGER" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
-        </element>
-        <element name="PARENT_ID">
-          <datatype name="INTEGER" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
-        </element>
-        <element name="DEPTH">
-          <datatype name="INTEGER" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
-        </element>
-        <element name="NAME">
-          <datatype name="VARCHAR" type="STRING" maxLength="255"/>
-        </element>
-        <element name="XPATH">
-          <datatype name="VARCHAR" type="STRING" maxLength="255"/>
-        </element>
-        <element name="PATH">
-          <datatype name="VARCHAR" type="STRING" maxLength="255"/>
-        </element>
-        <element name="POSITION">
-          <datatype name="INTEGER" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
-        </element>
-        <element name="VALUE">
-          <datatype name="VARCHAR" type="STRING" maxLength="255"/>
-        </element>
-      </datatype>
-    </parameter>
-  </parameters>
-  <security>
-    <owner user="admin" domain="composite"/>
-  </security>
-  <dependency target="/shared/test00/DataSources/testFileXMLDatasource/privileges.xml" type="TREE">
+<metadata name="privileges.xml" path="/shared/test00/DataSources/testFileXMLDatasource/privileges.xml" type="TREE" subtype="XMLFILE" changeToken="0">
+  <dataType>
     <datatype name="privilegeEntries" namespace="http://www.compositesw.com/services/system/admin/resource" referenceDefinitionSet="/shared/test00/DataSources/testFileXMLDatasource/privilegesDefinitions" referenceType="{http://www.compositesw.com/services/system/admin/resource}privilegeEntries" subType="ELEMENT_DECL" type="XML" contentConstraint="SEQUENCE" schemaConstraint="ANY" componentType="ELEMENT" componentName="{http://www.compositesw.com/services/system/admin/resource}privilegeEntries">
       <schemaDatatype>
         <datatype name="privilegeEntries" namespace="http://www.compositesw.com/services/system/admin/resource" superTypeName="anyType" superTypeNamespace="http://www.w3.org/2001/XMLSchema" subType="ELEMENT_DECL" anonymous="true" type="TREE" refId="257">
@@ -74,16 +41,19 @@
         </datatype>
       </schemaDatatype>
     </datatype>
-  </dependency>
-  <attribute name="creationDate" type="LONG">0</attribute>
-  <attribute name="creatorUserDomain" type="STRING"/>
-  <attribute name="creatorUserName" type="STRING"/>
-  <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
-  <attribute name="lastModifiedDate" type="LONG">1641497039926</attribute>
+  </dataType>
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <attribute name="charset" type="STRING">&lt;auto detect&gt;</attribute>
+  <attribute name="creationDate" type="LONG">1641495514747</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1641495514747</attribute>
   <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
   <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
-  <attribute name="sourcePath" type="STRING">/shared/test00/DataSources/testFileXMLDatasource/privileges.xml</attribute>
-  <attribute name="sourceType" type="SHORT">4</attribute>
-  <attribute name="transformModel" type="NULL"/>
-  <attribute name="xqueryModel" type="NULL"/>
+  <attribute name="path" type="STRING">\privileges.xml</attribute>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1641495514747</attribute>
 </metadata>

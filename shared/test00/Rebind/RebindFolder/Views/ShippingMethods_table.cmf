@@ -1,5 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:b4125f85-0179-409e-8180-ef666fbaaaaf -->
+<!-- salt:5934f204-5785-4496-974a-fde99b120b89 -->
 <metadata name="ShippingMethods" path="/shared/test00/Rebind/RebindFolder/Views/ShippingMethods" type="TABLE" subtype="SQL_TABLE" changeToken="0" tableType="VIEW">
   <columns>
     <column name="shippingmethodid" nullable="true">
