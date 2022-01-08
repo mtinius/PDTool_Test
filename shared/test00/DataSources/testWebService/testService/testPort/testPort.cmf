@@ -1,5 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:5934f204-5785-4496-974a-fde99b120b89 -->
+<!-- salt:4105ae3a-a36f-4423-b6b3-26b347de8f88 -->
 <metadata name="testPort" path="/shared/test00/DataSources/testWebService/testService/testPort" type="CONTAINER" subtype="PORT" changeToken="0">
   <security>
     <owner user="admin" domain="composite"/>
@@ -12,7 +12,7 @@
   <attribute name="creatorUserName" type="STRING"/>
   <attribute name="portBindingProfile" type="STRING">SOAP HTTP</attribute>
   <attribute name="selectionState" type="INTEGER">2</attribute>
-  <attribute name="soapAddressLocation" type="STRING">http://MTINIUS-X1E2.na.tibco.com:9400/services/TEST00/testWebService/testService/testPort.ws</attribute>
+  <attribute name="soapAddressLocation" type="STRING">http://MTINIUS-X1E2.na.tibco.com:9810/services/TEST00/testWebService/testService/testPort.ws</attribute>
   <attribute name="soapBindingStyle" type="STRING">document</attribute>
   <attribute name="soapBindingTransport" type="STRING">http://schemas.xmlsoap.org/soap/http</attribute>
   <attribute name="timeout" type="LONG">0</attribute>
