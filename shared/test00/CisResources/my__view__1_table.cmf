@@ -1,5 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:c4d99c70-d09e-4da0-b28e-bdda2f1f34a6 -->
+<!-- salt:0174ea08-c3ec-46e2-9886-dcaa5e061748 -->
 <metadata name="my_view_1" path="/shared/test00/CisResources/my_view_1" type="TABLE" subtype="SQL_TABLE" changeToken="0" tableType="VIEW">
   <columns>
     <column name="orderdetailid" nullable="true">
@@ -75,7 +75,8 @@
       </element>
     </datatype>
   </dependency>
-  <attribute name="SQL" type="STRING">SELECT 
+  <attribute name="SQL" type="STRING">-- Get order details
+SELECT 
     *
 FROM      
     /shared/test00/DataSources/ds_orders/tutorial/orderdetails </attribute>
@@ -83,7 +84,7 @@ FROM
   <attribute name="creatorUserDomain" type="STRING"/>
   <attribute name="creatorUserName" type="STRING"/>
   <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
-  <attribute name="lastModifiedDate" type="LONG">1419008350849</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1641939942050</attribute>
   <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
   <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
   <attribute name="model" type="NULL"/>
