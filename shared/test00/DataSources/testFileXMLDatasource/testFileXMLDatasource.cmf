@@ -1,6 +1,7 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:c4d99c70-d09e-4da0-b28e-bdda2f1f34a6 -->
+<!-- salt:1aba0253-1424-42af-8a82-7d6d23bfc78c -->
 <metadata name="testFileXMLDatasource" path="/shared/test00/DataSources/testFileXMLDatasource" type="DATA_SOURCE" subtype="XML_FILE" changeToken="0">
+  <annotation><![CDATA[updated this data source]]></annotation>
   <security>
     <owner user="admin" domain="composite"/>
   </security>
@@ -11,7 +12,7 @@
   <attribute name="creatorUserName" type="STRING">admin</attribute>
   <attribute name="driverName" type="STRING">File-XML</attribute>
   <attribute name="filters" type="STRING">*.xml</attribute>
-  <attribute name="lastModifiedDate" type="LONG">1641495509610</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1641940009583</attribute>
   <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
   <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
   <attribute name="lastModifiedUserName" type="STRING">admin</attribute>

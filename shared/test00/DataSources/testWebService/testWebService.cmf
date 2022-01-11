@@ -1,6 +1,7 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:c4d99c70-d09e-4da0-b28e-bdda2f1f34a6 -->
+<!-- salt:1aba0253-1424-42af-8a82-7d6d23bfc78c -->
 <metadata name="testWebService" path="/shared/test00/DataSources/testWebService" type="DATA_SOURCE" subtype="WSDL" changeToken="0">
+  <annotation><![CDATA[updated this data source]]></annotation>
   <security>
     <owner user="admin" domain="composite"/>
   </security>
@@ -17,12 +18,12 @@
   <attribute name="environmentPassThrough" type="STRING"/>
   <attribute name="isPassThrough" type="STRING">Disabled</attribute>
   <attribute name="keystore" type="MAP"></attribute>
-  <attribute name="lastModifiedDate" type="LONG">1641496267421</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1641940013881</attribute>
   <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
   <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
   <attribute name="login" type="STRING">admin</attribute>
   <attribute name="name" type="STRING">testWebService</attribute>
-  <attribute name="password" type="PASSWORD_STRING">ENC(y/S6yaTVxjUURrwpI8URgw==$Qk+ReS5J6U3ShzPPG32s1A==)</attribute>
+  <attribute name="password" type="PASSWORD_STRING">ENC(FE805583DhG/hUi5HogWpw==$xC48X716Ef1IEIZWGpn19Q==)</attribute>
   <attribute name="persistPassword" type="BOOLEAN">true</attribute>
   <attribute name="propertyPassThrough" type="STRING"/>
   <attribute name="retrieveToken" type="STRING">true</attribute>
