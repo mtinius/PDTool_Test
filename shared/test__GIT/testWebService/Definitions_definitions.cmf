@@ -1,0 +1,221 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:37ddddaa-b76e-452f-9fa1-db4ef34ff9b1 -->
+<metadata name="Definitions" path="/shared/test_GIT/testWebService/Definitions" type="DEFINITION_SET" subtype="WSDL_DEFINITION_SET" changeToken="0">
+  <definitions>
+    <definition name="{http://MTINIUS-X1E2.na.tibco.com/services/webservices/TEST00/testWebService/testService}customers" type="ELEMENT">
+      <attribute name="creationDate" type="LONG">0</attribute>
+      <attribute name="creatorUserDomain" type="STRING"/>
+      <attribute name="creatorUserId" type="INTEGER">0</attribute>
+      <attribute name="creatorUserName" type="STRING"/>
+      <attribute name="lastModifiedDate" type="LONG">0</attribute>
+      <attribute name="lastModifiedUserDomain" type="STRING"/>
+      <attribute name="lastModifiedUserId" type="INTEGER">0</attribute>
+      <attribute name="lastModifiedUserName" type="STRING"/>
+      <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">0</attribute>
+      <attribute name="selectionState" type="INTEGER">2</attribute>
+    </definition>
+    <definition name="{http://MTINIUS-X1E2.na.tibco.com/services/webservices/TEST00/testWebService/testService}customersResponse" type="ELEMENT">
+      <attribute name="creationDate" type="LONG">0</attribute>
+      <attribute name="creatorUserDomain" type="STRING"/>
+      <attribute name="creatorUserId" type="INTEGER">0</attribute>
+      <attribute name="creatorUserName" type="STRING"/>
+      <attribute name="lastModifiedDate" type="LONG">0</attribute>
+      <attribute name="lastModifiedUserDomain" type="STRING"/>
+      <attribute name="lastModifiedUserId" type="INTEGER">0</attribute>
+      <attribute name="lastModifiedUserName" type="STRING"/>
+      <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">0</attribute>
+      <attribute name="selectionState" type="INTEGER">2</attribute>
+    </definition>
+    <definition name="{http://MTINIUS-X1E2.na.tibco.com/services/webservices/TEST00/testWebService/testService}getCustomerById" type="ELEMENT">
+      <attribute name="creationDate" type="LONG">0</attribute>
+      <attribute name="creatorUserDomain" type="STRING"/>
+      <attribute name="creatorUserId" type="INTEGER">0</attribute>
+      <attribute name="creatorUserName" type="STRING"/>
+      <attribute name="lastModifiedDate" type="LONG">0</attribute>
+      <attribute name="lastModifiedUserDomain" type="STRING"/>
+      <attribute name="lastModifiedUserId" type="INTEGER">0</attribute>
+      <attribute name="lastModifiedUserName" type="STRING"/>
+      <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">0</attribute>
+      <attribute name="selectionState" type="INTEGER">2</attribute>
+    </definition>
+    <definition name="{http://MTINIUS-X1E2.na.tibco.com/services/webservices/TEST00/testWebService/testService}getCustomerByIdResponse" type="ELEMENT">
+      <attribute name="creationDate" type="LONG">0</attribute>
+      <attribute name="creatorUserDomain" type="STRING"/>
+      <attribute name="creatorUserId" type="INTEGER">0</attribute>
+      <attribute name="creatorUserName" type="STRING"/>
+      <attribute name="lastModifiedDate" type="LONG">0</attribute>
+      <attribute name="lastModifiedUserDomain" type="STRING"/>
+      <attribute name="lastModifiedUserId" type="INTEGER">0</attribute>
+      <attribute name="lastModifiedUserName" type="STRING"/>
+      <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">0</attribute>
+      <attribute name="selectionState" type="INTEGER">2</attribute>
+    </definition>
+    <definition name="{http://MTINIUS-X1E2.na.tibco.com/services/webservices/TEST00/testWebService/testService}customersRow" type="TYPE">
+      <attribute name="creationDate" type="LONG">0</attribute>
+      <attribute name="creatorUserDomain" type="STRING"/>
+      <attribute name="creatorUserId" type="INTEGER">0</attribute>
+      <attribute name="creatorUserName" type="STRING"/>
+      <attribute name="lastModifiedDate" type="LONG">0</attribute>
+      <attribute name="lastModifiedUserDomain" type="STRING"/>
+      <attribute name="lastModifiedUserId" type="INTEGER">0</attribute>
+      <attribute name="lastModifiedUserName" type="STRING"/>
+      <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">0</attribute>
+      <attribute name="selectionState" type="INTEGER">2</attribute>
+    </definition>
+    <definition name="{http://MTINIUS-X1E2.na.tibco.com/services/webservices/TEST00/testWebService/testService}testService_customers_customers" type="TYPE">
+      <attribute name="creationDate" type="LONG">0</attribute>
+      <attribute name="creatorUserDomain" type="STRING"/>
+      <attribute name="creatorUserId" type="INTEGER">0</attribute>
+      <attribute name="creatorUserName" type="STRING"/>
+      <attribute name="lastModifiedDate" type="LONG">0</attribute>
+      <attribute name="lastModifiedUserDomain" type="STRING"/>
+      <attribute name="lastModifiedUserId" type="INTEGER">0</attribute>
+      <attribute name="lastModifiedUserName" type="STRING"/>
+      <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">0</attribute>
+      <attribute name="selectionState" type="INTEGER">2</attribute>
+    </definition>
+    <definition name="{http://MTINIUS-X1E2.na.tibco.com/services/webservices/TEST00/testWebService/testService}testService_getCustomerById_result" type="TYPE">
+      <attribute name="creationDate" type="LONG">0</attribute>
+      <attribute name="creatorUserDomain" type="STRING"/>
+      <attribute name="creatorUserId" type="INTEGER">0</attribute>
+      <attribute name="creatorUserName" type="STRING"/>
+      <attribute name="lastModifiedDate" type="LONG">0</attribute>
+      <attribute name="lastModifiedUserDomain" type="STRING"/>
+      <attribute name="lastModifiedUserId" type="INTEGER">0</attribute>
+      <attribute name="lastModifiedUserName" type="STRING"/>
+      <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">0</attribute>
+      <attribute name="selectionState" type="INTEGER">2</attribute>
+    </definition>
+  </definitions>
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <attribute name="creationDate" type="LONG">1391738797850</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="explicitly.designed" type="BOOLEAN">true</attribute>
+  <attribute name="selectionState" type="INTEGER">2</attribute>
+  <attribute name="sourceText" type="STRING">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;wsdl:definitions targetNamespace=&quot;http://MTINIUS-X1E2.na.tibco.com/services/webservices/TEST00/testWebService&quot; xmlns:ns1=&quot;http://MTINIUS-X1E2.na.tibco.com/services/webservices/TEST00/testWebService&quot; xmlns:ns2=&quot;http://MTINIUS-X1E2.na.tibco.com/services/webservices/TEST00/testWebService/testService&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/wsdl/soap/&quot; xmlns:wsdl=&quot;http://schemas.xmlsoap.org/wsdl/&quot;&gt;
+  &lt;wsdl:types&gt;
+    &lt;xs:schema elementFormDefault=&quot;qualified&quot; targetNamespace=&quot;http://MTINIUS-X1E2.na.tibco.com/services/webservices/TEST00/testWebService/testService&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+      &lt;xs:complexType name=&quot;testService_customers_customers&quot;&gt;
+        &lt;xs:sequence&gt;
+          &lt;xs:element maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; name=&quot;row&quot; nillable=&quot;true&quot; type=&quot;ns2:customersRow&quot;/&gt;
+        &lt;/xs:sequence&gt;
+      &lt;/xs:complexType&gt;
+      &lt;xs:element name=&quot;customersResponse&quot;&gt;
+        &lt;xs:complexType&gt;
+          &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;customers&quot; nillable=&quot;true&quot; type=&quot;ns2:testService_customers_customers&quot;/&gt;
+          &lt;/xs:sequence&gt;
+        &lt;/xs:complexType&gt;
+      &lt;/xs:element&gt;
+      &lt;xs:element name=&quot;customers&quot; type=&quot;xs:string&quot;/&gt;
+      &lt;xs:complexType name=&quot;customersRow&quot;&gt;
+        &lt;xs:sequence&gt;
+          &lt;xs:element name=&quot;customerid&quot; nillable=&quot;true&quot; type=&quot;xs:int&quot;/&gt;
+          &lt;xs:element name=&quot;companyname&quot; nillable=&quot;true&quot; type=&quot;xs:string&quot;/&gt;
+          &lt;xs:element name=&quot;contactfirstname&quot; nillable=&quot;true&quot; type=&quot;xs:string&quot;/&gt;
+          &lt;xs:element name=&quot;contactlastname&quot; nillable=&quot;true&quot; type=&quot;xs:string&quot;/&gt;
+          &lt;xs:element name=&quot;billingaddress&quot; nillable=&quot;true&quot; type=&quot;xs:string&quot;/&gt;
+          &lt;xs:element name=&quot;city&quot; nillable=&quot;true&quot; type=&quot;xs:string&quot;/&gt;
+          &lt;xs:element name=&quot;stateorprovince&quot; nillable=&quot;true&quot; type=&quot;xs:string&quot;/&gt;
+          &lt;xs:element name=&quot;postalcode&quot; nillable=&quot;true&quot; type=&quot;xs:string&quot;/&gt;
+          &lt;xs:element name=&quot;countryregion&quot; nillable=&quot;true&quot; type=&quot;xs:string&quot;/&gt;
+          &lt;xs:element name=&quot;contacttitle&quot; nillable=&quot;true&quot; type=&quot;xs:string&quot;/&gt;
+          &lt;xs:element name=&quot;phonenumber&quot; nillable=&quot;true&quot; type=&quot;xs:string&quot;/&gt;
+          &lt;xs:element name=&quot;faxnumber&quot; nillable=&quot;true&quot; type=&quot;xs:string&quot;/&gt;
+        &lt;/xs:sequence&gt;
+      &lt;/xs:complexType&gt;
+      &lt;xs:element name=&quot;getCustomerByIdResponse&quot;&gt;
+        &lt;xs:complexType&gt;
+          &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;result&quot; nillable=&quot;true&quot; type=&quot;ns2:testService_getCustomerById_result&quot;/&gt;
+          &lt;/xs:sequence&gt;
+        &lt;/xs:complexType&gt;
+      &lt;/xs:element&gt;
+      &lt;xs:element name=&quot;getCustomerById&quot;&gt;
+        &lt;xs:complexType&gt;
+          &lt;xs:sequence&gt;
+            &lt;xs:element name=&quot;custId&quot; nillable=&quot;true&quot; type=&quot;xs:int&quot;/&gt;
+          &lt;/xs:sequence&gt;
+        &lt;/xs:complexType&gt;
+      &lt;/xs:element&gt;
+      &lt;xs:complexType name=&quot;testService_getCustomerById_result&quot;&gt;
+        &lt;xs:sequence&gt;
+          &lt;xs:element maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; name=&quot;row&quot; nillable=&quot;true&quot;&gt;
+            &lt;xs:complexType&gt;
+              &lt;xs:sequence&gt;
+                &lt;xs:element name=&quot;CustomerID&quot; nillable=&quot;true&quot; type=&quot;xs:int&quot;/&gt;
+                &lt;xs:element name=&quot;CompanyName&quot; nillable=&quot;true&quot; type=&quot;xs:string&quot;/&gt;
+                &lt;xs:element name=&quot;ContactFirstName&quot; nillable=&quot;true&quot; type=&quot;xs:string&quot;/&gt;
+                &lt;xs:element name=&quot;ContactLastName&quot; nillable=&quot;true&quot; type=&quot;xs:string&quot;/&gt;
+                &lt;xs:element name=&quot;BillingAddress&quot; nillable=&quot;true&quot; type=&quot;xs:string&quot;/&gt;
+                &lt;xs:element name=&quot;City&quot; nillable=&quot;true&quot; type=&quot;xs:string&quot;/&gt;
+                &lt;xs:element name=&quot;StateOrProvince&quot; nillable=&quot;true&quot; type=&quot;xs:string&quot;/&gt;
+                &lt;xs:element name=&quot;PostalCode&quot; nillable=&quot;true&quot; type=&quot;xs:string&quot;/&gt;
+                &lt;xs:element name=&quot;CountryRegion&quot; nillable=&quot;true&quot; type=&quot;xs:string&quot;/&gt;
+                &lt;xs:element name=&quot;ContactTitle&quot; nillable=&quot;true&quot; type=&quot;xs:string&quot;/&gt;
+                &lt;xs:element name=&quot;PhoneNumber&quot; nillable=&quot;true&quot; type=&quot;xs:string&quot;/&gt;
+                &lt;xs:element name=&quot;FaxNumber&quot; nillable=&quot;true&quot; type=&quot;xs:string&quot;/&gt;
+              &lt;/xs:sequence&gt;
+            &lt;/xs:complexType&gt;
+          &lt;/xs:element&gt;
+        &lt;/xs:sequence&gt;
+      &lt;/xs:complexType&gt;
+    &lt;/xs:schema&gt;
+  &lt;/wsdl:types&gt;
+  &lt;wsdl:message name=&quot;testServicePortcustomersSoapOut&quot;&gt;
+    &lt;wsdl:part element=&quot;ns2:customersResponse&quot; name=&quot;outputParameters&quot;/&gt;
+  &lt;/wsdl:message&gt;
+  &lt;wsdl:message name=&quot;testServicePortgetCustomerByIdSoapOut&quot;&gt;
+    &lt;wsdl:part element=&quot;ns2:getCustomerByIdResponse&quot; name=&quot;outputParameters&quot;/&gt;
+  &lt;/wsdl:message&gt;
+  &lt;wsdl:message name=&quot;testServicePortcustomersSoapIn&quot;&gt;
+    &lt;wsdl:part element=&quot;ns2:customers&quot; name=&quot;inputParameters&quot;/&gt;
+  &lt;/wsdl:message&gt;
+  &lt;wsdl:message name=&quot;testServicePortgetCustomerByIdSoapIn&quot;&gt;
+    &lt;wsdl:part element=&quot;ns2:getCustomerById&quot; name=&quot;inputParameters&quot;/&gt;
+  &lt;/wsdl:message&gt;
+  &lt;wsdl:portType name=&quot;testServicePortType&quot;&gt;
+    &lt;wsdl:operation name=&quot;customers&quot;&gt;
+      &lt;wsdl:input message=&quot;ns1:testServicePortcustomersSoapIn&quot;/&gt;
+      &lt;wsdl:output message=&quot;ns1:testServicePortcustomersSoapOut&quot;/&gt;
+    &lt;/wsdl:operation&gt;
+    &lt;wsdl:operation name=&quot;getCustomerById&quot;&gt;
+      &lt;wsdl:input message=&quot;ns1:testServicePortgetCustomerByIdSoapIn&quot;/&gt;
+      &lt;wsdl:output message=&quot;ns1:testServicePortgetCustomerByIdSoapOut&quot;/&gt;
+    &lt;/wsdl:operation&gt;
+  &lt;/wsdl:portType&gt;
+  &lt;wsdl:binding name=&quot;testPortBinding&quot; type=&quot;ns1:testServicePortType&quot;&gt;
+    &lt;soap:binding style=&quot;document&quot; transport=&quot;http://schemas.xmlsoap.org/soap/http&quot;/&gt;
+    &lt;wsdl:operation name=&quot;customers&quot;&gt;
+      &lt;soap:operation soapAction=&quot;customers&quot; style=&quot;document&quot;/&gt;
+      &lt;wsdl:input&gt;
+        &lt;soap:body use=&quot;literal&quot;/&gt;
+      &lt;/wsdl:input&gt;
+      &lt;wsdl:output&gt;
+        &lt;soap:body use=&quot;literal&quot;/&gt;
+      &lt;/wsdl:output&gt;
+    &lt;/wsdl:operation&gt;
+    &lt;wsdl:operation name=&quot;getCustomerById&quot;&gt;
+      &lt;soap:operation soapAction=&quot;getCustomerById&quot; style=&quot;document&quot;/&gt;
+      &lt;wsdl:input&gt;
+        &lt;soap:body use=&quot;literal&quot;/&gt;
+      &lt;/wsdl:input&gt;
+      &lt;wsdl:output&gt;
+        &lt;soap:body use=&quot;literal&quot;/&gt;
+      &lt;/wsdl:output&gt;
+    &lt;/wsdl:operation&gt;
+  &lt;/wsdl:binding&gt;
+  &lt;wsdl:service name=&quot;testService&quot;&gt;
+    &lt;wsdl:port binding=&quot;ns1:testPortBinding&quot; name=&quot;testPort&quot;&gt;
+      &lt;soap:address location=&quot;http://MTINIUS-X1E2.na.tibco.com:9810/services/TEST00/testWebService/testService/testPort.ws&quot;/&gt;
+    &lt;/wsdl:port&gt;
+  &lt;/wsdl:service&gt;
+&lt;/wsdl:definitions&gt;</attribute>
+  <attribute name="sources" type="LIST">
+    <list type="OBJECT">rO0ABXNyADVjb20uY29tcG9zaXRlc3cuY29tbW9uLnJlcG9zaXRvcnkuRGVmaW5pdGlvblNldFNvdXJjZVYpv6Zr2hqJAgACTAAIbG9jYXRpb250ABJMamF2YS9sYW5nL1N0cmluZztMAApzb3VyY2VUZXh0cQB+AAF4cHQADnRlc3RXZWJTZXJ2aWNldBaAPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjx3c2RsOmRlZmluaXRpb25zIHRhcmdldE5hbWVzcGFjZT0iaHR0cDovL01USU5JVVMtWDFFMi5uYS50aWJjby5jb20vc2VydmljZXMvd2Vic2VydmljZXMvVEVTVDAwL3Rlc3RXZWJTZXJ2aWNlIiB4bWxuczp3c2RsPSJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93c2RsLyIgeG1sbnM6bnMyPSJodHRwOi8vTVRJTklVUy1YMUUyLm5hLnRpYmNvLmNvbS9zZXJ2aWNlcy93ZWJzZXJ2aWNlcy9URVNUMDAvdGVzdFdlYlNlcnZpY2UvdGVzdFNlcnZpY2UiIHhtbG5zOm5zMT0iaHR0cDovL01USU5JVVMtWDFFMi5uYS50aWJjby5jb20vc2VydmljZXMvd2Vic2VydmljZXMvVEVTVDAwL3Rlc3RXZWJTZXJ2aWNlIiB4bWxuczpzb2FwPSJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93c2RsL3NvYXAvIj4NCiAgPHdzZGw6dHlwZXM+DQogICAgPHhzOnNjaGVtYSBlbGVtZW50Rm9ybURlZmF1bHQ9InF1YWxpZmllZCIgdGFyZ2V0TmFtZXNwYWNlPSJodHRwOi8vTVRJTklVUy1YMUUyLm5hLnRpYmNvLmNvbS9zZXJ2aWNlcy93ZWJzZXJ2aWNlcy9URVNUMDAvdGVzdFdlYlNlcnZpY2UvdGVzdFNlcnZpY2UiIHhtbG5zOm5zMj0iaHR0cDovL01USU5JVVMtWDFFMi5uYS50aWJjby5jb20vc2VydmljZXMvd2Vic2VydmljZXMvVEVTVDAwL3Rlc3RXZWJTZXJ2aWNlL3Rlc3RTZXJ2aWNlIiB4bWxuczp4cz0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEiPjx4czpjb21wbGV4VHlwZSBuYW1lPSJ0ZXN0U2VydmljZV9jdXN0b21lcnNfY3VzdG9tZXJzIj48eHM6c2VxdWVuY2U+PHhzOmVsZW1lbnQgbWF4T2NjdXJzPSJ1bmJvdW5kZWQiIG1pbk9jY3Vycz0iMCIgbmFtZT0icm93IiBuaWxsYWJsZT0idHJ1ZSIgdHlwZT0ibnMyOmN1c3RvbWVyc1JvdyIvPjwveHM6c2VxdWVuY2U+PC94czpjb21wbGV4VHlwZT48eHM6ZWxlbWVudCBuYW1lPSJjdXN0b21lcnNSZXNwb25zZSI+PHhzOmNvbXBsZXhUeXBlPjx4czpzZXF1ZW5jZT48eHM6ZWxlbWVudCBuYW1lPSJjdXN0b21lcnMiIG5pbGxhYmxlPSJ0cnVlIiB0eXBlPSJuczI6dGVzdFNlcnZpY2VfY3VzdG9tZXJzX2N1c3RvbWVycyIvPjwveHM6c2VxdWVuY2U+PC94czpjb21wbGV4VHlwZT48L3hzOmVsZW1lbnQ+PHhzOmVsZW1lbnQgbmFtZT0iY3VzdG9tZXJzIiB0eXBlPSJ4czpzdHJpbmciLz48eHM6Y29tcGxleFR5cGUgbmFtZT0iY3VzdG9tZXJzUm93Ij48eHM6c2VxdWVuY2U+PHhzOmVsZW1lbnQgbmFtZT0iY3VzdG9tZXJpZCIgbmlsbGFibGU9InRydWUiIHR5cGU9InhzOmludCIvPjx4czplbGVtZW50IG5hbWU9ImNvbXBhbnluYW1lIiBuaWxsYWJsZT0idHJ1ZSIgdHlwZT0ieHM6c3RyaW5nIi8+PHhzOmVsZW1lbnQgbmFtZT0iY29udGFjdGZpcnN0bmFtZSIgbmlsbGFibGU9InRydWUiIHR5cGU9InhzOnN0cmluZyIvPjx4czplbGVtZW50IG5hbWU9ImNvbnRhY3RsYXN0bmFtZSIgbmlsbGFibGU9InRydWUiIHR5cGU9InhzOnN0cmluZyIvPjx4czplbGVtZW50IG5hbWU9ImJpbGxpbmdhZGRyZXNzIiBuaWxsYWJsZT0idHJ1ZSIgdHlwZT0ieHM6c3RyaW5nIi8+PHhzOmVsZW1lbnQgbmFtZT0iY2l0eSIgbmlsbGFibGU9InRydWUiIHR5cGU9InhzOnN0cmluZyIvPjx4czplbGVtZW50IG5hbWU9InN0YXRlb3Jwcm92aW5jZSIgbmlsbGFibGU9InRydWUiIHR5cGU9InhzOnN0cmluZyIvPjx4czplbGVtZW50IG5hbWU9InBvc3RhbGNvZGUiIG5pbGxhYmxlPSJ0cnVlIiB0eXBlPSJ4czpzdHJpbmciLz48eHM6ZWxlbWVudCBuYW1lPSJjb3VudHJ5cmVnaW9uIiBuaWxsYWJsZT0idHJ1ZSIgdHlwZT0ieHM6c3RyaW5nIi8+PHhzOmVsZW1lbnQgbmFtZT0iY29udGFjdHRpdGxlIiBuaWxsYWJsZT0idHJ1ZSIgdHlwZT0ieHM6c3RyaW5nIi8+PHhzOmVsZW1lbnQgbmFtZT0icGhvbmVudW1iZXIiIG5pbGxhYmxlPSJ0cnVlIiB0eXBlPSJ4czpzdHJpbmciLz48eHM6ZWxlbWVudCBuYW1lPSJmYXhudW1iZXIiIG5pbGxhYmxlPSJ0cnVlIiB0eXBlPSJ4czpzdHJpbmciLz48L3hzOnNlcXVlbmNlPjwveHM6Y29tcGxleFR5cGU+PHhzOmVsZW1lbnQgbmFtZT0iZ2V0Q3VzdG9tZXJCeUlkUmVzcG9uc2UiPjx4czpjb21wbGV4VHlwZT48eHM6c2VxdWVuY2U+PHhzOmVsZW1lbnQgbmFtZT0icmVzdWx0IiBuaWxsYWJsZT0idHJ1ZSIgdHlwZT0ibnMyOnRlc3RTZXJ2aWNlX2dldEN1c3RvbWVyQnlJZF9yZXN1bHQiLz48L3hzOnNlcXVlbmNlPjwveHM6Y29tcGxleFR5cGU+PC94czplbGVtZW50Pjx4czplbGVtZW50IG5hbWU9ImdldEN1c3RvbWVyQnlJZCI+PHhzOmNvbXBsZXhUeXBlPjx4czpzZXF1ZW5jZT48eHM6ZWxlbWVudCBuYW1lPSJjdXN0SWQiIG5pbGxhYmxlPSJ0cnVlIiB0eXBlPSJ4czppbnQiLz48L3hzOnNlcXVlbmNlPjwveHM6Y29tcGxleFR5cGU+PC94czplbGVtZW50Pjx4czpjb21wbGV4VHlwZSBuYW1lPSJ0ZXN0U2VydmljZV9nZXRDdXN0b21lckJ5SWRfcmVzdWx0Ij48eHM6c2VxdWVuY2U+PHhzOmVsZW1lbnQgbWF4T2NjdXJzPSJ1bmJvdW5kZWQiIG1pbk9jY3Vycz0iMCIgbmFtZT0icm93IiBuaWxsYWJsZT0idHJ1ZSI+PHhzOmNvbXBsZXhUeXBlPjx4czpzZXF1ZW5jZT48eHM6ZWxlbWVudCBuYW1lPSJDdXN0b21lcklEIiBuaWxsYWJsZT0idHJ1ZSIgdHlwZT0ieHM6aW50Ii8+PHhzOmVsZW1lbnQgbmFtZT0iQ29tcGFueU5hbWUiIG5pbGxhYmxlPSJ0cnVlIiB0eXBlPSJ4czpzdHJpbmciLz48eHM6ZWxlbWVudCBuYW1lPSJDb250YWN0Rmlyc3ROYW1lIiBuaWxsYWJsZT0idHJ1ZSIgdHlwZT0ieHM6c3RyaW5nIi8+PHhzOmVsZW1lbnQgbmFtZT0iQ29udGFjdExhc3ROYW1lIiBuaWxsYWJsZT0idHJ1ZSIgdHlwZT0ieHM6c3RyaW5nIi8+PHhzOmVsZW1lbnQgbmFtZT0iQmlsbGluZ0FkZHJlc3MiIG5pbGxhYmxlPSJ0cnVlIiB0eXBlPSJ4czpzdHJpbmciLz48eHM6ZWxlbWVudCBuYW1lPSJDaXR5IiBuaWxsYWJsZT0idHJ1ZSIgdHlwZT0ieHM6c3RyaW5nIi8+PHhzOmVsZW1lbnQgbmFtZT0iU3RhdGVPclByb3ZpbmNlIiBuaWxsYWJsZT0idHJ1ZSIgdHlwZT0ieHM6c3RyaW5nIi8+PHhzOmVsZW1lbnQgbmFtZT0iUG9zdGFsQ29kZSIgbmlsbGFibGU9InRydWUiIHR5cGU9InhzOnN0cmluZyIvPjx4czplbGVtZW50IG5hbWU9IkNvdW50cnlSZWdpb24iIG5pbGxhYmxlPSJ0cnVlIiB0eXBlPSJ4czpzdHJpbmciLz48eHM6ZWxlbWVudCBuYW1lPSJDb250YWN0VGl0bGUiIG5pbGxhYmxlPSJ0cnVlIiB0eXBlPSJ4czpzdHJpbmciLz48eHM6ZWxlbWVudCBuYW1lPSJQaG9uZU51bWJlciIgbmlsbGFibGU9InRydWUiIHR5cGU9InhzOnN0cmluZyIvPjx4czplbGVtZW50IG5hbWU9IkZheE51bWJlciIgbmlsbGFibGU9InRydWUiIHR5cGU9InhzOnN0cmluZyIvPjwveHM6c2VxdWVuY2U+PC94czpjb21wbGV4VHlwZT48L3hzOmVsZW1lbnQ+PC94czpzZXF1ZW5jZT48L3hzOmNvbXBsZXhUeXBlPjwveHM6c2NoZW1hPg0KICA8L3dzZGw6dHlwZXM+DQogIDx3c2RsOm1lc3NhZ2UgbmFtZT0idGVzdFNlcnZpY2VQb3J0Y3VzdG9tZXJzU29hcE91dCI+DQogICAgPHdzZGw6cGFydCBuYW1lPSJvdXRwdXRQYXJhbWV0ZXJzIiBlbGVtZW50PSJuczI6Y3VzdG9tZXJzUmVzcG9uc2UiPg0KICAgIDwvd3NkbDpwYXJ0Pg0KICA8L3dzZGw6bWVzc2FnZT4NCiAgPHdzZGw6bWVzc2FnZSBuYW1lPSJ0ZXN0U2VydmljZVBvcnRnZXRDdXN0b21lckJ5SWRTb2FwT3V0Ij4NCiAgICA8d3NkbDpwYXJ0IG5hbWU9Im91dHB1dFBhcmFtZXRlcnMiIGVsZW1lbnQ9Im5zMjpnZXRDdXN0b21lckJ5SWRSZXNwb25zZSI+DQogICAgPC93c2RsOnBhcnQ+DQogIDwvd3NkbDptZXNzYWdlPg0KICA8d3NkbDptZXNzYWdlIG5hbWU9InRlc3RTZXJ2aWNlUG9ydGN1c3RvbWVyc1NvYXBJbiI+DQogICAgPHdzZGw6cGFydCBuYW1lPSJpbnB1dFBhcmFtZXRlcnMiIGVsZW1lbnQ9Im5zMjpjdXN0b21lcnMiPg0KICAgIDwvd3NkbDpwYXJ0Pg0KICA8L3dzZGw6bWVzc2FnZT4NCiAgPHdzZGw6bWVzc2FnZSBuYW1lPSJ0ZXN0U2VydmljZVBvcnRnZXRDdXN0b21lckJ5SWRTb2FwSW4iPg0KICAgIDx3c2RsOnBhcnQgbmFtZT0iaW5wdXRQYXJhbWV0ZXJzIiBlbGVtZW50PSJuczI6Z2V0Q3VzdG9tZXJCeUlkIj4NCiAgICA8L3dzZGw6cGFydD4NCiAgPC93c2RsOm1lc3NhZ2U+DQogIDx3c2RsOnBvcnRUeXBlIG5hbWU9InRlc3RTZXJ2aWNlUG9ydFR5cGUiPg0KICAgIDx3c2RsOm9wZXJhdGlvbiBuYW1lPSJjdXN0b21lcnMiPg0KICAgICAgPHdzZGw6aW5wdXQgbWVzc2FnZT0ibnMxOnRlc3RTZXJ2aWNlUG9ydGN1c3RvbWVyc1NvYXBJbiI+DQogICAgPC93c2RsOmlucHV0Pg0KICAgICAgPHdzZGw6b3V0cHV0IG1lc3NhZ2U9Im5zMTp0ZXN0U2VydmljZVBvcnRjdXN0b21lcnNTb2FwT3V0Ij4NCiAgICA8L3dzZGw6b3V0cHV0Pg0KICAgIDwvd3NkbDpvcGVyYXRpb24+DQogICAgPHdzZGw6b3BlcmF0aW9uIG5hbWU9ImdldEN1c3RvbWVyQnlJZCI+DQogICAgICA8d3NkbDppbnB1dCBtZXNzYWdlPSJuczE6dGVzdFNlcnZpY2VQb3J0Z2V0Q3VzdG9tZXJCeUlkU29hcEluIj4NCiAgICA8L3dzZGw6aW5wdXQ+DQogICAgICA8d3NkbDpvdXRwdXQgbWVzc2FnZT0ibnMxOnRlc3RTZXJ2aWNlUG9ydGdldEN1c3RvbWVyQnlJZFNvYXBPdXQiPg0KICAgIDwvd3NkbDpvdXRwdXQ+DQogICAgPC93c2RsOm9wZXJhdGlvbj4NCiAgPC93c2RsOnBvcnRUeXBlPg0KICA8d3NkbDpiaW5kaW5nIG5hbWU9InRlc3RQb3J0QmluZGluZyIgdHlwZT0ibnMxOnRlc3RTZXJ2aWNlUG9ydFR5cGUiPg0KICAgIDxzb2FwOmJpbmRpbmcgc3R5bGU9ImRvY3VtZW50IiB0cmFuc3BvcnQ9Imh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3NvYXAvaHR0cCIvPg0KICAgIDx3c2RsOm9wZXJhdGlvbiBuYW1lPSJjdXN0b21lcnMiPg0KICAgICAgPHNvYXA6b3BlcmF0aW9uIHNvYXBBY3Rpb249ImN1c3RvbWVycyIgc3R5bGU9ImRvY3VtZW50Ii8+DQogICAgICA8d3NkbDppbnB1dD4NCiAgICAgICAgPHNvYXA6Ym9keSB1c2U9ImxpdGVyYWwiLz4NCiAgICAgIDwvd3NkbDppbnB1dD4NCiAgICAgIDx3c2RsOm91dHB1dD4NCiAgICAgICAgPHNvYXA6Ym9keSB1c2U9ImxpdGVyYWwiLz4NCiAgICAgIDwvd3NkbDpvdXRwdXQ+DQogICAgPC93c2RsOm9wZXJhdGlvbj4NCiAgICA8d3NkbDpvcGVyYXRpb24gbmFtZT0iZ2V0Q3VzdG9tZXJCeUlkIj4NCiAgICAgIDxzb2FwOm9wZXJhdGlvbiBzb2FwQWN0aW9uPSJnZXRDdXN0b21lckJ5SWQiIHN0eWxlPSJkb2N1bWVudCIvPg0KICAgICAgPHdzZGw6aW5wdXQ+DQogICAgICAgIDxzb2FwOmJvZHkgdXNlPSJsaXRlcmFsIi8+DQogICAgICA8L3dzZGw6aW5wdXQ+DQogICAgICA8d3NkbDpvdXRwdXQ+DQogICAgICAgIDxzb2FwOmJvZHkgdXNlPSJsaXRlcmFsIi8+DQogICAgICA8L3dzZGw6b3V0cHV0Pg0KICAgIDwvd3NkbDpvcGVyYXRpb24+DQogIDwvd3NkbDpiaW5kaW5nPg0KICA8d3NkbDpzZXJ2aWNlIG5hbWU9InRlc3RTZXJ2aWNlIj4NCiAgICA8d3NkbDpwb3J0IG5hbWU9InRlc3RQb3J0IiBiaW5kaW5nPSJuczE6dGVzdFBvcnRCaW5kaW5nIj4NCiAgICAgIDxzb2FwOmFkZHJlc3MgbG9jYXRpb249Imh0dHA6Ly9NVElOSVVTLVgxRTIubmEudGliY28uY29tOjk4MTAvc2VydmljZXMvVEVTVDAwL3Rlc3RXZWJTZXJ2aWNlL3Rlc3RTZXJ2aWNlL3Rlc3RQb3J0LndzIi8+DQogICAgPC93c2RsOnBvcnQ+DQogIDwvd3NkbDpzZXJ2aWNlPg0KPC93c2RsOmRlZmluaXRpb25zPg0K</list>
+  </attribute>
+</metadata>
