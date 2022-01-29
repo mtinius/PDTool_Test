@@ -1,5 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:ae2bce32-29ce-4168-be8c-a014745524a4 -->
+<!-- salt:9c21e7f1-7983-4a51-b116-cde6ab4dd817 -->
 <metadata name="ds_orders" path="/shared/test00/DataSources/ds_orders" type="DATA_SOURCE" subtype="RELATIONAL" changeToken="0">
   <annotation><![CDATA[updated this data source
 updated credentails to fail]]></annotation>
@@ -46,7 +46,7 @@ updated credentails to fail]]></annotation>
   <attribute name="execTimeout" type="INTEGER">0</attribute>
   <attribute name="healthmonitortable" type="STRING">cis_hm_table</attribute>
   <attribute name="isPassThrough" type="STRING">Disabled</attribute>
-  <attribute name="lastModifiedDate" type="LONG">1641942399640</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1643461949332</attribute>
   <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
   <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
   <attribute name="login" type="STRING">tutorial</attribute>
@@ -56,12 +56,13 @@ updated credentails to fail]]></annotation>
   <attribute name="minTargetToSourceRatioForSJ" type="STRING"/>
   <attribute name="name" type="STRING">ds_orders</attribute>
   <attribute name="nativeDataLoadingEnabled" type="BOOLEAN">true</attribute>
-  <attribute name="password" type="PASSWORD_STRING">ENC(PU7m7WQxIP9Y4lA5mSg6rg==$iJGSNqI8geSJhUdJqPI66g==)</attribute>
+  <attribute name="password" type="PASSWORD_STRING">ENC(VwEEFJy6THG9JJLXrYENDA==$GUUqzIx4gGy+CW8P31dbEw==)</attribute>
   <attribute name="patternSeparator" type="STRING">,</attribute>
   <attribute name="persistPassword" type="BOOLEAN">true</attribute>
   <attribute name="postgresqlEnableBulkLoad" type="BOOLEAN">true</attribute>
   <attribute name="searchCaseSensitively" type="BOOLEAN">false</attribute>
   <attribute name="searchEscape" type="STRING">\</attribute>
+  <attribute name="selectionState" type="INTEGER">1</attribute>
   <attribute name="singleCharWildcard" type="STRING">_</attribute>
   <attribute name="supportsDBLink" type="BOOLEAN">false</attribute>
   <attribute name="supportsDataship" type="BOOLEAN">false</attribute>
