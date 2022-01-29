@@ -1,5 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<!-- salt:1c9d69d7-de58-44a2-9ad9-d0ae78357fb6 -->
+<!-- salt:a08ff7d9-c6ff-4000-aa19-eab0b8a4fd37 -->
 <metadata name="tutorial" path="/shared/test00/DataSources/ds_orders/tutorial" type="CONTAINER" subtype="SCHEMA" changeToken="0">
   <security>
     <owner user="admin" domain="composite"/>
@@ -8,7 +8,7 @@
   <attribute name="creationDate" type="LONG">1395102483600</attribute>
   <attribute name="creatorUserDomain" type="STRING">composite</attribute>
   <attribute name="creatorUserName" type="STRING">admin</attribute>
-  <attribute name="lastModifiedDate" type="LONG">1643462388448</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1643462481713</attribute>
   <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
   <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
   <attribute name="selectionState" type="INTEGER">1</attribute>
